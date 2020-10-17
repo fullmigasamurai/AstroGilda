@@ -1,0 +1,92 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "astro gilda",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "ChameAstrogilda",
+          "slots": [],
+          "samples": [
+            "olá",
+            "hello",
+            "olá astrogilda",
+            "diga olá"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AstroGildaResponde",
+          "slots": [
+            {
+              "name": "AstroGildaPertguntaValor",
+              "type": "AstroGildaPerguntaValor"
+            }
+          ],
+          "samples": [
+            "{AstroGildaPertguntaValor}",
+            "Grande Oraculo {AstroGildaPertguntaValor}",
+            "Astro Gilda {AstroGildaPertguntaValor}",
+            "Responda {AstroGildaPertguntaValor}"
+          ]
+        },
+        {
+          "name": "QuemEsTu",
+          "slots": [],
+          "samples": [
+            "astro quem",
+            "quem és tu",
+            "quem é voce"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "tell me about the master"
+              }
+            },
+            {
+              "name": {
+                "value": "who is the master"
+              }
+            },
+            {
+              "name": {
+                "value": "quem é o mestre"
+              }
+            },
+            {
+              "name": {
+                "value": "who are you"
+              }
+            },
+            {
+              "name": {
+                "value": "who is astro gilda"
+              }
+            }
+          ],
+          "name": "AstroGildaPerguntaValor"
+        }
+      ]
+    }
+  },
+  "version": "6"
+}
