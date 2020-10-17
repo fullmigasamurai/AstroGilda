@@ -10,7 +10,7 @@ const LaunchRequestHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speakOutput = 'Welcome, you can say Hello or Help. Which would you like to try?';
+        const speakOutput = 'Olá, Seja Bem Vindo. Atro Gilda irá lhe responder';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -19,13 +19,82 @@ const LaunchRequestHandler = {
     }
 };
 
-const HelloWorldIntentHandler = {
+const ChameAstrogilda = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HelloWorldIntent';
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ChameAstrogilda';
     },
     handle(handlerInput) {
-        const speakOutput = 'Hello World!';
+        const speakOutput = 'Olá, você me chamou.';
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt('me diga o que desejas')
+            .getResponse();
+    }
+};
+
+const AstroGildaResponde =  {
+    canHandle(handlerInput) {
+        const request = handlerInput.requestEnvelope.request;
+        return request.type === 'IntentRequest' && request.intent.name === 'AstroGildaResponde' ;
+    },
+    handle(handlerInput) {
+        const request = handlerInput.requestEnvelope.request;
+        const responseBuilder = handlerInput.responseBuilder;
+        let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+
+        let say = 'Você chamou Astro Gilda Responderá ';
+
+        let slotStatus = '';
+        let resolvedSlot;
+
+        let slotValues = getSlotValues(request.intent.slots); 
+        // getSlotValues returns .heardAs, .resolved, and .isValidated for each slot, according to request slot status codes ER_SUCCESS_MATCH, ER_SUCCESS_NO_MATCH, or traditional simple request slot without resolutions
+
+        // console.log('***** slotValues: ' +  JSON.stringify(slotValues, null, 2));
+        //   SLOT: AstroGildaPertguntaValor 
+        if (slotValues.AstroGildaPertguntaValor.heardAs && slotValues.AstroGildaPertguntaValor.heardAs !== '') {
+            slotStatus += ' slot AstroGildaPertguntaValor was heard as ' + slotValues.AstroGildaPertguntaValor.heardAs + '. ';
+        } else {
+            slotStatus += 'slot AstroGildaPertguntaValor is empty. ';
+        }
+        if (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_MATCH') {
+            slotStatus += 'a valid ';
+            if(slotValues.AstroGildaPertguntaValor.resolved !== slotValues.AstroGildaPertguntaValor.heardAs) {
+                slotStatus += 'synonym for ' + slotValues.AstroGildaPertguntaValor.resolved + '. '; 
+                } else {
+                slotStatus += 'match. '
+            } // else {
+                //
+        }
+        if (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') {
+            slotStatus += 'which did not match any slot value. ';
+            console.log('***** consider adding "' + slotValues.AstroGildaPertguntaValor.heardAs + '" to the custom slot type used by slot AstroGildaPertguntaValor! '); 
+        }
+
+        if( (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') ||  (!slotValues.AstroGildaPertguntaValor.heardAs) ) {
+           // slotStatus += 'A few valid values are, ' + sayArray(getExampleSlotValues('AstroGildaResponde','AstroGildaPertguntaValor'), 'or');
+        }
+
+        say += slotStatus;
+
+
+        return responseBuilder
+            .speak(say)
+            .reprompt('try again, ' + say)
+            .getResponse();
+    },
+};
+
+
+const QuemEsTu = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'QuemEsTu';
+    },
+    handle(handlerInput) {
+        const speakOutput = 'Eu sou astrogilda, respondo perguntas, é isso. pergunte-me';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -33,6 +102,63 @@ const HelloWorldIntentHandler = {
             .getResponse();
     }
 };
+
+function capitalize(myString) {
+
+     return myString.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); }) ;
+}
+
+ 
+function randomElement(myArray) { 
+    return(myArray[Math.floor(Math.random() * myArray.length)]); 
+} 
+ 
+function stripSpeak(str) { 
+    return(str.replace('<speak>', '').replace('</speak>', '')); 
+} 
+ 
+ 
+function getSlotValues(filledSlots) { 
+    const slotValues = {}; 
+ 
+    Object.keys(filledSlots).forEach((item) => { 
+        const name  = filledSlots[item].name; 
+ 
+        if (filledSlots[item] && 
+            filledSlots[item].resolutions && 
+            filledSlots[item].resolutions.resolutionsPerAuthority[0] && 
+            filledSlots[item].resolutions.resolutionsPerAuthority[0].status && 
+            filledSlots[item].resolutions.resolutionsPerAuthority[0].status.code) { 
+            switch (filledSlots[item].resolutions.resolutionsPerAuthority[0].status.code) { 
+                case 'ER_SUCCESS_MATCH': 
+                    slotValues[name] = { 
+                        heardAs: filledSlots[item].value, 
+                        resolved: filledSlots[item].resolutions.resolutionsPerAuthority[0].values[0].value.name, 
+                        ERstatus: 'ER_SUCCESS_MATCH' 
+                    }; 
+                    break; 
+                case 'ER_SUCCESS_NO_MATCH': 
+                    slotValues[name] = { 
+                        heardAs: filledSlots[item].value, 
+                        resolved: '', 
+                        ERstatus: 'ER_SUCCESS_NO_MATCH' 
+                    }; 
+                    break; 
+                default: 
+                    break; 
+            } 
+        } else { 
+            slotValues[name] = { 
+                heardAs: filledSlots[item].value || '', // may be null 
+                resolved: '', 
+                ERstatus: '' 
+            }; 
+        } 
+    }, this); 
+ 
+    return slotValues; 
+} 
+
 
 const HelpIntentHandler = {
     canHandle(handlerInput) {
@@ -144,7 +270,9 @@ const ErrorHandler = {
 exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
         LaunchRequestHandler,
-        HelloWorldIntentHandler,
+        ChameAstrogilda,
+        AstroGildaResponde,
+        QuemEsTu,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         FallbackIntentHandler,
