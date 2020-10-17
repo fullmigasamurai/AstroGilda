@@ -5,7 +5,7 @@
 * */
 const Alexa = require('ask-sdk-core');
 
-const astroGilda = '<lang xml:lang="pt-BR">Astro Gilda.</lang>.'
+const astroGilda = '<lang xml:lang="pt-BR"> Astro Gilda </lang>'
 
 const LaunchRequestHandler = {
 	canHandle(handlerInput) {
@@ -46,7 +46,7 @@ const AstroGildaResponde =  {
 		const responseBuilder = handlerInput.responseBuilder;
 		let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 
-		let say = 'You Called <break time="0,5s"/> <lang xml:lang="pt-BR">Astro Gilda.</lang>. will Answer: <break time="1s"/>';
+		let say = 'You Called <break time="0,5s"/>' + astroGilda + 'will Answer: <break time="1s"/>';
 
 		let slotStatus = '';
 		let resolvedSlot;
@@ -63,7 +63,7 @@ const AstroGildaResponde =  {
 					
 			switch (resolvedSlot) {
 				case 'who is the master':
-					slotStatus = '<amazon:breath duration="medium" volume="medium"/>I Cant talk about the master';
+					slotStatus = 'I Cant talk about the master';
 
 					break;
 				
@@ -75,7 +75,7 @@ const AstroGildaResponde =  {
 					slotStatus = 'I am <prosody volume="loud"> Astro Gilda </prosody>  <emphasis level="Moderate"> of course. </emphasis>'
 					break;
 				case 'what are you':
-					slotStatus = 'What is for objects <say-as interpret-as="expletive"> [stupid] </sat-as>'
+					slotStatus = 'What is for objects <say-as interpret-as="expletive">[stupid]</say-as>'
 					break;
 				default:
 				console.log(`Sorry, we are out of ${resolvedSlot}.`);
