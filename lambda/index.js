@@ -52,7 +52,7 @@ const AstroGildaResponde =  {
         let slotValues = getSlotValues(request.intent.slots); 
         // getSlotValues returns .heardAs, .resolved, and .isValidated for each slot, according to request slot status codes ER_SUCCESS_MATCH, ER_SUCCESS_NO_MATCH, or traditional simple request slot without resolutions
 
-        // console.log('***** slotValues: ' +  JSON.stringify(slotValues, null, 2));
+        console.log('***** slotValues: ' +  JSON.stringify(slotValues, null, 2));
         //   SLOT: AstroGildaPertguntaValor 
         if (slotValues.AstroGildaPertguntaValor.heardAs && slotValues.AstroGildaPertguntaValor.heardAs !== '') {
             slotStatus += ' slot AstroGildaPertguntaValor was heard as ' + slotValues.AstroGildaPertguntaValor.heardAs + '. ';
