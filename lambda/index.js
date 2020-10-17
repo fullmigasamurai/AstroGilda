@@ -66,16 +66,21 @@ const AstroGildaResponde =  {
 					slotStatus = 'I Cant talk about the master';
 
 					break;
+
+				case 'who is astro gilda':
+					slotStatus = 'I\'m the good. the bad. and the <break time="250ms"/> ugly';
+
+					break;
 				
 				case 'tell me about the master':
 					slotStatus = 'The master? <amazon:effect name="whispered"> sorry, cant say anything </amazon:effect>';
 
 					break;
 				case 'who are you':
-					slotStatus = 'I am'+astroGilda+'<emphasis level="Moderate"> of course. </emphasis>'
+					slotStatus = 'I am <prosody volume="loud"> Astro Gilda </prosody>  <emphasis level="moderate"> of course. </emphasis>'
 					break;
 				case 'what are you':
-					slotStatus = 'What is for objects <break time="500ms"/> you <break time="500ms"/>  <say-as interpret-as="expletive">[stuuuuuupid]</say-as>'
+					slotStatus = 'What is for objects <break time="500ms"/> you <say-as interpret-as="expletive">[stuuuuuupid]</say-as>'
 					break;
 				default:
 				console.log(`Sorry, we are out of ${resolvedSlot}.`);
