@@ -67,8 +67,18 @@ const AstroGildaResponde =  {
 
 					break;
 
+				case 'tell me something':
+					slotStatus = 'I\'m the good.. the bad. and the <break time="250ms"/> ugly';
+
+					break;
+
 				case 'who is astro gilda':
 					slotStatus = 'I\'m the good. the bad. and the <break time="250ms"/> ugly';
+
+					break;
+
+				case 'who is astrogilda':
+					slotStatus = 'I\'m the good. the bad.. and the <break time="250ms"/> ugly';
 
 					break;
 				
@@ -76,6 +86,7 @@ const AstroGildaResponde =  {
 					slotStatus = 'The master? <amazon:effect name="whispered"> sorry, cant say anything </amazon:effect>';
 
 					break;
+
 				case 'who are you':
 					slotStatus = 'I am <prosody volume="loud"> Astro Gilda </prosody>  <emphasis level="moderate"> of course. </emphasis>'
 					break;
