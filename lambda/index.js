@@ -10,7 +10,7 @@ const LaunchRequestHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speakOutput = 'Olá, Seja Bem Vindo. Atro Gilda irá lhe responder';
+        const speakOutput = 'Olá, Astro Gilda will answer';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
