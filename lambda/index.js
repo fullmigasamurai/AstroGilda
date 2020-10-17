@@ -62,15 +62,15 @@ const AstroGildaResponde =  {
         } else {
             slotStatus += 'slot AstroGildaPertguntaValor is empty. ';
         }
-        if (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_MATCH') {
-            slotStatus += 'a valid ';
-            if(slotValues.AstroGildaPertguntaValor.resolved !== slotValues.AstroGildaPertguntaValor.heardAs) {
-                slotStatus += 'synonym for ' + slotValues.AstroGildaPertguntaValor.resolved + '. '; 
-                } else {
-                slotStatus += 'match. '
-            } // else {
-                //
-        }
+        // if (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_MATCH') {
+        //     slotStatus += 'a valid ';
+        //     if(slotValues.AstroGildaPertguntaValor.resolved !== slotValues.AstroGildaPertguntaValor.heardAs) {
+        //         slotStatus += 'synonym for ' + slotValues.AstroGildaPertguntaValor.resolved + '. '; 
+        //         } else {
+        //         slotStatus += 'match. '
+        //     } // else {
+        //         //
+        // }
         if (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') {
             slotStatus += 'which did not match any slot value. ';
             console.log('***** consider adding "' + slotValues.AstroGildaPertguntaValor.heardAs + '" to the custom slot type used by slot AstroGildaPertguntaValor! '); 
