@@ -46,7 +46,7 @@ const AstroGildaResponde =  {
 		const responseBuilder = handlerInput.responseBuilder;
 		let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 
-		let say = 'You Called <break time="0,5s"/>' + astroGilda + 'will Answer: <break time="1s"/>';
+		let say = 'You Called <break time="0,5s"/> i will Answer: <break time="1s"/>';
 
 		let slotStatus = '';
 		let resolvedSlot;
