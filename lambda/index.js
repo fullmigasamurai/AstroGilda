@@ -58,8 +58,8 @@ const AstroGildaResponde =  {
 		console.log('***** slotValues: ' +  JSON.stringify(slotValues, null, 2));
 		console.log('resolvedSlot' + resolvedSlot);
 		//   SLOT: AstroGildaPertguntaValor 
-		if (slotValues.AstroGildaPertguntaValor.heardAs && slotValues.AstroGildaPertguntaValor.heardAs !== '') {
-			slotStatus += ' slot AstroGildaPertguntaValor was heard as ' + slotValues.AstroGildaPertguntaValor.heardAs + '. ';
+		if (resolvedSlot && resolvedSlot !== '') {
+			slotStatus += ' slot AstroGildaPertguntaValor was heard as ' + resolvedSlot + '. ';
 					
 			switch (resolvedSlot) {
 				case 'who is the master':
