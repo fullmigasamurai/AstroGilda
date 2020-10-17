@@ -44,7 +44,7 @@ const AstroGildaResponde =  {
         const responseBuilder = handlerInput.responseBuilder;
         let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 
-        let say = 'You Called Astro Gilda will Answer ';
+        let say = 'You Called Astro Gilda will Answer: ';
 
         let slotStatus = '';
         let resolvedSlot;
@@ -56,6 +56,9 @@ const AstroGildaResponde =  {
         //   SLOT: AstroGildaPertguntaValor 
         if (slotValues.AstroGildaPertguntaValor.heardAs && slotValues.AstroGildaPertguntaValor.heardAs !== '') {
             slotStatus += ' slot AstroGildaPertguntaValor was heard as ' + slotValues.AstroGildaPertguntaValor.heardAs + '. ';
+            if (slotValues.AstroGildaPertguntaValor.heardAs==='who is the master')
+                slotStatus = 'I Cant talk about the master';
+            
         } else {
             slotStatus += 'slot AstroGildaPertguntaValor is empty. ';
         }
