@@ -19,10 +19,11 @@
           "name": "ChameAstrogilda",
           "slots": [],
           "samples": [
-            "olá",
             "hello",
-            "olá astrogilda",
-            "diga olá"
+            "hi",
+            "hello astro gilda",
+            "astro gilda",
+            "hi astro gilda"
           ]
         },
         {
@@ -69,17 +70,17 @@
             },
             {
               "name": {
-                "value": "quem é o mestre"
-              }
-            },
-            {
-              "name": {
                 "value": "who are you"
               }
             },
             {
               "name": {
                 "value": "who is astro gilda"
+              }
+            },
+            {
+              "name": {
+                "value": "what are you"
               }
             }
           ],
