@@ -25,7 +25,7 @@ const ChameAstrogilda = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ChameAstrogilda';
     },
     handle(handlerInput) {
-        const speakOutput = 'Olá, você me chamou.';
+        const speakOutput = 'hellow, you called?';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -44,7 +44,7 @@ const AstroGildaResponde =  {
         const responseBuilder = handlerInput.responseBuilder;
         let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 
-        let say = 'Você chamou Astro Gilda Responderá ';
+        let say = 'You Called Astro Gilda will Answer ';
 
         let slotStatus = '';
         let resolvedSlot;
@@ -94,7 +94,7 @@ const QuemEsTu = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'QuemEsTu';
     },
     handle(handlerInput) {
-        const speakOutput = 'Eu sou astrogilda, respondo perguntas, é isso. pergunte-me';
+        const speakOutput = 'I am Astro Gilda, answering your questions, hit me';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
