@@ -61,9 +61,9 @@ const AstroGildaResponde =  {
             if (slotValues.AstroGildaPertguntaValor.heardAs==='who is the master')
                 slotStatus = 'I Cant talk about the master';
                 
-            let 
+            resolvedSlot = slotValues.AstroGildaPertguntaValor.heardAs;
                     
-            switch (expr) {
+            switch (resolvedSlot) {
                 case 'who is the master':
                    slotStatus = 'I Cant talk about the master';
                 break;
@@ -75,7 +75,7 @@ const AstroGildaResponde =  {
                    // expected output: "Mangoes and papayas are $2.79 a pound."
                    break;
                 default:
-                   console.log(`Sorry, we are out of ${expr}.`);
+                   console.log(`Sorry, we are out of ${resolvedSlot}.`);
         }
             
         } else {
