@@ -63,7 +63,7 @@ const AstroGildaResponde =  {
 					
 			switch (resolvedSlot) {
 				case 'who is the master':
-					slotStatus = '<amazon:breath duration="medium" volume="medium"/>I Cant talk about the master';
+					slotStatus = 'I Cant talk about the master';
 
 					break;
 				
@@ -72,10 +72,10 @@ const AstroGildaResponde =  {
 
 					break;
 				case 'who are you':
-					slotStatus = 'I am <prosody volume="loud"> Astro Gilda </prosody>  <emphasis level="Moderate"> of course. </emphasis>'
+					slotStatus = 'I am'+astroGilda+'<emphasis level="Moderate"> of course. </emphasis>'
 					break;
 				case 'what are you':
-					slotStatus = 'What is for objects <say-as interpret-as="expletive">[stupid]</say-as>'
+					slotStatus = 'What is for objects <break time="500ms"/> you <break time="500ms"/>  <say-as interpret-as="expletive">[stuuuuuupid]</say-as>'
 					break;
 				default:
 				console.log(`Sorry, we are out of ${resolvedSlot}.`);
