@@ -56,8 +56,27 @@ const AstroGildaResponde =  {
         //   SLOT: AstroGildaPertguntaValor 
         if (slotValues.AstroGildaPertguntaValor.heardAs && slotValues.AstroGildaPertguntaValor.heardAs !== '') {
             slotStatus += ' slot AstroGildaPertguntaValor was heard as ' + slotValues.AstroGildaPertguntaValor.heardAs + '. ';
+            
+        
             if (slotValues.AstroGildaPertguntaValor.heardAs==='who is the master')
                 slotStatus = 'I Cant talk about the master';
+                
+            let 
+                    
+            switch (expr) {
+                case 'who is the master':
+                   slotStatus = 'I Cant talk about the master';
+                break;
+                
+                case 'Mangoes':
+                
+                case 'Papayas':
+                   console.log('Mangoes and papayas are $2.79 a pound.');
+                   // expected output: "Mangoes and papayas are $2.79 a pound."
+                   break;
+                default:
+                   console.log(`Sorry, we are out of ${expr}.`);
+        }
             
         } else {
             slotStatus += 'slot AstroGildaPertguntaValor is empty. ';
