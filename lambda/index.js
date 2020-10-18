@@ -139,7 +139,7 @@ const YesNoIntentHandler = {
 	handle(handlerInput) {
 		let speakOutput = 'Didnt quiet get that, say again?';
 		//let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-		let sessionAttributes = Alexa.getSessionAttributes(handlerInput.attributesManager);
+		// let sessionAttributes = Alexa.getSessionAttributes(handlerInput.attributesManager);
 	
 		if (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent') {
 			speakOutput = 'So... say what you wanna know'
