@@ -143,19 +143,20 @@ const YesNoIntentHandler = {
 	
 		if (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent') {
 			speakOutput = 'So... say what you wanna know'
-			return handlerInput.responseBuilder
-			.speak(speakOutput)
-			.reprompt(speakOutput)
-			.getResponse();
+			
 		}
 		if (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent') {
 			speakOutput = 'So... Okay, Bye. I\'m Leaving, <break></break>' +
 			'<amazon:effect name="whispered"> dont let the lighs on when you leave </amazon:effect>'
-			return handlerInput.responseBuilder
-			.speak(speakOutput)
-			.getResponse();
+			// return handlerInput.responseBuilder
+			// .speak(speakOutput)
+			// .getResponse();
 		}
 
+		return handlerInput.responseBuilder
+			.speak(speakOutput)
+			// .reprompt(speakOutput)
+			.getResponse();
 
 		
 	}
