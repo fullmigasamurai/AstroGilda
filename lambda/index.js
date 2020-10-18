@@ -100,7 +100,7 @@ const AstroGildaResponde =  {
 					break;
 
 				case 'me diga alguma coisa':
-					slotStatus = toPtBR('Se eu não disser que não direi nada, então ja disse alguma coisa.')
+					slotStatus = 'Se eu não disser que não direi nada, então ja disse alguma coisa. <lang xml:lang="pt-BR">Se eu não disser que não direi nada, então ja disse alguma coisa.</lang>'
 					break;
 
 				case 'quem e o mestre':
