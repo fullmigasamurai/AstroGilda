@@ -143,14 +143,9 @@ const YesNoIntentHandler = {
 		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 	
 		if (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent') {
-			// if (sessionAttributes.YouCalled) {
-			// 	speakOutput = 'So... say what you wanna know'
-			// }
-			// else {
 
-			// }
-			speakOutput = sessionAttributes.YouCalled ? 'So... say what you wanna know' : 'yes, what? <break time="150ms"/> are You Okay?'
-			
+			speakOutput = sessionAttributes.YouCalled ? 'So... say what you wanna know' : 'yes what? <break time="150ms"/> are You Okay?'
+			sessionAttributes.YouCalled = false;
 			return handlerInput.responseBuilder
 				.speak(speakOutput)
 				.reprompt(speakOutput)
@@ -160,8 +155,11 @@ const YesNoIntentHandler = {
 			
 		}
 		if (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent') {
-			speakOutput = 'So... Okay, Bye. I\'m Leaving, <break></break>' +
-			'<amazon:effect name="whispered"> dont let the lighs on <break time="100ms"/>  when you leave </amazon:effect>'
+			speakOutput = sessionAttributes.YouCalled ? 'So... Okay, Bye. I\'m Leaving, <break></break>' +
+				'<amazon:effect name="whispered"> dont let the lighs on <break time="100ms"/>  when you leave </amazon:effect>'
+				: 'no what? <break time="150ms"/> are you okay?'
+			
+			
 			return handlerInput.responseBuilder
 			.speak(speakOutput)
 			.getResponse();
