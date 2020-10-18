@@ -29,6 +29,8 @@ const ChameAstrogilda = {
 	handle(handlerInput) {
 		const speakOutput = 'Hellow, i\'m'+astroGilda+'you called?';
 
+		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+		sessionAttributes.YouCalled = true;
 
 
 		return handlerInput.responseBuilder
@@ -141,11 +143,20 @@ const YesNoIntentHandler = {
 		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 	
 		if (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent') {
-			speakOutput = 'So... say what you wanna know'
+			// if (sessionAttributes.YouCalled) {
+			// 	speakOutput = 'So... say what you wanna know'
+			// }
+			// else {
+
+			// }
+			speakOutput = sessionAttributes.YouCalled ? 'So... say what you wanna know' : 'yes, what? <break time="150ms"/> are You Okay?'
+			
 			return handlerInput.responseBuilder
-			.speak(speakOutput)
-			.reprompt(speakOutput)
-			.getResponse();
+				.speak(speakOutput)
+				.reprompt(speakOutput)
+				.getResponse();
+
+
 			
 		}
 		if (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent') {
