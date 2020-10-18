@@ -43,6 +43,8 @@ const ChameAstrogilda = {
 const AstroGildaResponde =  {
 	canHandle(handlerInput) {
 		const request = handlerInput.requestEnvelope.request;
+		let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+		sessionAttributes.YouCalled = true;
 		return request.type === 'IntentRequest' && request.intent.name === 'AstroGildaResponde' ;
 	},
 	handle(handlerInput) {
@@ -158,13 +160,7 @@ const AstroGildaResponde =  {
 
 		}
 
-		if ((!handlerInput.responseBuilder.getResponse()))
-			sessionAttributes.YouCalled = true;
-
-		if (handlerInput.responseBuilder.getResponse()==='')
-			sessionAttributes.YouCalled = true;
-
-		console.log(`handler response: ` + handlerInput.responseBuilder.getResponse());
+		console.log(`handler response: ` + responseBuilder.getResponse());
 		
 
 		if (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') {
