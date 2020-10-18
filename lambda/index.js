@@ -94,11 +94,26 @@ const AstroGildaResponde =  {
 				case 'who are you':
 					slotStatus = 'I am <prosody volume="loud"> Astro Gilda </prosody>  <emphasis level="moderate"> of course. </emphasis>'
 					break;
+
 				case 'what are you':
 					slotStatus = 'What is for objects <break time="500ms"/> you <say-as interpret-as="expletive">[stuuuuuupid]</say-as>'
 					break;
+
+				case 'me diga alguma coisa':
+					slotStatus = toPtBR('Se eu não disser que não direi nada, então ja disse alguma coisa.')
+					break;
+
+				case 'quem e o mestre':
+					slotStatus = toPtBR('Não posso falar sobre o mestre')
+					break;
+
+				case 'me fale sobre o mestre':
+					slotStatus = toPtBR('O mestre? <amazon:effect name="whispered"> desculpe, não posso comentar </amazon:effect>')
+					break;
+
 				default:
 				console.log(`Sorry, we are out of ${resolvedSlot}.`);
+				slotStatus = 'What? say it again.'
 			}
 			
 		} else {
@@ -197,6 +212,10 @@ function randomElement(myArray) {
 function stripSpeak(str) { 
 	return(str.replace('<speak>', '').replace('</speak>', '')); 
 } 
+
+function toPtBR (str) {
+	return '<lang xml:lang="pt-BR">'+str+'</lang>';
+}
 
 
 function getSlotValues(filledSlots) { 
