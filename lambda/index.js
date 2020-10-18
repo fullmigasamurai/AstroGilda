@@ -29,7 +29,7 @@ const ChameAstrogilda = {
 	handle(handlerInput) {
 		const speakOutput = 'Hellow, i\'m'+astroGilda+'you called?';
 
-		
+
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
@@ -137,7 +137,7 @@ const YesNoIntentHandler = {
 				|| Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent');
 	},
 	handle(handlerInput) {
-		const speakOutput = 'Didnt quiet get that, say again?';
+		let speakOutput = 'Didnt quiet get that, say again?';
 		//let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 		let sessionAttributes = Alexa.getSessionAttributes(handlerInput.attributesManager);
 	
