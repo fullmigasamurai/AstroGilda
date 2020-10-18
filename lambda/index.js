@@ -64,6 +64,7 @@ const AstroGildaResponde =  {
 		//   SLOT: AstroGildaPertguntaValor 
 		if (resolvedSlot && resolvedSlot !== '') {
 			slotStatus += ' slot AstroGildaPertguntaValor was heard as ' + resolvedSlot + '. ';
+			sessionAttributes.YouCalled = false;
 					
 			switch (resolvedSlot) {
 				case 'who is the master':
@@ -94,6 +95,27 @@ const AstroGildaResponde =  {
 				case 'who are you':
 					slotStatus = 'I am <prosody volume="loud"> Astro Gilda </prosody>  <emphasis level="moderate"> of course. </emphasis>'
 					break;
+					
+				case 'who is pollyanna':
+					slotStatus = 'She is the all might princess of darkness. All Hail Pollyanna, metal Kinght'
+					break;
+
+				case 'who is juliana':
+					slotStatus = 'Juliana hates cold. And Loves the sun. she\'s a smart person'
+					break;
+
+				case 'who is hoshi':
+					slotStatus = 'She\'s a bright star that illuminates my dark nights'
+					break;
+
+				case 'who is shayana':
+					slotStatus = 'All that she can think of is, crossfit <break time="500ms"/> crossfit this. crossfit that '+
+					'<break time="1000ms"/> but she\'s also a star wars fan so she\'s cool'
+					break;
+
+				case 'who is becca':
+					slotStatus = 'Becca is the cuttest around, <break time="250ms"/> but no one deserves to be around her by the mornings'
+					break;
 
 				case 'what are you':
 					slotStatus = 'What is for objects <break time="500ms"/> you <say-as interpret-as="expletive">[stuuuuuupid]</say-as>'
@@ -119,19 +141,13 @@ const AstroGildaResponde =  {
 			}
 			
 		} else {
-			slotStatus += 'slot AstroGildaPertguntaValor is empty. ';
+			slotStatus = 'slot AstroGildaPertguntaValor is empty. ';
+			sessionAttributes.YouCalled = true;
+
 		}
-		// if (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_MATCH') {
-		//     slotStatus += 'a valid ';
-		//     if(slotValues.AstroGildaPertguntaValor.resolved !== slotValues.AstroGildaPertguntaValor.heardAs) {
-		//         slotStatus += 'synonym for ' + slotValues.AstroGildaPertguntaValor.resolved + '. '; 
-		//         } else {
-		//         slotStatus += 'match. '
-		//     } // else {
-		//         //
-		// }
+
 		if (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') {
-			slotStatus += 'which did not match any slot value. ';
+			// slotStatus += 'which did not match any slot value. ';
 			console.log('***** consider adding "' + slotValues.AstroGildaPertguntaValor.heardAs + '" to the custom slot type used by slot AstroGildaPertguntaValor! '); 
 		}
 
@@ -144,7 +160,7 @@ const AstroGildaResponde =  {
 
 		return responseBuilder
 			.speak(say)
-			.reprompt('try again, ' + say)
+			.reprompt('Any More Questions?')
 			.getResponse();
 	},
 };
