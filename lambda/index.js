@@ -16,7 +16,7 @@ const LaunchRequestHandler = {
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
-			.reprompt(speakOutput)
+			.reprompt(speakOutput + 'U Need me?')
 			.getResponse();
 	}
 };
@@ -27,11 +27,11 @@ const ChameAstrogilda = {
 			&& Alexa.getIntentName(handlerInput.requestEnvelope) === 'ChameAstrogilda';
 	},
 	handle(handlerInput) {
-		const speakOutput = 'hellow, you called?';
+		const speakOutput = 'Hellow, you called?';
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
-			.reprompt('me diga o que desejas')
+			.reprompt('Tell me. What do you want.')
 			.getResponse();
 	}
 };
@@ -73,12 +73,12 @@ const AstroGildaResponde =  {
 					break;
 
 				case 'who is astro gilda':
-					slotStatus = 'I\'m the good. the bad. and the <break time="250ms"/> ugly';
+					slotStatus = 'I\'m the good. the bad. and the <break time="100ms"/> ugly';
 
 					break;
 
 				case 'who is astrogilda':
-					slotStatus = 'I\'m the good. the bad.. and the <break time="250ms"/> ugly';
+					slotStatus = 'I\'m the good. the bad.. and the <break time="100ms"/> ugly';
 
 					break;
 				
@@ -128,6 +128,21 @@ const AstroGildaResponde =  {
 	},
 };
 
+const YesNoIntentHandler = {
+	canHandle(handlerInput) {
+		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+			&& (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent' 
+				|| Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent');
+	},
+	handle(handlerInput) {
+		const speakOutput = 'you invoked yes or no';
+
+		return handlerInput.responseBuilder
+			.speak(speakOutput)
+			.reprompt(speakOutput)
+			.getResponse();
+	}
+};
 
 const QuemEsTu = {
 	canHandle(handlerInput) {
@@ -314,6 +329,7 @@ exports.handler = Alexa.SkillBuilders.custom()
 		ChameAstrogilda,
 		AstroGildaResponde,
 		QuemEsTu,
+		YesNoIntentHandler,
 		HelpIntentHandler,
 		CancelAndStopIntentHandler,
 		FallbackIntentHandler,
