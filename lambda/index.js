@@ -131,6 +131,16 @@ const AstroGildaResponde =  {
 					slotStatus = toPtBR('Não posso falar sobre o mestre')
 					break;
 
+				case 'Porta':
+					say='';
+					slotStatus = toPtBR('Conheço alguns tipos de porta')
+					break;
+
+				case 'vitinho':
+					say='';
+					slotStatus = toPtBR('hummmm. hehe')
+					break;
+
 				case 'me fale sobre o mestre':
 					slotStatus = toPtBR('O mestre? <amazon:effect name="whispered"> desculpe, não posso comentar </amazon:effect>')
 					break;
