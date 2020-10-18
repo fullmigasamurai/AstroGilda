@@ -190,12 +190,14 @@ const YesNoIntentHandler = {
 	handle(handlerInput) {
 		let speakOutput = 'Didnt quiet get that, say again?';
 		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+		console.log(`~~~~ Session ended: ${JSON.stringify(handlerInput.requestEnvelope)}`);
 	
 		if (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent') {
 
 			speakOutput = sessionAttributes.YouCalled ? 'So... say what you wanna know' : 'yes what? <break time="150ms"/> are You Okay?'
 			sessionAttributes.YouCalled = !sessionAttributes.YouCalled;
-			speakOutput += handlerInput.responseBuilder.outputSpeech.text;
+			speakOutput += 'output: ' + handlerInput.requestEnvelopeJson;
+			
 			return handlerInput.responseBuilder
 				.speak(speakOutput)
 				.reprompt(speakOutput)
