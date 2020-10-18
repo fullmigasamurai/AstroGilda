@@ -158,7 +158,10 @@ const AstroGildaResponde =  {
 
 		}
 
-		if ((!handlerInput.responseBuilder.getResponse()) || handlerInput.responseBuilder.getResponse()==='')
+		if ((!handlerInput.responseBuilder.getResponse()))
+			sessionAttributes.YouCalled = true;
+
+		if (handlerInput.responseBuilder.getResponse()==='')
 			sessionAttributes.YouCalled = true;
 
 		console.log(`handler response: ` + handlerInput.responseBuilder.getResponse());
@@ -196,7 +199,7 @@ const YesNoIntentHandler = {
 		if (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent') {
 
 			speakOutput = sessionAttributes.YouCalled ? 'So... say what you wanna know' : 'yes what? <break time="150ms"/> are You Okay?'
-			sessionAttributes.YouCalled = sessionAttributes.YouCalled ? false : true;
+			sessionAttributes.YouCalled = true;
 			return handlerInput.responseBuilder
 				.speak(speakOutput)
 				.reprompt(speakOutput)
@@ -207,7 +210,7 @@ const YesNoIntentHandler = {
 			speakOutput = sessionAttributes.YouCalled ? 'So... Okay, Bye. I\'m Leaving, <break></break>' +
 				'<amazon:effect name="whispered"> dont let the lighs on <break time="100ms"/>  when you leave </amazon:effect>'
 				: 'no what? <break time="150ms"/> are you okay?'
-			sessionAttributes.YouCalled = sessionAttributes.YouCalled ? false : true;
+			sessionAttributes.YouCalled = true;
 			
 			return handlerInput.responseBuilder
 			.speak(speakOutput)
