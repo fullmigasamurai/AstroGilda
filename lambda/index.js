@@ -43,8 +43,7 @@ const ChameAstrogilda = {
 const AstroGildaResponde =  {
 	canHandle(handlerInput) {
 		const request = handlerInput.requestEnvelope.request;
-		let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-		sessionAttributes.YouCalled = true;
+		
 		return request.type === 'IntentRequest' && request.intent.name === 'AstroGildaResponde' ;
 	},
 	handle(handlerInput) {
@@ -174,7 +173,7 @@ const AstroGildaResponde =  {
 
 		say += slotStatus;
 
-
+		sessionAttributes.YouCalled = true;
 		return responseBuilder
 			.speak(say)
 			.reprompt('Any More Questions?')
@@ -195,7 +194,7 @@ const YesNoIntentHandler = {
 		if (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent') {
 
 			speakOutput = sessionAttributes.YouCalled ? 'So... say what you wanna know' : 'yes what? <break time="150ms"/> are You Okay?'
-			sessionAttributes.YouCalled = true;
+			sessionAttributes.YouCalled = !sessionAttributes.YouCalled;
 			return handlerInput.responseBuilder
 				.speak(speakOutput)
 				.reprompt(speakOutput)
@@ -206,7 +205,7 @@ const YesNoIntentHandler = {
 			speakOutput = sessionAttributes.YouCalled ? 'So... Okay, Bye. I\'m Leaving, <break></break>' +
 				'<amazon:effect name="whispered"> dont let the lighs on <break time="100ms"/>  when you leave </amazon:effect>'
 				: 'no what? <break time="150ms"/> are you okay?'
-			sessionAttributes.YouCalled = true;
+			sessionAttributes.YouCalled = !sessionAttributes.YouCalled;
 			
 			return handlerInput.responseBuilder
 			.speak(speakOutput)
