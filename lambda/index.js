@@ -48,6 +48,8 @@ const AstroGildaResponde =  {
 	handle(handlerInput) {
 		const request = handlerInput.requestEnvelope.request;
 		const responseBuilder = handlerInput.responseBuilder;
+		
+		
 		let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 
 		let say = 'You Called <break time="500ms"/>' +astroGilda+'will Answer: <break time="1s"/>';
@@ -97,7 +99,7 @@ const AstroGildaResponde =  {
 					break;
 					
 				case 'who is pollyanna':
-					slotStatus = 'She is the all might princess of darkness. All Hail Pollyanna, metal Kinght'
+					slotStatus = 'She is the all might princess of darkness. All Hail Pollyanna, metal Knight'
 					break;
 
 				case 'who is juliana':
@@ -155,6 +157,12 @@ const AstroGildaResponde =  {
 			sessionAttributes.YouCalled = true;
 
 		}
+
+		if ((!handlerInput.responseBuilder.getResponse()) || handlerInput.responseBuilder.getResponse()==='')
+			sessionAttributes.YouCalled = true;
+
+			console.log(`handler response: ` + handlerInput.responseBuilder.getResponse());
+		
 
 		if (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') {
 			// slotStatus += 'which did not match any slot value. ';
