@@ -150,7 +150,7 @@ const YesNoIntentHandler = {
 		}
 		if (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent') {
 			speakOutput = 'So... Okay, Bye. I\'m Leaving, <break></break>' +
-			'<amazon:effect name="whispered"> dont let the lighs on when you leave </amazon:effect>'
+			'<amazon:effect name="whispered"> dont let the lighs on <break time="50ms"/>  when you leave </amazon:effect>'
 			return handlerInput.responseBuilder
 			.speak(speakOutput)
 			.getResponse();
