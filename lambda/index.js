@@ -27,7 +27,9 @@ const ChameAstrogilda = {
 			&& Alexa.getIntentName(handlerInput.requestEnvelope) === 'ChameAstrogilda';
 	},
 	handle(handlerInput) {
-		const speakOutput = 'Hellow, you called?';
+		const speakOutput = 'Hellow, i\'m'+astroGilda+'you called?';
+
+		
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
@@ -135,12 +137,27 @@ const YesNoIntentHandler = {
 				|| Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent');
 	},
 	handle(handlerInput) {
-		const speakOutput = 'you invoked yes or no';
-
-		return handlerInput.responseBuilder
+		const speakOutput = 'Didnt quiet get that, say again?';
+		//let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+		let sessionAttributes = Alexa.getSessionAttributes(handlerInput.attributesManager);
+	
+		if (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent') {
+			speakOutput = 'So... say what you wanna know'
+			return handlerInput.responseBuilder
 			.speak(speakOutput)
 			.reprompt(speakOutput)
 			.getResponse();
+		}
+		if (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent') {
+			speakOutput = 'So... Okay, Bye. I\'m Leaving, <break></break>' +
+			'<amazon:effect name="whispered"> dont let the lighs on when you leave </amazon:effect>'
+			return handlerInput.responseBuilder
+			.speak(speakOutput)
+			.getResponse();
+		}
+
+
+		
 	}
 };
 
@@ -256,7 +273,7 @@ const FallbackIntentHandler = {
 			&& Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.FallbackIntent';
 	},
 	handle(handlerInput) {
-		const speakOutput = 'Sorry, I don\'t know about that. Please try again.';
+		const speakOutput = 'Sorry, Didn\'t quiet get that, say it again? pleease';
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
