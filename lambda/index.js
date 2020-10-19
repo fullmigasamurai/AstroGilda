@@ -4,9 +4,6 @@
 * session persistence, api calls, and more.
 * */
 const Alexa = require('ask-sdk-core');
-const i18next       = require('i18next');
-const sprintf       = require('sprintf-js').sprintf;
-const _ = require('lodash');
 
 const astroGilda = '<lang xml:lang="pt-BR"> Astro Gilda </lang>'
 
@@ -73,12 +70,12 @@ const AstroGildaResponde =  {
 		let resolvedSlot;
 
 		let slotValues = getSlotValues(request.intent.slots); 
+		resolvedSlot = slotValues.AstroGildaPertguntaValor.heardAs.toLowerCase();
 		// getSlotValues returns .heardAs, .resolved, and .isValidated for each slot, according to request slot status codes ER_SUCCESS_MATCH, ER_SUCCESS_NO_MATCH, or traditional simple request slot without resolutions
 		
-		const perguntaValorSlot = Alexa.getSlot(handlerInput.requestEnvelope, 'AstroGildaPertguntaValor');
-		const firstAuthority = _.first(_.get(perguntaValorSlot, 'resolutions.resolutionsPerAuthority'));
-		resolvedSlot = _.first(_.get(firstAuthority, 'values')).value.name;
-		// resolvedSlot = slotValues.AstroGildaPertguntaValor.heardAs.toLowerCase();
+		// const perguntaValorSlot = Alexa.getSlot(handlerInput.requestEnvelope, 'AstroGildaPertguntaValor');
+		// const firstAuthority = _.first(_.get(perguntaValorSlot, 'resolutions.resolutionsPerAuthority'));
+		// resolvedSlot = _.first(_.get(firstAuthority, 'values')).value.name;
 		
 		console.log('***** slotValues: ' +  JSON.stringify(slotValues, null, 2));
 		console.log('resolvedSlot' + resolvedSlot);
