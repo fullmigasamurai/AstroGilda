@@ -32,17 +32,8 @@ const LaunchRequestHandler = {
 		console.log("^^^^ dialogs: " + dialogs);
 		console.log("^^^^ dialogs: " + JSON.stringify(dialogs.types));
 		console.log("^^^^ dialogs.sunday: " + JSON.stringify(dialogs.sunday));
-  		dialogs = JSON.stringify(dialogs);
-		console.log("^^^^ stringfy dialogs: " + dialogs);
-		console.log("^^^^ stringfy dialogs.types: " + JSON.stringify(dialogs.types));
-		console.log("^^^^ dialogs: " + JSON.parse(dialogs));
-		console.log("^^^^ dialogs.sunday: " + JSON.stringify(dialogs.sunday));
-// 		console.log("^^^^ dialogs.sunday: " + JSON.stringify(JSON.parse(JSON.stringify(dialogs.sunday))));
-// 		console.log("^^^^ dialogs.sunday.salad: " + dialogs.sunday.salad);
-		
-// 		let rawdata = fs.readFileSync('./log.json');
-//         let student = JSON.parse(rawdata);
-//         console.log("^^^^ FS READ DIALOG: " + JSON.stringify(student));
+  		let dialogsString = JSON.stringify(dialogs);
+
 
 		
 		speakOutput += astroGilda;
