@@ -78,7 +78,7 @@ const AstroGildaResponde =  {
 		// resolvedSlot = _.first(_.get(firstAuthority, 'values')).value.name;
 		
 		console.log('***** slotValues: ' +  JSON.stringify(slotValues, null, 2));
-		console.log('resolvedSlot' + resolvedSlot);
+		console.log('resolvedSlot: ' + resolvedSlot);
 		//   SLOT: AstroGildaPertguntaValor 
 		if (resolvedSlot && resolvedSlot !== '') {
 			slotStatus += ' slot AstroGildaPertguntaValor was heard as ' + resolvedSlot + '. ';
@@ -174,7 +174,7 @@ const AstroGildaResponde =  {
 
 		}
 
-		console.log(`handler response: ` + responseBuilder.getResponse());
+		console.log(`handler response: ` + JSON.stringify(responseBuilder.getResponse()));
 		
 
 		if (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') {
