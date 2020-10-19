@@ -226,6 +226,7 @@ const QuemEsTu = {
 	},
 	handle(handlerInput) {
 		const speakOutput = 'I am Astro Gilda, answering your questions, hit me';
+		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 		sessionAttributes.YouCalled=false;
 
 		return handlerInput.responseBuilder
