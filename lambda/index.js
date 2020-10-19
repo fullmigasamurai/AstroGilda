@@ -34,6 +34,7 @@ const LaunchRequestHandler = {
 		console.log("^^^^ stringfy dialogs.types: " + JSON.stringify(dialogs.types));
 		console.log("^^^^ dialogs: " + dialogs);
 		console.log("^^^^ dialogs.sunday: " + JSON.parse(JSON.stringify(dialogs.sunday)));
+		console.log("^^^^ dialogs.sunday: " + JSON.stringify(JSON.parse(JSON.stringify(dialogs.sunday))));
 // 		console.log("^^^^ dialogs.sunday.salad: " + dialogs.sunday.salad);
 		
 // 		let rawdata = fs.readFileSync('./log.json');
