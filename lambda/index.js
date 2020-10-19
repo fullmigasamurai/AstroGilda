@@ -502,16 +502,16 @@ const myResponseInterceptor = {
 const ResponseRecordSpeechOutputInterceptor = { 
     process(handlerInput, responseOutput) { 
  
-        let sessionAttributes = handlerInput.attributesManager.getSessionAttributes(); 
-        let lastSpeechOutput = { 
-            "outputSpeech":responseOutput.outputSpeech.ssml, 
-            "reprompt":responseOutput.reprompt.outputSpeech.ssml 
-        }; 
+//         let sessionAttributes = handlerInput.attributesManager.getSessionAttributes(); 
+//         let lastSpeechOutput = { 
+//             "outputSpeech":responseOutput.outputSpeech.ssml, 
+//             "reprompt":responseOutput.reprompt.outputSpeech.ssml 
+//         }; 
 		
-		console.log(`~~~~ responseOutput ${JSON.stringify(responseOutput)}`);
+// 		console.log(`~~~~ responseOutput ${JSON.stringify(responseOutput)}`);
 		console.log(`~~~~ OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope.request)}`);
 
-        sessionAttributes['lastSpeechOutput'] = lastSpeechOutput; 
+        // sessionAttributes['lastSpeechOutput'] = lastSpeechOutput; 
  
         handlerInput.attributesManager.setSessionAttributes(sessionAttributes); 
  
