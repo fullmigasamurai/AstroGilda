@@ -4,6 +4,7 @@
 * session persistence, api calls, and more.
 * */
 const Alexa = require('ask-sdk-core');
+const _ = require('lodash');
 
 const astroGilda = '<lang xml:lang="pt-BR"> Astro Gilda </lang>'
 
@@ -71,7 +72,10 @@ const AstroGildaResponde =  {
 
 		let slotValues = getSlotValues(request.intent.slots); 
 		// getSlotValues returns .heardAs, .resolved, and .isValidated for each slot, according to request slot status codes ER_SUCCESS_MATCH, ER_SUCCESS_NO_MATCH, or traditional simple request slot without resolutions
-		resolvedSlot = Alexa.getSlot(handlerInput.requestEnvelope, 'AstroGildaPertguntaValor');
+		
+		const perguntaValorSlot = Alexa.getSlot(handlerInput.requestEnvelope, 'AstroGildaPertguntaValor');
+		const firstAuthority = _.first(_.get(perguntaValorSlot, 'resolutions.resolutionsPerAuthority'));
+		resolvedSlot = _.first(_.get(firstAuthority, 'values')).value.name;
 		// resolvedSlot = slotValues.AstroGildaPertguntaValor.heardAs.toLowerCase();
 		
 		console.log('***** slotValues: ' +  JSON.stringify(slotValues, null, 2));
