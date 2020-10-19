@@ -11,7 +11,7 @@ let locale='en-US'
 const astro_dialogs = require('./dialogs.js');
 const pack = require('./package.json');
 
-// const fs = require('fs');
+const fs = require('fs');
 
 
 
