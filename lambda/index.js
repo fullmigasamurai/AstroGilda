@@ -37,6 +37,10 @@ const LaunchRequestHandler = {
 		let rawdata = fs.readFileSync('dialog.json');
         let student = JSON.parse(rawdata);
         console.log("^^^^ FS READ DIALOG: " + JSON.stringify(student));
+        
+        fs.writeFile('/tmp/log.txt', pack2, function (err) {
+              if (err) throw err;
+            });
 		
 		speakOutput += astroGilda;
 
