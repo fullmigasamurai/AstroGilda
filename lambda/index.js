@@ -9,7 +9,7 @@ const astroGilda = '<lang xml:lang="pt-BR"> Astro Gilda </lang>'
 const leaveMessage = 'Okay, Bye. I\'m Leaving, <break></break> <amazon:effect name="whispered"> dont let the lighs on <break time="100ms"/>  when you leave </amazon:effect>'
 let locale='en-US'
 const astro_dialogs = require('./dialogs.js');
-const pack = require('./package.json');
+const pack = require('./dialog.json');
 
 const fs = require('fs');
 
@@ -34,7 +34,7 @@ const LaunchRequestHandler = {
 		console.log("^^^^ pack: " + pack.name);
 		console.log("^^^^ pack2: " + pack2);
 		
-		let rawdata = fs.readFileSync('package.json');
+		let rawdata = fs.readFileSync('dialog.json');
         let student = JSON.parse(rawdata);
         console.log("^^^^ FS READ: " + JSON.stringify(student));
 		
