@@ -14,7 +14,7 @@ const LaunchRequestHandler = {
 	handle(handlerInput) {
 	    const request = handlerInput.requestEnvelope.request;
 		const personId = getPersonId(handlerInput)
-		const speakOutput = `Hellow, `+ ` i am` + astroGilda;
+		const speakOutput = `Hellow,  i am` + astroGilda;
 		// JSON.parse(JSON.stringify(handlerInput.requestEnvelope));
 
 // 		console.log(`~~~~ Session iniciated: person id ${personId}`);
