@@ -201,3 +201,9 @@ const makeSpeakableList =  (list) => {
 	return list;
 	
 }
+
+module.exports = { 
+	getDailySpecialForPeriod,
+	getAtributeFromJson,
+	makeSpeakableList
+  };
