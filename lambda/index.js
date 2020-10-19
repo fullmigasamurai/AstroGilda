@@ -195,8 +195,6 @@ const YesNoIntentHandler = {
 
 			speakOutput = sessionAttributes.YouCalled ? 'So... say what you wanna know' : 'yes what? <break time="150ms"/> are You Okay?'
 			sessionAttributes.YouCalled = !sessionAttributes.YouCalled;
-			speakOutput += 'output:: ' + JSON.stringify(handlerInput.requestEnvelope);
-			
 			
 			return handlerInput.responseBuilder
 				.speak(speakOutput)
