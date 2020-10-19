@@ -20,7 +20,7 @@ const LaunchRequestHandler = {
 		console.log(`~~~~ get person:` + handlerInput.requestEnvelope.context.System.person + "==" + getPerson(handlerInput));
 		console.log(`~~~~ get id:` + handlerInput.requestEnvelope.context.System.person.personId + "==" + getPersonId(handlerInput));
 		console.log(`~~~~ Session iniciated: person id ${personId}`);
-		console.log((`~~~~ resquestenvelope ${JSON.stringify(handlerInput.requestEnvelope)}`);
+		console.log(`~~~~ resquestenvelope ${JSON.stringify(handlerInput.requestEnvelope)}`);
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
@@ -199,7 +199,7 @@ const YesNoIntentHandler = {
 	handle(handlerInput) {
 		let speakOutput = 'Didnt quiet get that, say again?';
 		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-		console.log(`~~~~ Session ended: ${JSON.stringify(handlerInput.requestEnvelope)}`);
+		console.log(`~~~~ YESNO INTENT: ${JSON.stringify(handlerInput.requestEnvelope)}`);
 	
 		if (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent') {
 
