@@ -32,7 +32,7 @@ const LaunchRequestHandler = {
 		console.log("^^^^ getAtributeFromJson: " + JSON.stringify(atribute));
 		console.log("^^^^ stringfy.pack: " + JSON.stringify(pack));
 		console.log("^^^^ pack: " + pack.name);
-		console.log("^^^^ pack2: " + pack);
+		console.log("^^^^ pack2: " + pack2);
 		
 		let rawdata = fs.readFileSync('package.json');
 //         let student = JSON.parse(rawdata);
