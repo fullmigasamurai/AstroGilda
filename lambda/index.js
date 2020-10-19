@@ -33,6 +33,7 @@ const LaunchRequestHandler = {
 		console.log("^^^^ dialogs: " + JSON.stringify(dialogs.types));
 		console.log("^^^^ dialogs.sunday: " + JSON.stringify(dialogs.sunday));
   		let dialogsString = JSON.stringify(dialogs);
+  		console.log("^^^^ dialogs: " + dialogsString);
 
 
 		
