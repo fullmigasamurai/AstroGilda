@@ -38,10 +38,10 @@ const LaunchRequestHandler = {
         let student = JSON.parse(rawdata);
         console.log("^^^^ FS READ DIALOG: " + JSON.stringify(student));
         
-        // fs.writeFile('./log.txt', 'Hello content!', function (err) {
-        //   if (err) throw err;
-        //   console.log('Saved!');
-        // });
+        fs.writeFile('./log.json', 'Hello content!', function (err) {
+          if (err) throw err;
+          console.log('Saved!');
+        });
         
         // fs.writeFile('log.txt', pack2, function (err) {
         //       if (err) throw err;
