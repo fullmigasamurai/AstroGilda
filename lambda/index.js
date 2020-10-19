@@ -505,6 +505,10 @@ const ResponseRecordSpeechOutputInterceptor = {
         if (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
            && (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.CancelIntent'
 				|| Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent') ) {
+	        
+	        console.log(`~~~~ Session ended OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope.request)}`);
+	        
+		} else {
  
             let sessionAttributes = handlerInput.attributesManager.getSessionAttributes(); 
             let lastSpeechOutput = { 
