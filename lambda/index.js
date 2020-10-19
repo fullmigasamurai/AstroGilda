@@ -31,6 +31,7 @@ const LaunchRequestHandler = {
 // 		console.log("^^^^ - no let stringfy: " + JSON.stringify(JSON.parse(JSON.stringify(astro_dialogs.getDailySpecialForPeriod('sunday', 'lunch')))));
 		console.log("^^^^ dialogs: " + dialogs);
 		console.log("^^^^ dialogs: " + JSON.stringify(dialogs.types));
+		console.log("^^^^ dialogs.sunday: " + JSON.stringify(dialogs.sunday));
   		dialogs = JSON.stringify(dialogs);
 		console.log("^^^^ stringfy dialogs: " + dialogs);
 		console.log("^^^^ stringfy dialogs.types: " + JSON.stringify(dialogs.types));
