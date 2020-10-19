@@ -319,11 +319,11 @@ function getExampleSlotValues(intentName, slotName) {
  
     let examples = []; 
     let slotType = ''; 
-    let slotValuesFull = []; 
+    
  
     let intents = model.interactionModel.languageModel.intents; 
     for (let i = 0; i < intents.length; i++) { 
-        if (intents[i].name == intentName) { 
+        if (intents[i].name === intentName) { 
             let slots = intents[i].slots; 
             for (let j = 0; j < slots.length; j++) { 
                 if (slots[j].name === slotName) { 
@@ -340,7 +340,7 @@ function getExampleSlotValues(intentName, slotName) {
             slotValuesFull = types[i].values; 
         } 
     } 
- 
+    let slotValuesFull = []; 
     slotValuesFull = shuffleArray(slotValuesFull); 
  
     examples.push(slotValuesFull[0].name.value); 
