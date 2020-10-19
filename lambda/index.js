@@ -16,7 +16,9 @@ const LaunchRequestHandler = {
 	handle(handlerInput) {
 		locale = handlerInput.requestEnvelope.request.locale;
 
-		const speakOutput = "Hellow,  i am " + astroGilda;
+
+		let speakOutput = locale ==='en-US' ? "Hellow,  i am " : "olá, eu sou ";
+		speakOutput += astroGilda;
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
