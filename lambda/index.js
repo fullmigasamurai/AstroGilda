@@ -4,6 +4,8 @@
 * session persistence, api calls, and more.
 * */
 const Alexa = require('ask-sdk-core');
+const i18next       = require('i18next');
+const sprintf       = require('sprintf-js').sprintf;
 const _ = require('lodash');
 
 const astroGilda = '<lang xml:lang="pt-BR"> Astro Gilda </lang>'
