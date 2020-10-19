@@ -496,7 +496,7 @@ const myRequestInterceptor = {
 
 const myResponseInterceptor = {
 	process(handlerInput) {
-		console.log(`~~~~ Response Interceptor ${JSON.stringify(handlerInput.requestEnvelope)}`);
+		console.log(`~~~~ Response Interceptor`);
 	}
 }
 
