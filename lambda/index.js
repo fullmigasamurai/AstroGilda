@@ -12,7 +12,7 @@ const LaunchRequestHandler = {
 		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
 	},
 	handle(handlerInput) {
-		const speakOutput = 'Hellow, i am' + astroGilda;
+		const speakOutput = "Hellow, <alexa:name type='first' personId='{{personId}}' />! i am" + astroGilda;
 		// JSON.parse(JSON.stringify(handlerInput.requestEnvelope));
 
 		console.log(`~~~~ Session iniciated: ${JSON.stringify(handlerInput.requestEnvelope)}`);
