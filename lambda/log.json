@@ -10,19 +10,6 @@
     		"salad" : "small caesar salad",
     		"drinks" : "large iced tea",
     		"cost" : 10.99
-    	},
-    	"dinner" : {
-    		"pizza" : {
-    		"size": "extra large", 
-    		"crust": "deep dish",
-    		"cheese" : "normal", 
-    		"toppingsList" : ["ham", "pepperoni", "sausage", "black olives"]
-    		},
-    		"salad" : "large house salad",
-    		"drinks" : "2 liter coke",
-    		"side" : "cheesy garlic bread",
-    		"dessert" : "two homemade chocolate fudge cookies",
-    		"cost" : 21.99
     	}
     }
 }
