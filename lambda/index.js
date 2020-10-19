@@ -34,14 +34,14 @@ const LaunchRequestHandler = {
 		console.log("^^^^ pack: " + pack.name);
 		console.log("^^^^ pack2: " + pack2);
 		
-		let rawdata = fs.readFileSync('dialog.json');
+		let rawdata = fs.readFileSync('./log.json');
         let student = JSON.parse(rawdata);
         console.log("^^^^ FS READ DIALOG: " + JSON.stringify(student));
         
-        fs.writeFile('./log.txt', 'Hello content!', function (err) {
-          if (err) throw err;
-          console.log('Saved!');
-        });
+        // fs.writeFile('./log.txt', 'Hello content!', function (err) {
+        //   if (err) throw err;
+        //   console.log('Saved!');
+        // });
         
         // fs.writeFile('log.txt', pack2, function (err) {
         //       if (err) throw err;
