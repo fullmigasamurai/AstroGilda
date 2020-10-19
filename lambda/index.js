@@ -13,12 +13,12 @@ const LaunchRequestHandler = {
 	},
 	handle(handlerInput) {
 		const personId = getPersonId(handlerInput)
-		const speakOutput = `Hellow, `+handlerInput.requestEnvelope.context.System.person.personId` i am` + astroGilda;
+		const speakOutput = `Hellow, `+handlerInput.requestEnvelope.context.System.person.personId + ` i am` + astroGilda;
 		// JSON.parse(JSON.stringify(handlerInput.requestEnvelope));
 
 		console.log(`~~~~ Session iniciated: person id ${personId}`);
-		console.log(`~~~~ get person:` + handlerInput.requestEnvelope.context.System.person + "==" + getPerson(handlerInput));
-		console.log(`~~~~ get id:` + handlerInput.requestEnvelope.context.System.person.personId + "==" + getPersonId(handlerInput));
+		console.log(`~~~~ get person:` + handlerInput.requestEnvelope.context.System.person );
+		console.log(`~~~~ get id:` + handlerInput.requestEnvelope.context.System.person.personId);
 		console.log(`~~~~ Session iniciated: person id ${personId}`);
 		console.log(`~~~~ resquestenvelope ${JSON.stringify(handlerInput.requestEnvelope)}`);
 
