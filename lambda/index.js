@@ -7,7 +7,7 @@ const Alexa = require('ask-sdk-core');
 
 const astroGilda = '<lang xml:lang="pt-BR"> Astro Gilda </lang>'
 const leaveMessage = 'Okay, Bye. I\'m Leaving, <break></break> <amazon:effect name="whispered"> dont let the lighs on <break time="100ms"/>  when you leave </amazon:effect>'
-let locale='pt-BR'
+const locale='pt-BR'
 
 const LaunchRequestHandler = {
 	canHandle(handlerInput) {
