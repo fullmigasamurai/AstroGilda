@@ -513,7 +513,7 @@ const ResponseRecordSpeechOutputInterceptor = {
 
         // sessionAttributes['lastSpeechOutput'] = lastSpeechOutput; 
  
-        handlerInput.attributesManager.setSessionAttributes(sessionAttributes); 
+        // handlerInput.attributesManager.setSessionAttributes(sessionAttributes); 
  
     } 
 }; 
