@@ -174,7 +174,6 @@ const AstroGildaResponde =  {
 
 		}
 
-		console.log(`handler response: ` + JSON.stringify(responseBuilder.getResponse()));
 		
 
 		if (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') {
@@ -187,8 +186,10 @@ const AstroGildaResponde =  {
 		}
 
 		say += slotStatus;
-
 		sessionAttributes.YouCalled = true;
+
+		console.log(`handler response: ` + JSON.stringify(responseBuilder.getResponse()));
+		
 		return responseBuilder
 			.speak(say)
 			.reprompt('Any More Questions?')
