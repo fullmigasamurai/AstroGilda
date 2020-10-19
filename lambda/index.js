@@ -445,7 +445,7 @@ const SessionEndedRequestHandler = {
 		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'SessionEndedRequest';
 	},
 	handle(handlerInput) {
-		console.log(`~~~~ Session ended: ${JSON.stringify(handlerInput.requestEnvelope)}`);
+		// console.log(`~~~~ Session ended: ${JSON.stringify(handlerInput.requestEnvelope)}`);
 		// Any cleanup logic goes here.
 		return handlerInput.responseBuilder.getResponse(); // notice we send an empty response
 	}
@@ -508,7 +508,7 @@ const ResponseRecordSpeechOutputInterceptor = {
            && (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.CancelIntent'
 				|| Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent') ) {
 	        
-	        console.log(`~~~~ Session ended OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope.request)}`);
+	        console.log(`~~~~ Session ended OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope)}`);
 	        
 		} else {
  
