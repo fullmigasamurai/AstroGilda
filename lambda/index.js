@@ -11,6 +11,10 @@ let locale='en-US'
 const astro_dialogs = require('./dialogs.js');
 const pack = require('./package.json');
 
+const fs = require('fs');
+
+
+
 const LaunchRequestHandler = {
 	canHandle(handlerInput) {
 		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
@@ -29,6 +33,10 @@ const LaunchRequestHandler = {
 		console.log("^^^^ stringfy.pack: " + JSON.stringify(pack));
 		console.log("^^^^ pack: " + pack.name);
 		console.log("^^^^ pack2: " + pack);
+		
+		let rawdata = fs.readFileSync('package.json');
+        let student = JSON.parse(rawdata);
+        console.log("^^^^ FS READ: " + student);
 		
 		speakOutput += astroGilda;
 
