@@ -460,7 +460,8 @@ exports.handler = Alexa.SkillBuilders.custom()
 		FallbackIntentHandler,
 		SessionEndedRequestHandler,
 		IntentReflectorHandler)
-		.addRequestInterceptors(myRequestInterceptor)
+	.addRequestInterceptors(myRequestInterceptor)
+	.addResponseInterceptors(myRequestInterceptor)
 	.addErrorHandlers(
 		ErrorHandler)
 	.withCustomUserAgent('sample/hello-world/v1.2')
