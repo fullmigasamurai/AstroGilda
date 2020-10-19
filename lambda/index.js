@@ -73,7 +73,6 @@ const AstroGildaResponde =  {
 		resolvedSlot = slotValues.AstroGildaPertguntaValor.heardAs.toLowerCase();
 		// getSlotValues returns .heardAs, .resolved, and .isValidated for each slot, according to request slot status codes ER_SUCCESS_MATCH, ER_SUCCESS_NO_MATCH, or traditional simple request slot without resolutions
 		
-		resolvedSlot = handlerInput.resuestEnvelope.request.intent.slots.AstroGildaPertguntaValor.value
 		// const perguntaValorSlot = Alexa.getSlot(handlerInput.requestEnvelope, 'AstroGildaPertguntaValor');
 		// const firstAuthority = _.first(_.get(perguntaValorSlot, 'resolutions.resolutionsPerAuthority'));
 		// resolvedSlot = _.first(_.get(firstAuthority, 'values')).value.name;
