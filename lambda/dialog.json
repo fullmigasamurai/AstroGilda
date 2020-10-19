@@ -24,5 +24,62 @@
     		"dessert" : "two homemade chocolate fudge cookies",
     		"cost" : 21.99
     	}
-    }
+    },
+    "types": [  
+      {
+    	"name": "AstroGildaPerguntaValor",
+    	"values": [
+    	  {
+    		"name": {
+    		  "value": "tell me about the master"
+    		}
+    	  },
+    	  {
+    		"name": {
+    		  "value": "who is the master"
+    		}
+    	  },
+    	  {
+    		"name": {
+    		  "value": "who are you"
+    		}
+    	  },
+    	  {
+    		"name": {
+    		  "value": "who is astro gilda"
+    		}
+    	  },
+    	  {
+    		"name": {
+    		  "value": "who is astrogilda"
+    		}
+    	  },
+    	  {
+    		"name": {
+    		  "value": "tell me something"
+    		}
+    	  },
+    	  {
+    		"name": {
+    		  "value": "me diga alguma coisa"
+    		}
+    	  },
+    	  {
+    		"name": {
+    		  "value": "quem é o mestre"
+    		}
+    	  },
+    	  {
+    		"name": {
+    		  "value": "me fale sobre o mestre"
+    		}
+    	  },
+    	  {
+    		"name": {
+    		  "value": "o que é voce"
+    		}
+    	  }
+    	]
+      }
+	]
 }
