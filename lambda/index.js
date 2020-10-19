@@ -419,7 +419,7 @@ const CancelAndStopIntentHandler = {
 				|| Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent');
 	},
 	handle(handlerInput) {
-		const speakOutput = 'Okay, Bye. I\'m Leaving, <break></break> dont let the lighs on <break time="100ms"/>  when you leave';
+		const speakOutput = 'Okay, Bye. I\'m Leaving, <break></break> <amazon:effect name="whispered"> dont let the lighs on <break time="100ms"/>  when you leave </amazon:effect>';
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
@@ -513,19 +513,28 @@ const myResponseInterceptor = {
 
 const ResponseRecordSpeechOutputInterceptor = { 
     process(handlerInput, responseOutput) { 
- 
-        let sessionAttributes = handlerInput.attributesManager.getSessionAttributes(); 
-        let lastSpeechOutput = { 
-            "outputSpeech":responseOutput.outputSpeech.ssml, 
-            "reprompt":responseOutput.reprompt.outputSpeech.ssml 
-        }; 
-		
-		console.log(`~~~~ responseOutput ${JSON.stringify(responseOutput)}`);
-		console.log(`~~~~ OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope.request)}`);
 
-        sessionAttributes['lastSpeechOutput'] = lastSpeechOutput; 
+        if (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+           && (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.CancelIntent'
+				|| Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent') ) {
+	        
+	        console.log(`~~~~ Session ended OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope.request)}`);
+	        
+		} else {
  
-        handlerInput.attributesManager.setSessionAttributes(sessionAttributes); 
+            let sessionAttributes = handlerInput.attributesManager.getSessionAttributes(); 
+            let lastSpeechOutput = { 
+                "outputSpeech":responseOutput.outputSpeech.ssml, 
+                "reprompt":responseOutput.reprompt.outputSpeech.ssml 
+            }; 
+    		
+    		console.log(`~~~~ responseOutput ${JSON.stringify(responseOutput)}`);
+    		console.log(`~~~~ OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope.request)}`);
+    
+            sessionAttributes['lastSpeechOutput'] = lastSpeechOutput; 
+     
+            handlerInput.attributesManager.setSessionAttributes(sessionAttributes); 
+		}
  
     } 
 }; 
