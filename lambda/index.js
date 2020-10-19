@@ -35,7 +35,7 @@ const ChameAstrogilda = {
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
-			.reprompt('Tell me. What do you want.')
+			.reprompt('Tell me. What do you want. will ya?')
 			.getResponse();
 	}
 };
@@ -53,7 +53,7 @@ const AstroGildaResponde =  {
 		
 		let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 
-		let say = 'You Called <break time="500ms"/>' +astroGilda+'will Answer: <break time="1s"/>';
+		let say = 'Here It is: <break time="1s"/>';
 
 		let slotStatus = '';
 		let resolvedSlot;
@@ -67,7 +67,7 @@ const AstroGildaResponde =  {
 		//   SLOT: AstroGildaPertguntaValor 
 		if (resolvedSlot && resolvedSlot !== '') {
 			slotStatus += ' slot AstroGildaPertguntaValor was heard as ' + resolvedSlot + '. ';
-			sessionAttributes.YouCalled = false;
+			sessionAttributes.YouCalled = true;
 					
 			switch (resolvedSlot) {
 				case 'who is the master':
@@ -100,19 +100,19 @@ const AstroGildaResponde =  {
 					break;
 					
 				case 'who is pollyanna':
-					slotStatus = 'She is the all might princess of darkness. All Hail Pollyanna, metal Knight'
+					slotStatus = 'Pollyanna. She is the all might princess of darkness. All Hail Pollyanna, metal Knight'
 					break;
 
 				case 'who is juliana':
-					slotStatus = 'Juliana hates cold. And Loves the sun. she\'s a smart person'
+					slotStatus = 'Juliana hates cold. And Loves it when is hot. she\'s a smart person'
 					break;
 
 				case 'who is hoshi':
-					slotStatus = 'She\'s a bright star that illuminates my dark nights'
+					slotStatus = 'About hoshi. She\'s a bright star that illuminates my dark nights'
 					break;
 
 				case 'who is shayana':
-					slotStatus = 'All that she can think of is, crossfit <break time="500ms"/> crossfit this. crossfit that '+
+					slotStatus = 'Oh, shayana, what can i say. All that she can think of is, crossfit <break time="500ms"/> crossfit this. crossfit that '+
 					'<break time="1000ms"/> but she\'s also a star wars fan so she\'s cool'
 					break;
 
@@ -154,15 +154,15 @@ const AstroGildaResponde =  {
 			}
 			
 		} else {
-			slotStatus = 'slot AstroGildaPertguntaValor is empty. ';
-			sessionAttributes.YouCalled = true;
+			slotStatus = 'My knolege about that is empty. ';
 
 		}
 
+		slotStatus+= "<break time=\"150ms\"/> Anything Else?"
 		
 
 		if (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') {
-			slotStatus = "Sorry, don't know about that. Try asking another thing";
+			slotStatus = "Sorry, don't know about that. Try asking another thing. <break time=\"150ms\"/> ";
 			console.log('***** consider adding "' + slotValues.AstroGildaPertguntaValor.heardAs + '" to the custom slot type used by slot AstroGildaPertguntaValor! '); 
 		}
 
@@ -171,7 +171,6 @@ const AstroGildaResponde =  {
 		}
 
 		say += slotStatus;
-		sessionAttributes.YouCalled = true;
 
 		console.log(`handler response: ` + JSON.stringify(responseBuilder.getResponse()));
 		
@@ -191,7 +190,6 @@ const YesNoIntentHandler = {
 	handle(handlerInput) {
 		let speakOutput = 'Didnt quiet get that, say again?';
 		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-		console.log(`~~~~ YESNO INTENT: ${JSON.stringify(handlerInput.requestEnvelope)}`);
 	
 		if (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent') {
 
@@ -228,6 +226,7 @@ const QuemEsTu = {
 	},
 	handle(handlerInput) {
 		const speakOutput = 'I am Astro Gilda, answering your questions, hit me';
+		sessionAttributes.YouCalled=false;
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
@@ -510,8 +509,6 @@ const ResponseRecordSpeechOutputInterceptor = {
             "reprompt":responseOutput.reprompt.outputSpeech.ssml 
         }; 
 		
-		console.log("~~~~ OutputSpeech: " + responseOutput.outputSpeech.ssml);
-		console.log("~~~~ reprompt: " + responseOutput.reprompt.outputSpeech.ssml);
 		console.log(`~~~~ responseOutput ${JSON.stringify(responseOutput)}`);
 		console.log(`~~~~ OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope.request)}`);
 
