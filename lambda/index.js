@@ -12,6 +12,7 @@ const LaunchRequestHandler = {
 		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
 	},
 	handle(handlerInput) {
+	    const request = handlerInput.requestEnvelope.request;
 		const personId = getPersonId(handlerInput)
 		const speakOutput = `Hellow, `+handlerInput.requestEnvelope.context.System.person.personId + ` i am` + astroGilda;
 		// JSON.parse(JSON.stringify(handlerInput.requestEnvelope));
