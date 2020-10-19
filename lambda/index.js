@@ -63,7 +63,7 @@ const AstroGildaResponde =  {
 		// getSlotValues returns .heardAs, .resolved, and .isValidated for each slot, according to request slot status codes ER_SUCCESS_MATCH, ER_SUCCESS_NO_MATCH, or traditional simple request slot without resolutions
 		
 		console.log('***** slotValues: ' +  JSON.stringify(slotValues, null, 2));
-		console.log('resolvedSlot' + resolvedSlot);
+		console.log('resolvedSlot: ' + resolvedSlot);
 		//   SLOT: AstroGildaPertguntaValor 
 		if (resolvedSlot && resolvedSlot !== '') {
 			slotStatus += ' slot AstroGildaPertguntaValor was heard as ' + resolvedSlot + '. ';
@@ -159,7 +159,6 @@ const AstroGildaResponde =  {
 
 		}
 
-		console.log(`handler response: ` + responseBuilder.getResponse());
 		
 
 		if (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') {
@@ -172,8 +171,10 @@ const AstroGildaResponde =  {
 		}
 
 		say += slotStatus;
-
 		sessionAttributes.YouCalled = true;
+
+		console.log(`handler response: ` + JSON.stringify(responseBuilder.getResponse()));
+		
 		return responseBuilder
 			.speak(say)
 			.reprompt('Any More Questions?')
@@ -419,10 +420,15 @@ const ErrorHandler = {
 
 const myRequestInterceptor = {
 	process(handlerInput) {
-		console.log(`~~~~ Interceptor ${JSON.stringify(handlerInput.requestEnvelope)}`);
+		console.log(`~~~~ Request Interceptor ${JSON.stringify(handlerInput.requestEnvelope)}`);
 	}
 }
 
+const myResponseInterceptor = {
+	process(handlerInput) {
+		console.log(`~~~~ Response Interceptor ${JSON.stringify(handlerInput.requestEnvelope)}`);
+	}
+}
 /**
  * This handler acts as the entry point for your skill, routing all request and response
  * payloads to the handlers above. Make sure any new handlers or interceptors you've
@@ -440,7 +446,8 @@ exports.handler = Alexa.SkillBuilders.custom()
 		FallbackIntentHandler,
 		SessionEndedRequestHandler,
 		IntentReflectorHandler)
-		.addRequestInterceptors(myRequestInterceptor)
+	.addRequestInterceptors(myRequestInterceptor)
+	.addResponseInterceptors(myResponseInterceptor)
 	.addErrorHandlers(
 		ErrorHandler)
 	.withCustomUserAgent('sample/hello-world/v1.2')
