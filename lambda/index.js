@@ -38,10 +38,11 @@ const LaunchRequestHandler = {
   		var string = JSON.stringify(dialogs);
         console.log("^^^^ string " + string);
         var objectValue = JSON.parse(string);
+        let tt = "teste espaco";
         console.log("^^^^ objectValue " + objectValue);
         console.log("^^^^ dialogs: types " + JSON.stringify(objectValue['types']));
         console.log("^^^^ dialogs: types " + JSON.stringify(dialogs['types']));
-        console.log("^^^^ dialogs: teste " + JSON.stringify(objectValue["teste espaco"]));
+        console.log("^^^^ dialogs: teste " + JSON.stringify(objectValue[tt]));
         console.log("^^^^ dialogs: sunday " + objectValue['sunday']);
         console.log("^^^^ dialogs: sunday " + JSON.stringify(objectValue['sunday']));
         
