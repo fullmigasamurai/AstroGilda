@@ -508,7 +508,7 @@ const ResponseRecordSpeechOutputInterceptor = {
             "reprompt":responseOutput.reprompt.outputSpeech.ssml 
         }; 
 		
-		console.log(`~~~~ responseOutput ${JSON.stringify(responseOutput)}`);
+// 		console.log(`~~~~ responseOutput ${JSON.stringify(responseOutput)}`);
 // 		console.log(`~~~~ OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope.request)}`);
 
         sessionAttributes['lastSpeechOutput'] = lastSpeechOutput; 
