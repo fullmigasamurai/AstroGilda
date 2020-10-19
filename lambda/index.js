@@ -340,6 +340,7 @@ function getExampleSlotValues(intentName, slotName) {
             slotValuesFull = types[i].values; 
         } 
     } 
+    
     slotValuesFull = shuffleArray(slotValuesFull); 
  
     examples.push(slotValuesFull[0].name.value); 
