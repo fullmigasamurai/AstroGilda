@@ -315,6 +315,60 @@ function getSlotValues(filledSlots) {
 	return slotValues; 
 } 
 
+function getExampleSlotValues(intentName, slotName) { 
+ 
+    let examples = []; 
+    let slotType = ''; 
+    let slotValuesFull = []; 
+ 
+    let intents = model.interactionModel.languageModel.intents; 
+    for (let i = 0; i < intents.length; i++) { 
+        if (intents[i].name == intentName) { 
+            let slots = intents[i].slots; 
+            for (let j = 0; j < slots.length; j++) { 
+                if (slots[j].name === slotName) { 
+                    slotType = slots[j].type; 
+ 
+                } 
+            } 
+        } 
+ 
+    } 
+    let types = model.interactionModel.languageModel.types; 
+    for (let i = 0; i < types.length; i++) { 
+        if (types[i].name === slotType) { 
+            slotValuesFull = types[i].values; 
+        } 
+    } 
+ 
+    slotValuesFull = shuffleArray(slotValuesFull); 
+ 
+    examples.push(slotValuesFull[0].name.value); 
+    examples.push(slotValuesFull[1].name.value); 
+    if (slotValuesFull.length > 2) { 
+        examples.push(slotValuesFull[2].name.value); 
+    } 
+ 
+ 
+    return examples; 
+} 
+ 
+function sayArray(myData, penultimateWord = 'and') { 
+    let result = ''; 
+ 
+    myData.forEach(function(element, index, arr) { 
+ 
+        if (index === 0) { 
+            result = element; 
+        } else if (index === myData.length - 1) { 
+            result += ` ${penultimateWord} ${element}`; 
+        } else { 
+            result += `, ${element}`; 
+        } 
+    }); 
+    return result; 
+} 
+
 
 const HelpIntentHandler = {
 	canHandle(handlerInput) {
@@ -429,6 +483,8 @@ const myResponseInterceptor = {
 		console.log(`~~~~ Response Interceptor ${JSON.stringify(handlerInput.requestEnvelope)}`);
 	}
 }
+
+
 /**
  * This handler acts as the entry point for your skill, routing all request and response
  * payloads to the handlers above. Make sure any new handlers or interceptors you've
@@ -452,3 +508,135 @@ exports.handler = Alexa.SkillBuilders.custom()
 		ErrorHandler)
 	.withCustomUserAgent('sample/hello-world/v1.2')
 	.lambda();
+
+
+
+
+	const model = {
+		"interactionModel": {
+		  "languageModel": {
+			"invocationName": "astro gilda",
+			"intents": [
+			  {
+				"name": "AMAZON.CancelIntent",
+				"samples": []
+			  },
+			  {
+				"name": "AMAZON.HelpIntent",
+				"samples": []
+			  },
+			  {
+				"name": "AMAZON.StopIntent",
+				"samples": []
+			  },
+			  {
+				"name": "ChameAstrogilda",
+				"slots": [],
+				"samples": [
+				  "hello",
+				  "hi",
+				  "hello astro gilda",
+				  "astro gilda",
+				  "hi astro gilda"
+				]
+			  },
+			  {
+				"name": "AMAZON.NavigateHomeIntent",
+				"samples": []
+			  },
+			  {
+				"name": "AstroGildaResponde",
+				"slots": [
+				  {
+					"name": "AstroGildaPertguntaValor",
+					"type": "AstroGildaPerguntaValor"
+				  }
+				],
+				"samples": [
+				  "{AstroGildaPertguntaValor}",
+				  "Grande Oraculo {AstroGildaPertguntaValor}",
+				  "Astro Gilda {AstroGildaPertguntaValor}",
+				  "Responda {AstroGildaPertguntaValor}"
+				]
+			  },
+			  {
+				"name": "QuemEsTu",
+				"slots": [],
+				"samples": [
+				  "astro who",
+				  "are you real"
+				]
+			  },
+			  {
+				"name": "AMAZON.YesIntent",
+				"samples": []
+			  },
+			  {
+				"name": "AMAZON.NoIntent",
+				"samples": []
+			  },
+			  {
+				"name": "LaunchRequest"
+			  }
+			],
+			"types": [
+			  {
+				"name": "AstroGildaPerguntaValor",
+				"values": [
+				  {
+					"name": {
+					  "value": "tell me about the master"
+					}
+				  },
+				  {
+					"name": {
+					  "value": "who is the master"
+					}
+				  },
+				  {
+					"name": {
+					  "value": "who are you"
+					}
+				  },
+				  {
+					"name": {
+					  "value": "who is astro gilda"
+					}
+				  },
+				  {
+					"name": {
+					  "value": "who is astrogilda"
+					}
+				  },
+				  {
+					"name": {
+					  "value": "tell me something"
+					}
+				  },
+				  {
+					"name": {
+					  "value": "me diga alguma coisa"
+					}
+				  },
+				  {
+					"name": {
+					  "value": "quem é o mestre"
+					}
+				  },
+				  {
+					"name": {
+					  "value": "me fale sobre o mestre"
+					}
+				  },
+				  {
+					"name": {
+					  "value": "o que é voce"
+					}
+				  }
+				]
+			  }
+			]
+		  }
+		}
+	  };
+	  
