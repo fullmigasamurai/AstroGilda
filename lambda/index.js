@@ -319,7 +319,7 @@ function getExampleSlotValues(intentName, slotName) {
  
     let examples = []; 
     let slotType = ''; 
-    
+    let slotValuesFull = []; 
  
     let intents = model.interactionModel.languageModel.intents; 
     for (let i = 0; i < intents.length; i++) { 
@@ -340,7 +340,6 @@ function getExampleSlotValues(intentName, slotName) {
             slotValuesFull = types[i].values; 
         } 
     } 
-    let slotValuesFull = []; 
     slotValuesFull = shuffleArray(slotValuesFull); 
  
     examples.push(slotValuesFull[0].name.value); 
@@ -367,6 +366,23 @@ function sayArray(myData, penultimateWord = 'and') {
         } 
     }); 
     return result; 
+} 
+
+function shuffleArray(array) {  // Fisher Yates shuffle! 
+ 
+    let currentIndex = array.length, temporaryValue, randomIndex; 
+ 
+    while (0 !== currentIndex) { 
+ 
+        randomIndex = Math.floor(Math.random() * currentIndex); 
+        currentIndex -= 1; 
+ 
+        temporaryValue = array[currentIndex]; 
+        array[currentIndex] = array[randomIndex]; 
+        array[randomIndex] = temporaryValue; 
+    } 
+ 
+    return array; 
 } 
 
 
