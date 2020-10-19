@@ -263,6 +263,16 @@ const getUserId = (handlerInput) => {
     }
 };
 
+const getPerson = (handlerInput) => {
+    return handlerInput.requestEnvelope.context.System.person;
+}
+const getPersonId = (handlerInput) => {
+    const person = getPerson(handlerInput);
+    if (person) {
+        return person.personId;
+    }
+}
+
 function toPtBR (str) {
 	return '<lang xml:lang="pt-BR">'+str+'</lang>';
 }
