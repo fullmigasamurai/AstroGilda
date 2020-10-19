@@ -12,8 +12,8 @@ const LaunchRequestHandler = {
 		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
 	},
 	handle(handlerInput) {
-		const speakOutput = 'Hellow, i am' + astroGilda + JSON.stringify(handlerInput.requestEnvelope) + 'kk' +
-		JSON.parse(JSON.stringify(handlerInput.requestEnvelope));
+		const speakOutput = 'Hellow, i am' + astroGilda;
+		// JSON.parse(JSON.stringify(handlerInput.requestEnvelope));
 
 		console.log(`~~~~ Session iniciated: ${JSON.stringify(handlerInput.requestEnvelope)}`);
 
@@ -200,6 +200,7 @@ const YesNoIntentHandler = {
 			speakOutput = sessionAttributes.YouCalled ? 'So... say what you wanna know' : 'yes what? <break time="150ms"/> are You Okay?'
 			sessionAttributes.YouCalled = !sessionAttributes.YouCalled;
 			speakOutput += 'output:: ' + JSON.stringify(handlerInput.requestEnvelope);
+			
 			
 			return handlerInput.responseBuilder
 				.speak(speakOutput)
