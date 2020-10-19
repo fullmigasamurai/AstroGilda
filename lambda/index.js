@@ -434,13 +434,13 @@ const ErrorHandler = {
 
 const myRequestInterceptor = {
 	process(handlerInput) {
-		console.log(`~~~~ Interceptor ${JSON.stringify(handlerInput.requestEnvelope)}`);
+		console.log(`~~~~ Request Interceptor ${JSON.stringify(handlerInput.requestEnvelope)}`);
 	}
 }
 
 const myResponseInterceptor = {
 	process(handlerInput) {
-		console.log(`~~~~ Interceptor ${JSON.stringify(handlerInput.requestEnvelope)}`);
+		console.log(`~~~~ Response Interceptor ${JSON.stringify(handlerInput.requestEnvelope)}`);
 	}
 }
 /**
