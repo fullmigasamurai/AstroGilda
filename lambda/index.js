@@ -14,7 +14,7 @@ const LaunchRequestHandler = {
 		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
 	},
 	handle(handlerInput) {
-		locale = handlerInput.requestEnvelope.request.locale;
+		// locale = handlerInput.requestEnvelope.request.locale;
 
 		const speakOutput = "Hellow,  i am " + astroGilda;
 
@@ -524,7 +524,7 @@ const ResponseRecordSpeechOutputInterceptor = {
     		console.log(`~~~~ responseOutput ${JSON.stringify(responseOutput)}`);
     		console.log(`~~~~ OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope.request)}`);
     		console.log(`~~~~ OutPut.Request.locale ${JSON.stringify(handlerInput.requestEnvelope.request.locale)}`);
-    		console.log(`~~~~ let locale ${locale)}`);
+    		console.log(`~~~~ let locale ${locale}`);
     
             sessionAttributes['lastSpeechOutput'] = lastSpeechOutput; 
      
