@@ -23,7 +23,7 @@ const LaunchRequestHandler = {
 		console.log("^^^^ - spoken special withoyt stringfy: " + spoken_special);
 		console.log("^^^^ - spoken special withoyt stringfy: " + JSON.stringify(spoken_special));
 		console.log("^^^^ spoken special: " + JSON.parse(JSON.stringify(astro_dialogs)));
-		console.log("^^^^ astrodialogs.lunch.salad: " + JSON.parse(JSON.stringify(astro_dialogs.lunch.salad)));
+		
 		speakOutput += astroGilda;
 
 		return handlerInput.responseBuilder
