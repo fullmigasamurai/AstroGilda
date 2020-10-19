@@ -26,11 +26,12 @@ const LaunchRequestHandler = {
 		let speakOutput = locale ==='en-US' ? "Hellow,  i am " : "olá, eu sou ";
 // 		let spoken_special = JSON.parse(JSON.stringify(astro_dialogs.getDailySpecialForPeriod('sunday', 'lunch')));
 // 		let atribute = JSON.parse(JSON.stringify(astro_dialogs.getAtributeFromJson('sunday')));
-  		dialogs = JSON.stringify(dialogs);
 // 		console.log("^^^^ - spoken_special stringfy: " + JSON.stringify(spoken_special));
 // 		console.log("^^^^ getAtributeFromJson: " + JSON.stringify(atribute));
 // 		console.log("^^^^ - no let stringfy: " + JSON.stringify(JSON.parse(JSON.stringify(astro_dialogs.getDailySpecialForPeriod('sunday', 'lunch')))));
 		console.log("^^^^ dialogs: " + dialogs);
+  		dialogs = JSON.stringify(dialogs);
+		console.log("^^^^ stringfy dialogs: " + dialogs);
 		console.log("^^^^ stringfy dialogs.types: " + JSON.stringify(dialogs.types));
 		console.log("^^^^ dialogs: " + JSON.parse(dialogs));
 		console.log("^^^^ dialogs.sunday: " + JSON.stringify(dialogs.sunday));
