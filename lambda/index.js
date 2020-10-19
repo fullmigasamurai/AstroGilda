@@ -12,18 +12,7 @@ const LaunchRequestHandler = {
 		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
 	},
 	handle(handlerInput) {
-	   // const request = handlerInput.requestEnvelope.request;
-	   // let person = request.context.System.person;
 		const speakOutput = "Hellow,  i am " + astroGilda;
-		// JSON.parse(JSON.stringify(handlerInput.requestEnvelope));
-
-// 		console.log(`~~~~ Session iniciated: person id ${personId}`);
-// 		console.log(`~~~~ get person:` + handlerInput.requestEnvelope.context.System.person );
-// 		console.log("~~~~ get person: request.context.System.person" + person );
-// 		console.log(`~~~~ get id:` + handlerInput.requestEnvelope.context.System.person.personId);
-// 		console.log(`~~~~ get id: request.context.System.person` + request.context.System.person.personId);
-// 		console.log(`~~~~ Session iniciated: person id ${personId}`);
-// 		console.log(`~~~~ resquestenvelope ${JSON.stringify(handlerInput.requestEnvelope)}`);
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
@@ -72,10 +61,6 @@ const AstroGildaResponde =  {
 		let slotValues = getSlotValues(request.intent.slots); 
 		resolvedSlot = slotValues.AstroGildaPertguntaValor.heardAs.toLowerCase();
 		// getSlotValues returns .heardAs, .resolved, and .isValidated for each slot, according to request slot status codes ER_SUCCESS_MATCH, ER_SUCCESS_NO_MATCH, or traditional simple request slot without resolutions
-		
-		// const perguntaValorSlot = Alexa.getSlot(handlerInput.requestEnvelope, 'AstroGildaPertguntaValor');
-		// const firstAuthority = _.first(_.get(perguntaValorSlot, 'resolutions.resolutionsPerAuthority'));
-		// resolvedSlot = _.first(_.get(firstAuthority, 'values')).value.name;
 		
 		console.log('***** slotValues: ' +  JSON.stringify(slotValues, null, 2));
 		console.log('resolvedSlot' + resolvedSlot);
