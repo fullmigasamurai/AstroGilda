@@ -9,7 +9,7 @@ const astroGilda = '<lang xml:lang="pt-BR"> Astro Gilda </lang>'
 const leaveMessage = 'Okay, Bye. I\'m Leaving, <break></break> <amazon:effect name="whispered"> dont let the lighs on <break time="100ms"/>  when you leave </amazon:effect>'
 let locale='en-US'
 const astro_dialogs = require('./dialogs.js');
-let pack = require('./dialog.json');
+let dialogs = require('./dialog.json');
 
 const fs = require('fs');
 
@@ -26,13 +26,13 @@ const LaunchRequestHandler = {
 		let speakOutput = locale ==='en-US' ? "Hellow,  i am " : "olá, eu sou ";
 		let spoken_special = JSON.parse(JSON.stringify(astro_dialogs.getDailySpecialForPeriod('sunday', 'lunch')));
 		let atribute = JSON.parse(JSON.stringify(astro_dialogs.getAtributeFromJson('sunday')));
-  		pack = JSON.stringify(pack);
+  		dialogs = JSON.stringify(dialogs);
 		console.log("^^^^ - no let stringfy: " + JSON.stringify(JSON.parse(JSON.stringify(astro_dialogs.getDailySpecialForPeriod('sunday', 'lunch')))));
 		console.log("^^^^ - spoken_special stringfy: " + JSON.stringify(spoken_special));
 		console.log("^^^^ getAtributeFromJson: " + JSON.stringify(atribute));
-		console.log("^^^^ stringfy.pack: " + JSON.stringify(pack));
-		console.log("^^^^ pack: " + pack.name);
-		console.log("^^^^ pack2: " + pack);
+		console.log("^^^^ stringfy.pack: " + JSON.stringify(dialogs));
+		console.log("^^^^ dialogs: " + dialogs.name);
+		console.log("^^^^ dialogs: " + dialogs);
 		
 		let rawdata = fs.readFileSync('./log.json');
         let student = JSON.parse(rawdata);
