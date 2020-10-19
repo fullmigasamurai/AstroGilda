@@ -206,11 +206,10 @@ const YesNoIntentHandler = {
 		if (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent') {
 
 			speakOutput = sessionAttributes.YouCalled ? 'So... Okay, Bye. I\'m Leaving' : 'No what? <break time="150ms"/> are You Okay?'
-			sessionAttributes.YouCalled = !sessionAttributes.YouCalled;
 			
 			return handlerInput.responseBuilder
-				.speak(speakOutput)
-				.getResponse();
+    			.speak(speakOutput)
+    			.getResponse();
 			
 		}
 		
