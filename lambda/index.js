@@ -17,8 +17,11 @@ const LaunchRequestHandler = {
 	handle(handlerInput) {
 		locale = handlerInput.requestEnvelope.request.locale;
 
-
+		
 		let speakOutput = locale ==='en-US' ? "Hellow,  i am " : "olá, eu sou ";
+		let spoken_special = JSON.parse(JSON.stringify(menu.getDailySpecialForPeriod(sunday, lunch)));
+		// console.log("^^^^ - spoken special withoyt parse: " + menu.getDailySpecialForPeriod(day, period));
+		console.log("^^^^ - spoken special: " + spoken_special);
 		speakOutput += astroGilda;
 
 		return handlerInput.responseBuilder
