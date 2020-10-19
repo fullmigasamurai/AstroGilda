@@ -62,9 +62,8 @@ const AstroGildaResponde =  {
 		let slotValues = getSlotValues(request.intent.slots); 
 		resolvedSlot = slotValues.AstroGildaPertguntaValor.heardAs.toLowerCase();
 		// getSlotValues returns .heardAs, .resolved, and .isValidated for each slot, according to request slot status codes ER_SUCCESS_MATCH, ER_SUCCESS_NO_MATCH, or traditional simple request slot without resolutions
-		
-		console.log('***** slotValues: ' +  JSON.stringify(slotValues, null, 2));
-		console.log('resolvedSlot: ' + resolvedSlot);
+		// console.log('***** slotValues: ' +  JSON.stringify(slotValues, null, 2));
+		// console.log('resolvedSlot: ' + resolvedSlot);
 		//   SLOT: AstroGildaPertguntaValor 
 		if (resolvedSlot && resolvedSlot !== '') {
 			slotStatus += ' slot AstroGildaPertguntaValor was heard as ' + resolvedSlot + '. ';
@@ -101,11 +100,11 @@ const AstroGildaResponde =  {
 					break;
 					
 				case 'who is pollyanna':
-					slotStatus = 'Pollyanna. She is the all might princess of darkness. All Hail Pollyanna, metal Knight'
+					slotStatus = 'Pollyanna. She is the all might princess of darkness. All Hail Pollyanna, metal Knight.'
 					break;
 
 				case 'who is juliana':
-					slotStatus = 'Juliana hates cold. And Loves it when is hot. she\'s a smart person'
+					slotStatus = 'Juliana hates cold. And Loves it when is hot. <break time="150ms"/>  She\'s a smart person'
 					break;
 
 				case 'who is hoshi':
@@ -113,12 +112,13 @@ const AstroGildaResponde =  {
 					break;
 
 				case 'who is shayana':
-					slotStatus = 'Oh, shayana, what can i say. All that she can think of is, crossfit <break time="500ms"/> crossfit this. crossfit that '+
-					'<break time="1000ms"/> but she\'s also a star wars fan so she\'s cool'
+					slotStatus = 'Oh, Chayana, what can i say. All that she can think of: is crossfit <break time="500ms"/> crossfit this. crossfit that '+
+						'<break time="1000ms"/> but she\'s also a star wars fan. So she\'s cool'
 					break;
 
 				case 'who is becca':
-					slotStatus = 'Becca is the cuttest around, <break time="250ms"/> but no one deserves to be around her by the mornings'
+					slotStatus = 'Well: Becca is the cuttest around, <break time="250ms"/> but no one deserves to be around her by the mornings...'+
+						'What kind of person Wakes up singing? <break time="500ms"/> Becca! i guess? But After all she\'s nice, i wanna bear-hug her'
 					break;
 
 				case 'what are you':
@@ -159,7 +159,7 @@ const AstroGildaResponde =  {
 
 		}
 
-		slotStatus+= "<break time=\"150ms\"/> Anything Else?"
+		slotStatus+= "<break time=\"500ms\"/> Anything Else?"
 		
 
 		if (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') {
