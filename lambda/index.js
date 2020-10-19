@@ -8,7 +8,7 @@ const Alexa = require('ask-sdk-core');
 const astroGilda = '<lang xml:lang="pt-BR"> Astro Gilda </lang>'
 const leaveMessage = 'Okay, Bye. I\'m Leaving, <break></break> <amazon:effect name="whispered"> dont let the lighs on <break time="100ms"/>  when you leave </amazon:effect>'
 let locale='en-US'
-const astro_dialog = require('./dialogs');
+const astro_dialogs = require('./dialogs');
 
 const LaunchRequestHandler = {
 	canHandle(handlerInput) {
@@ -19,9 +19,9 @@ const LaunchRequestHandler = {
 
 		
 		let speakOutput = locale ==='en-US' ? "Hellow,  i am " : "olá, eu sou ";
-		// let spoken_special = JSON.parse(JSON.stringify(astro_dialog.getDailySpecialForPeriod('sunday', 'lunch')));
+		// let spoken_special = JSON.parse(JSON.stringify(astro_dialogs.getDailySpecialForPeriod('sunday', 'lunch')));
 		// console.log("^^^^ - spoken special withoyt parse: " + menu.getDailySpecialForPeriod(day, period));
-		console.log("^^^^ - spoken special: " + astro_dialog);
+		console.log("^^^^ - spoken special: " + astro_dialogs.sunday);
 		speakOutput += astroGilda;
 
 		return handlerInput.responseBuilder
