@@ -17,7 +17,10 @@ const LaunchRequestHandler = {
 		// JSON.parse(JSON.stringify(handlerInput.requestEnvelope));
 
 		console.log(`~~~~ Session iniciated: person id ${personId}`);
-		console.log(`resquestenvelope ${JSON.stringify(handlerInput.requestEnvelope)}`);
+		console.log(`~~~~ get person:` + handlerInput.requestEnvelope.context.System.person + "==" + getPerson(handlerInput));
+		console.log(`~~~~ get id:` + handlerInput.requestEnvelope.context.System.person.personId + "==" + getPersonId(handlerInput));
+		console.log(`~~~~ Session iniciated: person id ${personId}`);
+		console.log((`~~~~ resquestenvelope ${JSON.stringify(handlerInput.requestEnvelope)}`);
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
