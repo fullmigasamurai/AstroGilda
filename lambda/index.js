@@ -27,9 +27,9 @@ const LaunchRequestHandler = {
 // 		let spoken_special = JSON.parse(JSON.stringify(astro_dialogs.getDailySpecialForPeriod('sunday', 'lunch')));
 // 		let atribute = JSON.parse(JSON.stringify(astro_dialogs.getAtributeFromJson('sunday')));
   		dialogs = JSON.stringify(dialogs);
-		console.log("^^^^ - no let stringfy: " + JSON.stringify(JSON.parse(JSON.stringify(astro_dialogs.getDailySpecialForPeriod('sunday', 'lunch')))));
-		console.log("^^^^ - spoken_special stringfy: " + JSON.stringify(spoken_special));
-		console.log("^^^^ getAtributeFromJson: " + JSON.stringify(atribute));
+// 		console.log("^^^^ - spoken_special stringfy: " + JSON.stringify(spoken_special));
+// 		console.log("^^^^ getAtributeFromJson: " + JSON.stringify(atribute));
+// 		console.log("^^^^ - no let stringfy: " + JSON.stringify(JSON.parse(JSON.stringify(astro_dialogs.getDailySpecialForPeriod('sunday', 'lunch')))));
 		console.log("^^^^ stringfy.pack: " + JSON.stringify(dialogs));
 		console.log("^^^^ dialogs: " + dialogs.name);
 		console.log("^^^^ dialogs: " + dialogs);
