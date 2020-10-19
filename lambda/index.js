@@ -18,8 +18,8 @@ const LaunchRequestHandler = {
 		// JSON.parse(JSON.stringify(handlerInput.requestEnvelope));
 
 // 		console.log(`~~~~ Session iniciated: person id ${personId}`);
-// 		console.log(`~~~~ get person:` + handlerInput.requestEnvelope.context.System.person );
-		console.log("~~~~ get person: request.context.System.person" + person );
+		console.log(`~~~~ get person:` + handlerInput.requestEnvelope.context.System.person );
+// 		console.log("~~~~ get person: request.context.System.person" + person );
 // 		console.log(`~~~~ get id:` + handlerInput.requestEnvelope.context.System.person.personId);
 // 		console.log(`~~~~ get id: request.context.System.person` + request.context.System.person.personId);
 // 		console.log(`~~~~ Session iniciated: person id ${personId}`);
