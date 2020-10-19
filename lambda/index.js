@@ -26,6 +26,7 @@ const LaunchRequestHandler = {
 		console.log("^^^^ - spoken_special stringfy: " + JSON.stringify(spoken_special));
 		console.log("^^^^ getAtributeFromJson: " + JSON.stringify(atribute));
 		console.log("^^^^ pack: " + JSON.stringify(pack));
+		console.log("^^^^ pack: " + pack);
 		
 		speakOutput += astroGilda;
 
