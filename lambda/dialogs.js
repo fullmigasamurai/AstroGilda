@@ -186,11 +186,11 @@ const astro_dialogs = {
 };
 
 const getDailySpecialForPeriod = (day, period) => {
-	return daily_specials[day][period];
+	return astro_dialogs[day][period];
 };
 
 const getAtributeFromJson = (day) => {
-	return daily_specials[day];
+	return astro_dialogs[day];
 };
 
 const makeSpeakableList =  (list) => {
