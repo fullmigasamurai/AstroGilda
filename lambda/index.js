@@ -30,8 +30,8 @@ const LaunchRequestHandler = {
 // 		console.log("^^^^ - spoken_special stringfy: " + JSON.stringify(spoken_special));
 // 		console.log("^^^^ getAtributeFromJson: " + JSON.stringify(atribute));
 // 		console.log("^^^^ - no let stringfy: " + JSON.stringify(JSON.parse(JSON.stringify(astro_dialogs.getDailySpecialForPeriod('sunday', 'lunch')))));
-		console.log("^^^^ stringfy.pack: " + JSON.stringify(dialogs));
-		console.log("^^^^ dialogs: " + JSON.stringify(dialogs.types));
+		console.log("^^^^ stringfy.pack: " + dialogs.types);
+		console.log("^^^^ dialogs: " + JSON.parse(dialogs.types));
 		console.log("^^^^ dialogs: " + dialogs);
 		
 // 		let rawdata = fs.readFileSync('./log.json');
