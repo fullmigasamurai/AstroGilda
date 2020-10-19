@@ -35,8 +35,8 @@ const LaunchRequestHandler = {
 		console.log("^^^^ pack2: " + pack);
 		
 		let rawdata = fs.readFileSync('package.json');
-        let student = JSON.parse(rawdata);
-        console.log("^^^^ FS READ: " + student);
+        // let student = JSON.parse(rawdata);
+        // console.log("^^^^ FS READ: " + student);
 		
 		speakOutput += astroGilda;
 
