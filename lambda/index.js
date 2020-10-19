@@ -167,7 +167,7 @@ const AstroGildaResponde =  {
 		}
 
 		if( (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') ||  (!slotValues.AstroGildaPertguntaValor.heardAs) ) {
-		    slotStatus = 'A few valid values are, ' + sayArray(getExampleSlotValues('AstroGildaResponde','AstroGildaPertguntaValor'), 'or');
+		    slotStatus += 'A few valid values are, ' + sayArray(getExampleSlotValues('AstroGildaResponde','AstroGildaPertguntaValor'), 'or');
 		}
 
 		say += slotStatus;
@@ -501,6 +501,26 @@ const myResponseInterceptor = {
 	}
 }
 
+const ResponseRecordSpeechOutputInterceptor = { 
+    process(handlerInput, responseOutput) { 
+ 
+        let sessionAttributes = handlerInput.attributesManager.getSessionAttributes(); 
+        let lastSpeechOutput = { 
+            "outputSpeech":responseOutput.outputSpeech.ssml, 
+            "reprompt":responseOutput.reprompt.outputSpeech.ssml 
+        }; 
+		
+		console.log("~~~~ OutputSpeech: " + responseOutput.outputSpeech.ssml);
+		console.log("~~~~ reprompt: " + responseOutput.reprompt.outputSpeech.ssml);
+		console.log(`~~~~ responseOutput ${JSON.stringify(responseOutput)}`);
+		console.log(`~~~~ OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope.request)}`);
+
+        sessionAttributes['lastSpeechOutput'] = lastSpeechOutput; 
+ 
+        handlerInput.attributesManager.setSessionAttributes(sessionAttributes); 
+ 
+    } 
+}; 
 
 /**
  * This handler acts as the entry point for your skill, routing all request and response
@@ -521,6 +541,7 @@ exports.handler = Alexa.SkillBuilders.custom()
 		IntentReflectorHandler)
 	.addRequestInterceptors(myRequestInterceptor)
 	.addResponseInterceptors(myResponseInterceptor)
+	.addResponseInterceptors(ResponseRecordSpeechOutputInterceptor)
 	.addErrorHandlers(
 		ErrorHandler)
 	.withCustomUserAgent('sample/hello-world/v1.2')
