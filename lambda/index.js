@@ -162,7 +162,7 @@ const AstroGildaResponde =  {
 
 				default:
 				console.log(`Sorry, we are out of ${resolvedSlot}.`);
-				slotStatus = 'What? say it again.'
+				slotStatus = 'What? say it again.'  + resolvedSlot;
 			}
 			
 		} else {
