@@ -25,6 +25,7 @@ const LaunchRequestHandler = {
 		console.log("^^^^ - no let stringfy: " + JSON.stringify(JSON.parse(JSON.stringify(astro_dialogs.getDailySpecialForPeriod('sunday', 'lunch')))));
 		console.log("^^^^ - spoken_special stringfy: " + JSON.stringify(spoken_special));
 		console.log("^^^^ getAtributeFromJson: " + JSON.stringify(atribute));
+		console.log("^^^^ pack: " + JSON.stringify(pack));
 		
 		speakOutput += astroGilda;
 
