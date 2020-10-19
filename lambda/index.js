@@ -502,7 +502,7 @@ const myResponseInterceptor = {
 const ResponseRecordSpeechOutputInterceptor = { 
     process(handlerInput, responseOutput) { 
  
-//         let sessionAttributes = handlerInput.attributesManager.getSessionAttributes(); 
+        let sessionAttributes = handlerInput.attributesManager.getSessionAttributes(); 
 //         let lastSpeechOutput = { 
 //             "outputSpeech":responseOutput.outputSpeech.ssml, 
 //             "reprompt":responseOutput.reprompt.outputSpeech.ssml 
