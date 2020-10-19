@@ -11,7 +11,7 @@
     		"drinks" : "large iced tea",
     		"cost" : 10.99
     	},
-    	"teste espaco" : {
+    	"teste-espaco" : {
     		"pizza" : {
     		"size": "extra large", 
     		"crust": "deep dish",
