@@ -16,7 +16,8 @@ const LaunchRequestHandler = {
 		const speakOutput = `Hellow,  i am` + astroGilda;
 		// JSON.parse(JSON.stringify(handlerInput.requestEnvelope));
 
-		console.log(`~~~~ Session iniciated: person id ${personId} resquestenvelope ${JSON.stringify(handlerInput.requestEnvelope)}`);
+		console.log(`~~~~ Session iniciated: person id ${personId}`);
+		console.log(`resquestenvelope ${JSON.stringify(handlerInput.requestEnvelope)}`);
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
