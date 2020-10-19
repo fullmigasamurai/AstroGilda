@@ -6,6 +6,7 @@
 const Alexa = require('ask-sdk-core');
 
 const astroGilda = '<lang xml:lang="pt-BR"> Astro Gilda </lang>'
+const leaveMessage = 'Okay, Bye. I\'m Leaving, <break></break> <amazon:effect name="whispered"> dont let the lighs on <break time="100ms"/>  when you leave </amazon:effect>'
 
 const LaunchRequestHandler = {
 	canHandle(handlerInput) {
@@ -196,35 +197,23 @@ const YesNoIntentHandler = {
 			speakOutput = sessionAttributes.YouCalled ? 'So... say what you wanna know' : 'yes what? <break time="150ms"/> are You Okay?'
 			sessionAttributes.YouCalled = !sessionAttributes.YouCalled;
 			
-			return handlerInput.responseBuilder
-				.speak(speakOutput)
-				.reprompt(speakOutput)
-				.getResponse();
-			
 		}
 
 		if (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent') {
 
-			speakOutput = sessionAttributes.YouCalled ? 'So... Okay, Bye. I\'m Leaving' : 'No what? <break time="150ms"/> are You Okay?'
+			speakOutput = sessionAttributes.YouCalled ? "So... "+leaveMessage : 'No what? <break time="150ms"/> are You Okay?'
+			if (sessionAttributes.YouCalled) {
+				return handlerInput.responseBuilder
+					.speak(speakOutput)
+					.getResponse();
+			}
 			sessionAttributes.YouCalled = !sessionAttributes.YouCalled;
-			
-			return handlerInput.responseBuilder
-				.speak(speakOutput)
-				// .reprompt(speakOutput)
-				.getResponse();
-			
 		}
-		
-		// if (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent') {
-		// 	speakOutput = sessionAttributes.YouCalled ? 'So... Okay, Bye. I\'m Leaving, <break></break>' +
-		// 		'<amazon:effect name="whispered"> dont let the lighs on <break time="100ms"/>  when you leave </amazon:effect>'
-		// 		: 'no what? <break time="150ms"/> are you okay?'
-		// 	sessionAttributes.YouCalled = !sessionAttributes.YouCalled;
-			
-		// 	return handlerInput.responseBuilder
-		// 	.speak(speakOutput)
-		// 	.getResponse();
-		// }
+
+		return handlerInput.responseBuilder
+				.speak(speakOutput)
+				.reprompt(speakOutput)
+				.getResponse();
 
 		
 	}
@@ -420,7 +409,7 @@ const CancelAndStopIntentHandler = {
 				|| Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent');
 	},
 	handle(handlerInput) {
-		const speakOutput = 'Okay, Bye. I\'m Leaving, <break></break> <amazon:effect name="whispered"> dont let the lighs on <break time="100ms"/>  when you leave </amazon:effect>';
+		const speakOutput = leaveMessage;
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
