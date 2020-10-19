@@ -12,7 +12,8 @@ const LaunchRequestHandler = {
 		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
 	},
 	handle(handlerInput) {
-		const speakOutput = "Hellow, <alexa:name type='first' personId='{{personId}}' />! i am" + astroGilda;
+		const personId = getPersonId(handlerInput)
+		const speakOutput = `Hellow, <alexa:name type='first' ${personId}' />! i am` + astroGilda;
 		// JSON.parse(JSON.stringify(handlerInput.requestEnvelope));
 
 		console.log(`~~~~ Session iniciated: ${JSON.stringify(handlerInput.requestEnvelope)}`);
@@ -63,8 +64,9 @@ const AstroGildaResponde =  {
 
 		let slotValues = getSlotValues(request.intent.slots); 
 		// getSlotValues returns .heardAs, .resolved, and .isValidated for each slot, according to request slot status codes ER_SUCCESS_MATCH, ER_SUCCESS_NO_MATCH, or traditional simple request slot without resolutions
+		resolvedSlot = Alexa.getSlot(handlerInput.requestEnvelope, '');
+		// resolvedSlot = slotValues.AstroGildaPertguntaValor.heardAs.toLowerCase();
 		
-		resolvedSlot = slotValues.AstroGildaPertguntaValor.heardAs.toLowerCase();
 		console.log('***** slotValues: ' +  JSON.stringify(slotValues, null, 2));
 		console.log('resolvedSlot' + resolvedSlot);
 		//   SLOT: AstroGildaPertguntaValor 
@@ -251,6 +253,15 @@ function randomElement(myArray) {
 function stripSpeak(str) { 
 	return(str.replace('<speak>', '').replace('</speak>', '')); 
 } 
+
+const getUserId = (handlerInput) => {
+    try {
+        return handlerInput.requestEnvelope.context.System.user.userId;
+    } catch (error) {
+        console.log('Error occurred while getting user id:', error);
+        throw error;
+    }
+};
 
 function toPtBR (str) {
 	return '<lang xml:lang="pt-BR">'+str+'</lang>';
