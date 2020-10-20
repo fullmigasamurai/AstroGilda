@@ -12,6 +12,7 @@ let locale='en-US'
 let dialogs = require('./dialog.json');
 // const fs = require('fs');
 const FULL_NAME_PERMISSION = "alexa::profile:name:read";
+const axios = require('axios');
 
 
 const LaunchRequestHandler = {
@@ -54,69 +55,36 @@ const ChameAstrogilda = {
 		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
 			&& Alexa.getIntentName(handlerInput.requestEnvelope) === 'ChameAstrogilda';
 	},
-// 	handle(handlerInput) {
-//     // // const { serviceClientFactory, responseBuilder } = handlerInput;
-//     // try {
-//     //     // const upsServiceClient = serviceClientFactory.getUpsServiceClient();
-//     //     // const profileName = await upsServiceClient.getProfileName();
-//     //     // const speechResponse = `Your name is, ${profileName}`;
-//     //     const speechResponse = `Your name is,`;
-//     //     return handlerInput.responseBuilder
-//     //       .speak(speechResponse)
-//     //       .withSimpleCard(speechResponse)
-//     //       .getResponse();
-//     // } catch (error) {
-//     //   console.log(JSON.stringify(error));
-        
-//     // }
-//     return handlerInput.responseBuilder
-//         .speak("faltando permissoes")
-//         .getResponse();
-//   },
-
+	
 	handle(handlerInput) {
-		const { serviceClientFactory, responseBuilder } = handlerInput;
-		
-		try {
-            const upsServiceClient = serviceClientFactory.getUpsServiceClient();
-            // const profileName = await upsServiceClient.getProfileName();
-            // const speechResponse = `Your name is, ${profileName}`;
-            const speechResponse = `Your name is,`;
-
-		return handlerInput.responseBuilder
-			.speak(speechResponse)
-			.reprompt('Me diga. O que você quer. em?')
-			.getResponse();
-        } catch (error) {
-          console.log(JSON.stringify(error));
-            
-        }
-		
-		
-		
 		const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
+
 		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 		sessionAttributes.YouCalled = true;
+
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
 			.reprompt('Me diga. O que você quer. em?')
 			.getResponse();
 	}
-	
-// 	handle(handlerInput) {
-// 		const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
-
-// 		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-// 		sessionAttributes.YouCalled = true;
-
-
-// 		return handlerInput.responseBuilder
-// 			.speak(speakOutput)
-// 			.reprompt('Me diga. O que você quer. em?')
-// 			.getResponse();
-// 	}
 };
+
+function getNAME(apiaccessToken, callback) {
+  headers = {
+    Authorization: 'Bearer ' + apiaccessToken,
+    'content-type': 'application/json'
+  };
+
+  axios
+    .get(baseURL + '/v2/accounts/~current/settings/Profile.name', {
+      headers: headers
+    })
+    .then(response => {
+      console.log(JSON.stringify(response));
+      callback(response.data);
+    });
+}
 
 const AstroGildaResponde =  {
 	canHandle(handlerInput) {
