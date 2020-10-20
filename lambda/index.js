@@ -25,11 +25,6 @@ const LaunchRequestHandler = {
 		
 		let speakOutput = locale ==='en-US' ? "Hellow,  i am " : "olá, eu sou ";
 		
-		// let tt = "teste espaco";
-		// console.log("^^^^ dialogs: teste " + JSON.stringify(dialogs[tt]));
-		// console.log("^^^^ dialogs: teste " + JSON.stringify(dialogs["quem é o mestre"]));
-		// console.log("^^^^ dialogs: teste " + JSON.stringify(dialogs["quem é o mestre"]["resposta"]));
-		
 		speakOutput += astroGilda;
 
 		return handlerInput.responseBuilder
@@ -71,7 +66,7 @@ const AstroGildaResponde =  {
 		
 		let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 
-		let say = 'Here It is: <break time="1s"/>';
+		let say = 'Lá Vai: <break time="1s"/>';
 
 		let slotStatus = '';
 		let resolvedSlot;
@@ -88,24 +83,24 @@ const AstroGildaResponde =  {
 			}
 			 console.log("~~~~ SlotStatus " + slotStatus);
 
-			// if (slotStatus === "undefined")
-			// 	slotStatus = 'O Que? fale novamente. Não entendi'  + resolvedSlot;
+			if (slotStatus === "undefined")
+				slotStatus = 'O Que? fale novamente. Não entendi'  + resolvedSlot;
 			
 		} else {
 			slotStatus = 'Meus Conhecimentos Sobre Isso Estão Vazios. ';
 
 		}
 
-		slotStatus+= "<break time=\"1000ms\"/> Anything Else?"
+		slotStatus+= "<break time=\"1000ms\"/> Algo Mais?"
 		
 
 		if (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') {
-			slotStatus = "Sorry, don't know about that. Try asking another thing. <break time=\"150ms\"/> ";
+			slotStatus = "Desculpe, não sei sobre isso. tente perguntar outra coisa. <break time=\"150ms\"/> ";
 			console.log('***** consider adding "' + slotValues.AstroGildaPertguntaValor.heardAs + '" to the custom slot type used by slot AstroGildaPertguntaValor! '); 
 		}
 
 		if( (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') ||  (!slotValues.AstroGildaPertguntaValor.heardAs) ) {
-			slotStatus += 'A few valid values are, ' + sayArray(getExampleSlotValues('AstroGildaResponde','AstroGildaPertguntaValor'), 'or');
+			slotStatus += 'alguns valores são, ' + sayArray(getExampleSlotValues('AstroGildaResponde','AstroGildaPertguntaValor'), 'or');
 		}
 
 		say += slotStatus;
