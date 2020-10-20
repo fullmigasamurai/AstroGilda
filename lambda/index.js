@@ -20,11 +20,9 @@ const LaunchRequestHandler = {
 	},
 	handle(handlerInput) {
 
-// 		locale = handlerInput.requestEnvelope.request.locale;
-        // console.log("^^^^ localizacao:" + locale)
+ 		locale = handlerInput.requestEnvelope.request.locale;
 		
-// 		let speakOutput = locale === 'en-US' ? "Hellow,  i am " : "olá, eu sou ";
-		let speakOutput = "olá, eu sou ";
+		let speakOutput = locale === 'en-US' ? "Hellow,  i am " : "olá, eu sou ";
 		
 		speakOutput += astroGilda;
 
