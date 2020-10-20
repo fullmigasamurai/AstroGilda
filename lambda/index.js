@@ -31,7 +31,7 @@ const LaunchRequestHandler = {
 		console.log("_________________________________________________________")
 		
     	
-        myName = await getName();
+        myName = await getName(handlerInput);
 
 		locale = handlerInput.requestEnvelope.request.locale;
         let speakOutput = locale ==='en-US' ? "Hellow, "+myName+"  i am " : "olá, "+myName+" eu sou ";
@@ -45,7 +45,7 @@ const LaunchRequestHandler = {
 	}
 };
 
-async function getName(handlerInput) {
+    async function getName(handlerInput) {
             const { serviceClientFactory, responseBuilder } = handlerInput;
             try {
                 const upsServiceClient = serviceClientFactory.getUpsServiceClient();
