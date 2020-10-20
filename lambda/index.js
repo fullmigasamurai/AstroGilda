@@ -73,7 +73,9 @@ const ChameAstrogilda = {
 //         .speak("faltando permissoes")
 //         .getResponse();
 //   },
+
 	handle(handlerInput) {
+		const { serviceClientFactory, responseBuilder } = handlerInput;
 		const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
 
 		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
@@ -85,6 +87,19 @@ const ChameAstrogilda = {
 			.reprompt('Me diga. O que você quer. em?')
 			.getResponse();
 	}
+	
+// 	handle(handlerInput) {
+// 		const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
+
+// 		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+// 		sessionAttributes.YouCalled = true;
+
+
+// 		return handlerInput.responseBuilder
+// 			.speak(speakOutput)
+// 			.reprompt('Me diga. O que você quer. em?')
+// 			.getResponse();
+// 	}
 };
 
 const AstroGildaResponde =  {
