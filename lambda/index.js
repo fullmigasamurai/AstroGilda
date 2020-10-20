@@ -520,7 +520,6 @@ const ResponseRecordSpeechOutputInterceptor = {
 exports.handler = skillBuilder
   .addRequestHandlers(
     LaunchRequestHandler,
-		GreetMeIntentHandler,
 		AstroGildaResponde,
 		QuemEsTu,
  		ChameAstrogilda,
