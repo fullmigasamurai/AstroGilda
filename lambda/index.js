@@ -27,7 +27,7 @@ const LaunchRequestHandler = {
 	canHandle(handlerInput) {
 		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
 	},
-	handle(handlerInput) {
+	async handle(handlerInput) {
 		console.log("_________________________________________________________")
 		
     	async function getName() {
@@ -43,7 +43,7 @@ const LaunchRequestHandler = {
             }
         }
         
-        myName = getName().then();
+        myName = await getName;
 		console.log("~~~~ myName" + myName);
 		locale = handlerInput.requestEnvelope.request.locale;
         let speakOutput = locale ==='en-US' ? "Hellow, "+myName+"  i am " : "olá, "+myName+" eu sou ";
