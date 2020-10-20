@@ -20,12 +20,13 @@ const LaunchRequestHandler = {
 	},
 	async handle(handlerInput) {
  	locale = handlerInput.requestEnvelope.request.locale;
+ 	const { serviceClientFactory, responseBuilder } = handlerInput;
 	let speakOutput = "nothing";
 	let profileName = ";"
     console.log("iniciando__________________________________________________________: ");
     
     try {
-        const { serviceClientFactory, responseBuilder } = handlerInput;
+        
         // const upsServiceClient = serviceClientFactory.getUpsServiceClient();
         // profileName = await upsServiceClient.getProfileGivenName();
         profileName = ";;";
