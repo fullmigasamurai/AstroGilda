@@ -24,34 +24,13 @@ const LaunchRequestHandler = {
 
 		
 		let speakOutput = locale ==='en-US' ? "Hellow,  i am " : "olá, eu sou ";
-// 		let spoken_special = JSON.parse(JSON.stringify(astro_dialogs.getDailySpecialForPeriod('sunday', 'lunch')));
-// 		let atribute = JSON.parse(JSON.stringify(astro_dialogs.getAtributeFromJson('sunday')));
-// 		console.log("^^^^ - spoken_special stringfy: " + JSON.stringify(spoken_special));
-// 		console.log("^^^^ getAtributeFromJson: " + JSON.stringify(atribute));
-// 		console.log("^^^^ - no let stringfy: " + JSON.stringify(JSON.parse(JSON.stringify(astro_dialogs.getDailySpecialForPeriod('sunday', 'lunch')))));
-// 		console.log("^^^^ dialogs: " + dialogs);
-// 		console.log("^^^^ dialogs.types: " + JSON.stringify(dialogs.types));
-// 		console.log("^^^^ dialogs.sunday: " + JSON.stringify(dialogs.sunday));
-  		// let dialogsString = JSON.stringify(dialogs);
-		  // console.log("^^^^ dialogs: " + dialogsString);
-		  
-		//   for(var myKey in myJson) {
-		// 	console.log("key:"+myKey+", value:"+myJson[myKey]);
-		//  }
+
   		
-  		var string = JSON.stringify(dialogs);
-        console.log("^^^^ string " + string);
-        var objectValue = JSON.parse(string);
         let tt = "teste espaco";
-        console.log("^^^^ objectValue " + objectValue);
-        console.log("^^^^ dialogs: types " + JSON.stringify(objectValue['types']));
-        console.log("^^^^ dialogs: types " + JSON.stringify(dialogs['types']));
-        console.log("^^^^ dialogs: teste " + JSON.stringify(objectValue[tt]));
-        console.log("^^^^ dialogs: teste " + JSON.stringify(objectValue[tt]["valor com espaço"]));
-        console.log("^^^^ dialogs: teste " + JSON.stringify(objectValue[tt]["valor com espaco"]));
-        console.log("^^^^ dialogs: teste " + JSON.stringify(objectValue[tt]["é muita treta vish"]));
-        console.log("^^^^ dialogs: sunday " + JSON.stringify(objectValue['sunday']));
-        console.log("^^^^ dialogs: sunday teste " + JSON.stringify(objectValue['sunday']['teste']));
+        console.log("^^^^ dialogs: teste " + JSON.stringify(dialogs[tt]));
+        console.log("^^^^ dialogs: teste " + JSON.stringify(dialogs["quem é o mestre"]));
+        console.log("^^^^ dialogs: teste " + JSON.stringify(dialogs["quem é o mestre"]["resposta"]));
+        
         
 
 
@@ -112,93 +91,13 @@ const AstroGildaResponde =  {
 			slotStatus += ' slot AstroGildaPertguntaValor was heard as ' + resolvedSlot + '. ';
 			sessionAttributes.YouCalled = true;
 					
-			switch (resolvedSlot) {
-				case 'who is the master':
-					slotStatus = 'I Cant talk about the master';
+			slotStatus = JSON.stringify(dialogs[resolvedSlot]["resposta"]);
 
-					break;
-
-				case 'tell me something':
-					slotStatus = 'And if i dont wanna?... what are you gonna do?';
-
-					break;
-
-				case 'who is astro gilda':
-					slotStatus = 'I\'m the good. the bad. and the <break time="100ms"/> ugly';
-
-					break;
-
-				case 'who is astrogilda':
-					slotStatus = 'I\'m the good. the bad.. and the <break time="100ms"/> ugly';
-
-					break;
-				
-				case 'tell me about the master':
-					slotStatus = 'The master? <amazon:effect name="whispered"> sorry, cant say anything </amazon:effect>';
-
-					break;
-
-				case 'who are you':
-					slotStatus = 'I am <prosody volume="loud"> Astro Gilda </prosody>  <emphasis level="moderate"> of course. </emphasis>'
-					break;
-					
-				case 'who is pollyanna':
-					slotStatus = 'Pollyanna. She is the all might princess of darkness. All Hail Pollyanna, metal Knight.'
-					break;
-
-				case 'who is juliana':
-					slotStatus = 'Juliana hates cold. And Loves it when is hot. <break time="150ms"/>  She\'s a smart person'
-					break;
-
-				case 'who is hoshi':
-					slotStatus = 'About hoshi. She\'s a bright star that illuminates my dark nights'
-					break;
-
-				case 'who is shayana':
-					slotStatus = 'Oh, Chayana, what can i say. All that she can think of: is crossfit <break time="500ms"/> crossfit this. crossfit that '+
-						'<break time="1000ms"/> but she\'s also a star wars fan. So she\'s cool'
-					break;
-
-				case 'who is becca':
-					slotStatus = 'Well: Becca is the cuttest around, <break time="250ms"/> but no one deserves to be around her by the mornings...'+
-						'What kind of person Wakes up singing? <break time="500ms"/> Becca! i guess? But After all she\'s nice, i wanna bear-hug her'
-					break;
-
-				case 'what are you':
-					slotStatus = 'What is for objects <break time="500ms"/> you <say-as interpret-as="expletive">[stuuuuuupid]</say-as>'
-					break;
-
-				case 'me diga alguma coisa':
-					say='';
-					slotStatus = '<lang xml:lang="pt-BR">Se eu disser que não direi nada, então ja disse alguma coisa.</lang>'
-					break;
-
-				case 'quem e o mestre':
-					say='';
-					slotStatus = toPtBR('Não posso falar sobre o mestre')
-					break;
-
-				case 'Porta':
-					say='';
-					slotStatus = toPtBR('Conheço alguns tipos de porta')
-					break;
-
-				case 'vitinho':
-					say='';
-					slotStatus = toPtBR('hummmm. hehe')
-					break;
-
-				case 'me fale sobre o mestre':
-					slotStatus = toPtBR('O mestre? <amazon:effect name="whispered"> desculpe, não posso comentar </amazon:effect>')
-					break;
-
-				default:
-				console.log(`Sorry, we are out of ${resolvedSlot}.`);
-				slotStatus = 'What? say it again.'  + resolvedSlot;
-			}
+			if (!slotStatus)
+				slotStatus = 'O Que? fale novamente. Não entendi'  + resolvedSlot;
 			
 		} else {
-			slotStatus = 'My knolege about that is empty. ';
+			slotStatus = 'Meus Conhecimentos Sobre Isso Estão Vazios. ';
 
 		}
 
