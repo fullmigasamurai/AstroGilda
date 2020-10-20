@@ -11,7 +11,7 @@ let locale='en-US'
 // const astro_dialogs = require('./dialogs.js');
 let dialogs = require('./dialog.json');
 // const fs = require('fs');
-
+const FULL_NAME_PERMISSION = "alexa::profile:name:read";
 
 
 const LaunchRequestHandler = {
