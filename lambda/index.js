@@ -29,7 +29,7 @@ const LaunchRequestHandler = {
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
-			.reprompt(speakOutput + 'U Need me?')
+			.reprompt(speakOutput + 'Você precisa de mim?')
 			.getResponse();
 	}
 };
