@@ -26,15 +26,12 @@
     	}
     },
 	"teste espaco" : {
-    		"pizza" : {
-    		"size": "extra large", 
-    		"crust": "deep dish",
-    		"cheese" : "normal", 
-    		"toppingsList" : ["ham", "pepperoni", "sausage", "black olives"]
+    		"valor1" : {
+    		"valor1 espaco": "extra large"
     		},
-    		"salad" : "large house salad",
-    		"drinks" : "2 liter coke",
-    		"side" : "cheesy garlic bread",
+    		"valor com espaço" : "large house salad",
+    		"valor com espaco" : "2 liter coke",
+    		"é muita treta vish" : "cheesy garlic bread",
     		"dessert" : "two homemade chocolate fudge cookies",
     		"cost" : 21.99
 	},
