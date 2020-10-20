@@ -81,11 +81,14 @@ const ChameAstrogilda = {
             // const upsServiceClient = serviceClientFactory.getUpsServiceClient();
             // const profileName = await upsServiceClient.getProfileName();
             // const speechResponse = `Your name is, ${profileName}`;
-            const speechResponse = `Your name is,`;
-            return handlerInput.responseBuilder
-              .speak(speechResponse)
-              .withSimpleCard(speechResponse)
-              .getResponse();
+            const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
+		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+		sessionAttributes.YouCalled = true;
+
+		return handlerInput.responseBuilder
+			.speak(speakOutput)
+			.reprompt('Me diga. O que você quer. em?')
+			.getResponse();
         } catch (error) {
           console.log(JSON.stringify(error));
             
