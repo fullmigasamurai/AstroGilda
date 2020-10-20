@@ -41,6 +41,8 @@ const LaunchRequestHandler = {
             console.log(JSON.stringify(error));
         }
     }
+    
+    let name = getName().then();
 		
 		locale = handlerInput.requestEnvelope.request.locale;
         let speakOutput = locale ==='en-US' ? "Hellow,  i am " : "olá, eu sou ";
