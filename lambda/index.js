@@ -518,7 +518,7 @@ exports.handler = skillBuilder
 		IntentReflectorHandler)
 	.addRequestInterceptors(myRequestInterceptor)
 	.addResponseInterceptors(myResponseInterceptor)
-// 	.addResponseInterceptors(ResponseRecordSpeechOutputInterceptor)
+	.addResponseInterceptors(ResponseRecordSpeechOutputInterceptor)
 	.addErrorHandlers(ErrorHandler)
   .withApiClient(new Alexa.DefaultApiClient())
   .lambda();
