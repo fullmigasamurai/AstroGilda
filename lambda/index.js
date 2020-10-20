@@ -27,7 +27,7 @@ const LaunchRequestHandler = {
     
     try {
         
-        // const upsServiceClient = serviceClientFactory.getUpsServiceClient();
+        const upsServiceClient = serviceClientFactory.getUpsServiceClient();
         // profileName = await upsServiceClient.getProfileGivenName();
         profileName = ";;";
         console.log("Nome: " + profileName);
