@@ -25,13 +25,13 @@ const LaunchRequestHandler = {
 		
 		let speakOutput = locale ==='en-US' ? "Hellow,  i am " : "olá, eu sou ";
 
-  		
-        let tt = "teste espaco";
-        console.log("^^^^ dialogs: teste " + JSON.stringify(dialogs[tt]));
-        console.log("^^^^ dialogs: teste " + JSON.stringify(dialogs["quem é o mestre"]));
-        console.log("^^^^ dialogs: teste " + JSON.stringify(dialogs["quem é o mestre"]["resposta"]));
-        
-        
+		
+		// let tt = "teste espaco";
+		// console.log("^^^^ dialogs: teste " + JSON.stringify(dialogs[tt]));
+		// console.log("^^^^ dialogs: teste " + JSON.stringify(dialogs["quem é o mestre"]));
+		// console.log("^^^^ dialogs: teste " + JSON.stringify(dialogs["quem é o mestre"]["resposta"]));
+		
+		
 
 
 		
@@ -92,8 +92,9 @@ const AstroGildaResponde =  {
 			sessionAttributes.YouCalled = true;
 					
 			slotStatus = JSON.stringify(dialogs[resolvedSlot]["resposta"]);
+			 console.log("~~~~ SlotStatus " + slotStatus);
 
-			if (!slotStatus)
+			if (slotStatus === "undefined")
 				slotStatus = 'O Que? fale novamente. Não entendi'  + resolvedSlot;
 			
 		} else {
@@ -110,7 +111,7 @@ const AstroGildaResponde =  {
 		}
 
 		if( (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') ||  (!slotValues.AstroGildaPertguntaValor.heardAs) ) {
-		    slotStatus += 'A few valid values are, ' + sayArray(getExampleSlotValues('AstroGildaResponde','AstroGildaPertguntaValor'), 'or');
+			slotStatus += 'A few valid values are, ' + sayArray(getExampleSlotValues('AstroGildaResponde','AstroGildaPertguntaValor'), 'or');
 		}
 
 		say += slotStatus;
@@ -193,22 +194,22 @@ function stripSpeak(str) {
 } 
 
 const getUserId = (handlerInput) => {
-    try {
-        return handlerInput.requestEnvelope.context.System.user.userId;
-    } catch (error) {
-        console.log('Error occurred while getting user id:', error);
-        throw error;
-    }
+	try {
+		return handlerInput.requestEnvelope.context.System.user.userId;
+	} catch (error) {
+		console.log('Error occurred while getting user id:', error);
+		throw error;
+	}
 };
 
 const getPerson = (handlerInput) => {
-    return handlerInput.requestEnvelope.context.System.person;
+	return handlerInput.requestEnvelope.context.System.person;
 }
 const getPersonId = (handlerInput) => {
-    const person = getPerson(handlerInput);
-    if (person) {
-        return person.personId;
-    }
+	const person = getPerson(handlerInput);
+	if (person) {
+		return person.personId;
+	}
 }
 
 function toPtBR (str) {
@@ -258,74 +259,74 @@ function getSlotValues(filledSlots) {
 } 
 
 function getExampleSlotValues(intentName, slotName) { 
- 
-    let examples = []; 
-    let slotType = ''; 
-    let slotValuesFull = []; 
- 
-    let intents = model.interactionModel.languageModel.intents; 
-    for (let i = 0; i < intents.length; i++) { 
-        if (intents[i].name === intentName) { 
-            let slots = intents[i].slots; 
-            for (let j = 0; j < slots.length; j++) { 
-                if (slots[j].name === slotName) { 
-                    slotType = slots[j].type; 
- 
-                } 
-            } 
-        } 
- 
-    } 
-    let types = model.interactionModel.languageModel.types; 
-    for (let i = 0; i < types.length; i++) { 
-        if (types[i].name === slotType) { 
-            slotValuesFull = types[i].values; 
-        } 
-    } 
-    
-    slotValuesFull = shuffleArray(slotValuesFull); 
- 
-    examples.push(slotValuesFull[0].name.value); 
-    examples.push(slotValuesFull[1].name.value); 
-    if (slotValuesFull.length > 2) { 
-        examples.push(slotValuesFull[2].name.value); 
-    } 
- 
- 
-    return examples; 
+
+	let examples = []; 
+	let slotType = ''; 
+	let slotValuesFull = []; 
+
+	let intents = model.interactionModel.languageModel.intents; 
+	for (let i = 0; i < intents.length; i++) { 
+		if (intents[i].name === intentName) { 
+			let slots = intents[i].slots; 
+			for (let j = 0; j < slots.length; j++) { 
+				if (slots[j].name === slotName) { 
+					slotType = slots[j].type; 
+
+				} 
+			} 
+		} 
+
+	} 
+	let types = model.interactionModel.languageModel.types; 
+	for (let i = 0; i < types.length; i++) { 
+		if (types[i].name === slotType) { 
+			slotValuesFull = types[i].values; 
+		} 
+	} 
+	
+	slotValuesFull = shuffleArray(slotValuesFull); 
+
+	examples.push(slotValuesFull[0].name.value); 
+	examples.push(slotValuesFull[1].name.value); 
+	if (slotValuesFull.length > 2) { 
+		examples.push(slotValuesFull[2].name.value); 
+	} 
+
+
+	return examples; 
 } 
- 
+
 function sayArray(myData, penultimateWord = 'and') { 
-    let result = ''; 
- 
-    myData.forEach(function(element, index, arr) { 
- 
-        if (index === 0) { 
-            result = element; 
-        } else if (index === myData.length - 1) { 
-            result += ` ${penultimateWord} ${element}`; 
-        } else { 
-            result += `, ${element}`; 
-        } 
-    }); 
-    return result; 
+	let result = ''; 
+
+	myData.forEach(function(element, index, arr) { 
+
+		if (index === 0) { 
+			result = element; 
+		} else if (index === myData.length - 1) { 
+			result += ` ${penultimateWord} ${element}`; 
+		} else { 
+			result += `, ${element}`; 
+		} 
+	}); 
+	return result; 
 } 
 
 function shuffleArray(array) {  // Fisher Yates shuffle! 
- 
-    let currentIndex = array.length, temporaryValue, randomIndex; 
- 
-    while (0 !== currentIndex) { 
- 
-        randomIndex = Math.floor(Math.random() * currentIndex); 
-        currentIndex -= 1; 
- 
-        temporaryValue = array[currentIndex]; 
-        array[currentIndex] = array[randomIndex]; 
-        array[randomIndex] = temporaryValue; 
-    } 
- 
-    return array; 
+
+	let currentIndex = array.length, temporaryValue, randomIndex; 
+
+	while (0 !== currentIndex) { 
+
+		randomIndex = Math.floor(Math.random() * currentIndex); 
+		currentIndex -= 1; 
+
+		temporaryValue = array[currentIndex]; 
+		array[currentIndex] = array[randomIndex]; 
+		array[randomIndex] = temporaryValue; 
+	} 
+
+	return array; 
 } 
 
 
@@ -444,33 +445,33 @@ const myResponseInterceptor = {
 }
 
 const ResponseRecordSpeechOutputInterceptor = { 
-    process(handlerInput, responseOutput) { 
+	process(handlerInput, responseOutput) { 
 
-        if (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' || Alexa.getRequestType(handlerInput.requestEnvelope) === 'SessionEndedRequest'
-           && (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.CancelIntent'
+		if (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' || Alexa.getRequestType(handlerInput.requestEnvelope) === 'SessionEndedRequest'
+		&& (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.CancelIntent'
 				|| Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent') ) {
-	        
-	        console.log(`~~~~ Session ended OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope)}`);
-	        
+			
+			console.log(`~~~~ Session ended OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope)}`);
+			
 		} else {
- 
-            let sessionAttributes = handlerInput.attributesManager.getSessionAttributes(); 
-            let lastSpeechOutput = { 
-                "outputSpeech":responseOutput.outputSpeech.ssml, 
-                "reprompt":responseOutput.reprompt.outputSpeech.ssml 
-            }; 
-    		
-    		console.log(`~~~~ responseOutput ${JSON.stringify(responseOutput)}`);
-    		console.log(`~~~~ OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope.request)}`);
-    		console.log(`~~~~ OutPut.Request.locale ${JSON.stringify(handlerInput.requestEnvelope.request.locale)}`);
-    		console.log(`~~~~ let locale ${locale}`);
-    
-            sessionAttributes['lastSpeechOutput'] = lastSpeechOutput; 
-     
-            handlerInput.attributesManager.setSessionAttributes(sessionAttributes); 
+
+			let sessionAttributes = handlerInput.attributesManager.getSessionAttributes(); 
+			let lastSpeechOutput = { 
+				"outputSpeech":responseOutput.outputSpeech.ssml, 
+				"reprompt":responseOutput.reprompt.outputSpeech.ssml 
+			}; 
+			
+			console.log(`~~~~ responseOutput ${JSON.stringify(responseOutput)}`);
+			console.log(`~~~~ OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope.request)}`);
+			console.log(`~~~~ OutPut.Request.locale ${JSON.stringify(handlerInput.requestEnvelope.request.locale)}`);
+			console.log(`~~~~ let locale ${locale}`);
+	
+			sessionAttributes['lastSpeechOutput'] = lastSpeechOutput; 
+	
+			handlerInput.attributesManager.setSessionAttributes(sessionAttributes); 
 		}
- 
-    } 
+
+	} 
 }; 
 
 /**
@@ -503,129 +504,129 @@ exports.handler = Alexa.SkillBuilders.custom()
 
 	const model = {
 		"interactionModel": {
-		  "languageModel": {
+		"languageModel": {
 			"invocationName": "astro gilda",
 			"intents": [
-			  {
+			{
 				"name": "AMAZON.CancelIntent",
 				"samples": []
-			  },
-			  {
+			},
+			{
 				"name": "AMAZON.HelpIntent",
 				"samples": []
-			  },
-			  {
+			},
+			{
 				"name": "AMAZON.StopIntent",
 				"samples": []
-			  },
-			  {
+			},
+			{
 				"name": "ChameAstrogilda",
 				"slots": [],
 				"samples": [
-				  "hello",
-				  "hi",
-				  "hello astro gilda",
-				  "astro gilda",
-				  "hi astro gilda"
+				"hello",
+				"hi",
+				"hello astro gilda",
+				"astro gilda",
+				"hi astro gilda"
 				]
-			  },
-			  {
+			},
+			{
 				"name": "AMAZON.NavigateHomeIntent",
 				"samples": []
-			  },
-			  {
+			},
+			{
 				"name": "AstroGildaResponde",
 				"slots": [
-				  {
+				{
 					"name": "AstroGildaPertguntaValor",
 					"type": "AstroGildaPerguntaValor"
-				  }
+				}
 				],
 				"samples": [
-				  "{AstroGildaPertguntaValor}",
-				  "Grande Oraculo {AstroGildaPertguntaValor}",
-				  "Astro Gilda {AstroGildaPertguntaValor}",
-				  "Responda {AstroGildaPertguntaValor}"
+				"{AstroGildaPertguntaValor}",
+				"Grande Oraculo {AstroGildaPertguntaValor}",
+				"Astro Gilda {AstroGildaPertguntaValor}",
+				"Responda {AstroGildaPertguntaValor}"
 				]
-			  },
-			  {
+			},
+			{
 				"name": "QuemEsTu",
 				"slots": [],
 				"samples": [
-				  "astro who",
-				  "are you real"
+				"astro who",
+				"are you real"
 				]
-			  },
-			  {
+			},
+			{
 				"name": "AMAZON.YesIntent",
 				"samples": []
-			  },
-			  {
+			},
+			{
 				"name": "AMAZON.NoIntent",
 				"samples": []
-			  },
-			  {
+			},
+			{
 				"name": "LaunchRequest"
-			  }
+			}
 			],
 			"types": [
-			  {
+			{
 				"name": "AstroGildaPerguntaValor",
 				"values": [
-				  {
+				{
 					"name": {
-					  "value": "tell me about the master"
+					"value": "tell me about the master"
 					}
-				  },
-				  {
+				},
+				{
 					"name": {
-					  "value": "who is the master"
+					"value": "who is the master"
 					}
-				  },
-				  {
+				},
+				{
 					"name": {
-					  "value": "who are you"
+					"value": "who are you"
 					}
-				  },
-				  {
+				},
+				{
 					"name": {
-					  "value": "who is astro gilda"
+					"value": "who is astro gilda"
 					}
-				  },
-				  {
+				},
+				{
 					"name": {
-					  "value": "who is astrogilda"
+					"value": "who is astrogilda"
 					}
-				  },
-				  {
+				},
+				{
 					"name": {
-					  "value": "tell me something"
+					"value": "tell me something"
 					}
-				  },
-				  {
+				},
+				{
 					"name": {
-					  "value": "me diga alguma coisa"
+					"value": "me diga alguma coisa"
 					}
-				  },
-				  {
+				},
+				{
 					"name": {
-					  "value": "quem é o mestre"
+					"value": "quem é o mestre"
 					}
-				  },
-				  {
+				},
+				{
 					"name": {
-					  "value": "me fale sobre o mestre"
+					"value": "me fale sobre o mestre"
 					}
-				  },
-				  {
+				},
+				{
 					"name": {
-					  "value": "o que é voce"
+					"value": "o que é voce"
 					}
-				  }
+				}
 				]
-			  }
+			}
 			]
-		  }
 		}
-	  };
-	  
+		}
+	};
+	
