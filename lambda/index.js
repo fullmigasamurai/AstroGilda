@@ -84,7 +84,7 @@ const ChameAstrogilda = {
             const speechResponse = `Your name is,`;
 
 		return handlerInput.responseBuilder
-			.speak(speakOutput)
+			.speak(speechResponse)
 			.reprompt('Me diga. O que você quer. em?')
 			.getResponse();
         } catch (error) {
