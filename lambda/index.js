@@ -54,18 +54,41 @@ const ChameAstrogilda = {
 		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
 			&& Alexa.getIntentName(handlerInput.requestEnvelope) === 'ChameAstrogilda';
 	},
-	handle(handlerInput) {
-		const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
+	async handle(handlerInput) {
+    const { serviceClientFactory, responseBuilder } = handlerInput;
+    try {
+      const upsServiceClient = serviceClientFactory.getUpsServiceClient();
+      const profileName = await upsServiceClient.getProfileName();
+      const speechResponse = `Your name is, ${profileName}`;
+      return responseBuilder
+                      .speak(speechResponse)
+                      .withSimpleCard(speechResponse)
+                      .getResponse();
+    } catch (error) {
+      console.log(JSON.stringify(error));
+      if (error.statusCode === 403) {
+        return responseBuilder
+        .speak("faltando permissoes")
+        .withAskForPermissionsConsentCard([FULL_NAME_PERMISSION])
+        .getResponse();
+      }
+      console.log(JSON.stringify(error));
+      const response = responseBuilder.speak("messages.ERROR").getResponse();
+      return response;
+    }
+  },
+// 	handle(handlerInput) {
+// 		const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
 
-		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-		sessionAttributes.YouCalled = true;
+// 		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+// 		sessionAttributes.YouCalled = true;
 
 
-		return handlerInput.responseBuilder
-			.speak(speakOutput)
-			.reprompt('Me diga. O que você quer. em?')
-			.getResponse();
-	}
+// 		return handlerInput.responseBuilder
+// 			.speak(speakOutput)
+// 			.reprompt('Me diga. O que você quer. em?')
+// 			.getResponse();
+// 	}
 };
 
 const AstroGildaResponde =  {
