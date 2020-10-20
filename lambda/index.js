@@ -30,21 +30,9 @@ const LaunchRequestHandler = {
 	async handle(handlerInput) {
 		console.log("_________________________________________________________")
 		
-    	async function getName() {
-            const { serviceClientFactory, responseBuilder } = handlerInput;
-            try {
-                const upsServiceClient = serviceClientFactory.getUpsServiceClient();
-                const profileName = await upsServiceClient.getProfileName();
-                const speechResponse = `Your name is, ${profileName}`;
-                console.log("~~~~ prfile name" + profileName);
-                return profileName
-            } catch (error) {
-                console.log(JSON.stringify(error));
-            }
-        }
-        
+    	
         myName = await getName();
-		console.log("~~~~ myName" + myName);
+
 		locale = handlerInput.requestEnvelope.request.locale;
         let speakOutput = locale ==='en-US' ? "Hellow, "+myName+"  i am " : "olá, "+myName+" eu sou ";
 		
@@ -56,6 +44,18 @@ const LaunchRequestHandler = {
 			.getResponse();
 	}
 };
+
+async function getName(handlerInput) {
+            const { serviceClientFactory, responseBuilder } = handlerInput;
+            try {
+                const upsServiceClient = serviceClientFactory.getUpsServiceClient();
+                const profileName = await upsServiceClient.getProfileName();
+                const speechResponse = `Your name is, ${profileName}`;
+                return profileName
+            } catch (error) {
+                console.log(JSON.stringify(error));
+            }
+        }
 
 const ChameAstrogilda = {
 	canHandle(handlerInput) {
