@@ -4,11 +4,11 @@
 		"reprompt": "reprompt"
 	},
 	"me fale sobre o mestre" : {
-		"resposta": "O Mestre? <amazon:effect name=\"whispered\"> desculpe, não posso comentar </amazon:effect>.",
+		"resposta": "O Mestre? <amazon:effect name='whispered'> desculpe, não posso comentar </amazon:effect>.",
 		"reprompt": "reprompt"
 	},
 	"quem é astro gilda" : {
-		"resposta": "Eu sou a boa, a má e a <break time=\"100ms\"/> Feia.",
+		"resposta": "Eu sou a boa, a má e a <break time='100ms'/> Feia.",
 		"reprompt": "reprompt"
 	},
 	 "quem é polyana": {
@@ -16,15 +16,15 @@
 		"reprompt": "reprompt"
 	},
 	 "quem é juliana": {
-		"resposta": "Juliana odeia o calor. E gosta do clima quente. <break time='150ms'/>  Ela é uma pessoa esperta.",
+		"resposta": "Juliana odeia o calor; E gosta do clima quente. <break time='150ms'/>  Ela é uma pessoa esperta.",
 		"reprompt": "reprompt"
 	},
 	 "quem é shaiana": {
-		"resposta": "'Oh, Chayana, o que eu poderia dizer. só pensa em crossfit: <break time=\"500ms\"/> crossfit isso. crossfit aquilo <break time=\"1000ms\"/> mas ela é fã de star wars, etão ela é legal.",
+		"resposta": "'Oh, Chayana, o que eu poderia dizer. só pensa em crossfit: <break time='500ms'/> crossfit isso. crossfit aquilo <break time='1000ms'/> mas ela é fã de star wars, etão ela é legal.",
 		"reprompt": "reprompt"
 	},
 	 "quem é beca": {
-		"resposta": "Bom: A Beca é a mais fofa, <break time=\"250ms\"/> mas ninguém merece ficar perto dela de manhã... Afinal que tipo de pessoa acorda cantando? <break time=\"500ms\"/> A Beca, aparentemente. Mas apesar de tudo... ela é legal, Quero dar um abraço de urso nela.",
+		"resposta": "Bom: A Beca é a mais fofa, <break time='250ms'/> mas ninguém merece ficar perto dela de manhã... Afinal que tipo de pessoa acorda cantando? <break time='500ms'/> A Beca, aparentemente. Mas apesar de tudo... ela é legal, Quero dar um abraço de urso nela.",
 		"reprompt": "reprompt"
 	},
 	 "quem é roxy": {
@@ -52,7 +52,7 @@
 		"reprompt": "reprompt"
 	},
 	 "me diga alguma coisa": {
-		"resposta": "E se eu não disser, vais fazer o que? <break time=\"250ms\"/> Ora pois!",
+		"resposta": "E se eu não disser, vais fazer o que? <break time='250ms'/> Ora pois!",
 		"reprompt": "reprompt"
 	},
 	 "o que é voce" : {
