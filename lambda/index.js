@@ -15,7 +15,7 @@ const FULL_NAME_PERMISSION = "alexa::profile:name:read";
 const EMAIL_PERMISSION = "alexa::profile:email:read";
 const MOBILE_PERMISSION = "alexa::profile:mobile_number:read";
 
-const astroGilda = '<lang xml:lang="pt-BR"> Astro Gilda </lang>'
+const astroGilda = '<lang xml:lang="pt-BR">Astro Gilda</lang>'
 const leaveMessage = 'Okay, Adeus. Estou indo, <break></break> <amazon:effect name="whispered"> não deixe as luzes acesas <break time="100ms"/>  quando sair </amazon:effect>'
 let locale='en-US'
 let dialogs = require('./dialog.json');
@@ -40,7 +40,7 @@ const LaunchRequestHandler = {
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
-			.reprompt(speakOutput + 'U Need me?')
+			.reprompt(speakOutput + ' U Need me?')
 			.getResponse();
 	}
 };
@@ -518,7 +518,7 @@ exports.handler = skillBuilder
 		IntentReflectorHandler)
 	.addRequestInterceptors(myRequestInterceptor)
 	.addResponseInterceptors(myResponseInterceptor)
-	.addResponseInterceptors(ResponseRecordSpeechOutputInterceptor)
+// 	.addResponseInterceptors(ResponseRecordSpeechOutputInterceptor)
 	.addErrorHandlers(ErrorHandler)
   .withApiClient(new Alexa.DefaultApiClient())
   .lambda();
