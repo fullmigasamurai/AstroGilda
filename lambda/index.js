@@ -99,7 +99,7 @@ const AstroGildaResponde =  {
 		}
 
 		if( (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') ||  (!slotValues.AstroGildaPertguntaValor.heardAs) ) {
-			slotStatus += 'alguns valores são, ' + sayArray(getExampleSlotValues('AstroGildaResponde','AstroGildaPertguntaValor'), 'ou');
+			slotStatus += 'tipo, ' + sayArray(getExampleSlotValues('AstroGildaResponde','AstroGildaPertguntaValor'), 'ou');
 		}
 
 		say += slotStatus;
@@ -324,7 +324,7 @@ const HelpIntentHandler = {
 			&& Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.HelpIntent';
 	},
 	handle(handlerInput) {
-		const speakOutput = 'You can say hello to me! How can I help?';
+		const speakOutput = 'Sai perguntando ai manolo?';
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
@@ -561,56 +561,96 @@ exports.handler = Alexa.SkillBuilders.custom()
 			{
 				"name": "AstroGildaPerguntaValor",
 				"values": [
-				{
-					"name": {
-					"value": "tell me about the master"
+					{
+						"name": {
+							"value": "me fale sobre o mestre"
+						}
+					},
+					{
+						"name": {
+							"value": "quem é o mestre"
+						}
+					},
+					{
+						"name": {
+							"value": "quem é astro gilda"
+						}
+					},
+					{
+						"name": {
+							"value": "quem é pollyanna"
+						}
+					},
+					{
+						"name": {
+							"value": "quem é polyana"
+						}
+					},
+					{
+						"name": {
+							"value": "quem é juliana"
+						}
+					},
+					{
+						"name": {
+							"value": "quem é shaiana"
+						}
+					},
+					{
+						"name": {
+							"value": "quem é beca"
+						}
+					},
+					{
+						"name": {
+							"value": "quem é roxy"
+						}
+					},
+					{
+						"name": {
+							"value": "quem é porta"
+						}
+					},
+					{
+						"name": {
+							"value": "quem é vitinho"
+						}
+					},
+					{
+						"name": {
+							"value": "quem é astrogilda"
+						}
+					},
+					{
+						"name": {
+							"value": "me fale alguma coisa"
+						}
+					},
+					{
+						"name": {
+							"value": "me diga alguma coisa"
+						}
+					},
+					{
+						"name": {
+							"value": "quem é o mestre"
+						}
+					},
+					{
+						"name": {
+							"value": "me fale sobre o mestre"
+						}
+					},
+					{
+						"name": {
+							"value": "o que é voce"
+						}
+					},
+					{
+						"name": {
+							"value": "teste sem resposta"
+						}
 					}
-				},
-				{
-					"name": {
-					"value": "who is the master"
-					}
-				},
-				{
-					"name": {
-					"value": "who are you"
-					}
-				},
-				{
-					"name": {
-					"value": "who is astro gilda"
-					}
-				},
-				{
-					"name": {
-					"value": "who is astrogilda"
-					}
-				},
-				{
-					"name": {
-					"value": "tell me something"
-					}
-				},
-				{
-					"name": {
-					"value": "me diga alguma coisa"
-					}
-				},
-				{
-					"name": {
-					"value": "quem é o mestre"
-					}
-				},
-				{
-					"name": {
-					"value": "me fale sobre o mestre"
-					}
-				},
-				{
-					"name": {
-					"value": "o que é voce"
-					}
-				}
 				]
 			}
 			]
