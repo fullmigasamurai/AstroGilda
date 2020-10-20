@@ -14,38 +14,25 @@ let dialogs = require('./dialog.json');
 
 
 
-// const LaunchRequestHandler = {
-// 	canHandle(handlerInput) {
-// 		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
-// 	},
-// 	handle(handlerInput) {
-
-// // 		locale = handlerInput.requestEnvelope.request.locale;
-//         // console.log("^^^^ localizacao:" + locale)
-		
-// // 		let speakOutput = locale === 'en-US' ? "Hellow,  i am " : "olá, eu sou ";
-// 		let speakOutput = "olá, eu sou ";
-		
-// 		speakOutput += astroGilda;
-
-// 		return handlerInput.responseBuilder
-// 			.speak(speakOutput)
-// 			.reprompt(speakOutput + 'Você precisa de mim?')
-// 			.getResponse();
-// 	}
-// };
 const LaunchRequestHandler = {
-    canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
-    },
-    handle(handlerInput) {
-        const speakOutput = 'Welcome, you can say Hello or Help. Which would you like to try?';
+	canHandle(handlerInput) {
+		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
+	},
+	handle(handlerInput) {
 
-        return handlerInput.responseBuilder
-            .speak(speakOutput)
-            .reprompt(speakOutput)
-            .getResponse();
-    }
+// 		locale = handlerInput.requestEnvelope.request.locale;
+        // console.log("^^^^ localizacao:" + locale)
+		
+// 		let speakOutput = locale === 'en-US' ? "Hellow,  i am " : "olá, eu sou ";
+		let speakOutput = "olá, eu sou ";
+		
+		speakOutput += astroGilda;
+
+		return handlerInput.responseBuilder
+			.speak(speakOutput)
+			.reprompt(speakOutput + 'Você precisa de mim?')
+			.getResponse();
+	}
 };
 
 const ChameAstrogilda = {
