@@ -459,7 +459,7 @@ const ResponseRecordSpeechOutputInterceptor = {
 			console.log(`~~~~ handlerInput ${JSON.stringify(handlerInput)}`);
 			console.log(`~~~~ handler responseBuilder.getresponse: ` + JSON.stringify(handlerInput.responseBuilder.getResponse()));
 // 			console.log(`~~~~ handler responseBuilder.getresponse: ` + JSON.stringify(handlerInput.responseBuilder.getPersonId()));
-// 			console.log(`~~~~ handler responseBuilder.getresponse: ` + JSON.stringify(handlerInput.responseBuilder.payloads));
+			console.log(`~~~~ handler responseBuilder.getresponse: ` + JSON.stringify(handlerInput.responseBuilder.payloads));
 // 			console.log(`~~~~ handler responseBuilder.getresponse: ` + JSON.stringify(handlerInput.responseBuilder.payloads()));
 			console.log(`~~~~ handler responseBuilder : ` + JSON.stringify(handlerInput.responseBuilder));
 			
