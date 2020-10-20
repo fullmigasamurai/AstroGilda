@@ -55,6 +55,14 @@
 		"resposta": "E se eu não disser, vais fazer o que? <break time='250ms'/> Ora pois!",
 		"reprompt": "reprompt"
 	},
+	 "grace kelly": {
+		"resposta": "Greice é minha maquiadora preferida! Ela arraza muito. Só tem um problema em reconhecer as divas do pop.",
+		"reprompt": "reprompt"
+	},
+	 "claudinha": {
+		"resposta": "Senhorita Claudênha sempre fica mandando fotos de comidas e bolos.",
+		"reprompt": "reprompt"
+	},
 	 "o que é voce" : {
 		"resposta": "Eu sou AstroGilda, respondendo suas perguntas... manda ver!",
 		"reprompt": "reprompt"
