@@ -22,28 +22,14 @@ const LaunchRequestHandler = {
 	},
 	async handle(handlerInput) {
  	locale = handlerInput.requestEnvelope.request.locale;
- 	const { serviceClientFactory, responseBuilder } = handlerInput;
-	let speakOutput = "nothing";
-	let profileName = ";"
+	let speakOutput = "";
     console.log("iniciando__________________________________________________________: ");
-    
-    try {
-        
-        const upsServiceClient = serviceClientFactory.getUpsServiceClient();
-        // profileName = await upsServiceClient.getProfileGivenName();
-        profileName = ";;";
-        console.log("Nome: " + profileName);
-    //     const speechResponse = `Your name is, ${profileName}`;
-    //     speakOutput = locale === 'en-US' ? "Hellow," + profileName + "i am " : "olá, " + profileName + " eu sou ";
-	   // speakOutput += astroGilda;
-      
-    } catch (error) {
+
 		
-		
-		speakOutput = locale === 'en-US' ? "Hellow," + profileName + "i am " : "olá, " + profileName + " eu sou ";
+		speakOutput = locale === 'en-US' ? "Hellow, i am " : "olá, eu sou ";
 		speakOutput += astroGilda;
 
-    }
+    
     return handlerInput.responseBuilder
 			.speak(speakOutput)
 			.reprompt(speakOutput + 'Você precisa de mim?')
