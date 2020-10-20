@@ -81,9 +81,7 @@ const ChameAstrogilda = {
             // const upsServiceClient = serviceClientFactory.getUpsServiceClient();
             // const profileName = await upsServiceClient.getProfileName();
             // const speechResponse = `Your name is, ${profileName}`;
-            const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
-		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-		sessionAttributes.YouCalled = true;
+            const speechResponse = `Your name is,`;
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
