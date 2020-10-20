@@ -45,10 +45,10 @@ const ChameAstrogilda = {
     //   const profileName = await upsServiceClient.getProfileName();
     //   const speechResponse = `Your name is, ${profileName}`;
       const speechResponse = `Your name is,`;
-      return responseBuilder
-                      .speak(speechResponse)
-                      .withSimpleCard(speechResponse)
-                      .getResponse();
+      return handlerInput.responseBuilder
+			.speak(speechResponse)
+			.reprompt('Me diga. O que você quer. em?')
+			.getResponse();
     } catch (error) {
       console.log("****** error" + JSON.stringify(error));
     }
