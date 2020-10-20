@@ -457,7 +457,6 @@ const ResponseRecordSpeechOutputInterceptor = {
 			console.log(`~~~~ RequestEnvelope ${JSON.stringify(handlerInput.requestEnvelope)}`);
 			console.log(`~~~~ RequestEnvelope.Request ${JSON.stringify(handlerInput.requestEnvelope.request)}`);
 			console.log(`~~~~ handlerInput ${JSON.stringify(handlerInput)}`);
-			console.log(`~~~~ handlerInputno string ${handlerInput}`);
 			console.log(`~~~~ handler response.getresponse: ` + JSON.stringify(handlerInput.responseBuilder.getResponse()));
 			
 	
