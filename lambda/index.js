@@ -70,7 +70,7 @@ const ChameAstrogilda = {
 	}
 };
 
-function getNAME(apiaccessToken, callback) {
+function getName(apiaccessToken, callback) {
   headers = {
     Authorization: 'Bearer ' + apiaccessToken,
     'content-type': 'application/json'
