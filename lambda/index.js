@@ -101,14 +101,14 @@ const AstroGildaResponde =  {
 		console.log("~~~~ slotValues.AstroGildaPertguntaValor.ERstatus " + slotValues.AstroGildaPertguntaValor.ERstatus);
 		console.log("~~~~ slotValues.AstroGildaPertguntaValor.heardAs " + slotValues.AstroGildaPertguntaValor.heardAs);
 
-		// if (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') {
-		// 	slotStatus = "Desculpe, não sei sobre isso. tente perguntar outra coisa. <break time=\"150ms\"/> ";
-		// 	console.log('***** consider adding "' + slotValues.AstroGildaPertguntaValor.heardAs + '" to the custom slot type used by slot AstroGildaPertguntaValor! '); 
-		// }
+		if (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') {
+			slotStatus = "Desculpe, não sei sobre isso. tente perguntar outra coisa. <break time=\"150ms\"/> ";
+			console.log('***** consider adding "' + slotValues.AstroGildaPertguntaValor.heardAs + '" to the custom slot type used by slot AstroGildaPertguntaValor! '); 
+		}
 
-		// if( (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') ||  (!slotValues.AstroGildaPertguntaValor.heardAs) ) {
-		// 	slotStatus += 'tipo, ' + sayArray(getExampleSlotValues('AstroGildaResponde','AstroGildaPertguntaValor'), 'ou');
-		// }
+		if( (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') ||  (!slotValues.AstroGildaPertguntaValor.heardAs) ) {
+			slotStatus += 'tipo, ' + sayArray(getExampleSlotValues('AstroGildaResponde','AstroGildaPertguntaValor'), 'ou');
+		}
 
 		say += slotStatus;
 
@@ -366,7 +366,7 @@ const FallbackIntentHandler = {
 			&& Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.FallbackIntent';
 	},
 	handle(handlerInput) {
-		const speakOutput = 'Sorry, Didn\'t quiet get that, say it again? pleease';
+		const speakOutput = 'Desculpe, Não entendi direito, pode repetir? por favor';
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
@@ -436,15 +436,15 @@ const myRequestInterceptor = {
 
 const myResponseInterceptor = {
 	process(handlerInput) {
-		console.log(`~~~~ Response Interceptor`);
+		// console.log(`~~~~ Response Interceptor`);
 	}
 }
 
 const ResponseRecordSpeechOutputInterceptor = { 
 	process(handlerInput, responseOutput) { 
 
-		if (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' || Alexa.getRequestType(handlerInput.requestEnvelope) === 'SessionEndedRequest'
-		&& (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.CancelIntent'
+		if (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' && Alexa.getRequestType(handlerInput.requestEnvelope) === 'SessionEndedRequest'
+		|| (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.CancelIntent'
 				|| Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent') ) {
 			
 			console.log(`~~~~ Session ended OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope)}`);

@@ -23,8 +23,9 @@
                     "slots": [],
                     "samples": [
                         "hello",
+                        "olá",
                         "hi",
-                        "hello astro gilda",
+                        "olá astro gilda",
                         "astro gilda",
                         "hi astro gilda"
                     ]
@@ -61,8 +62,8 @@
                     "name": "QuemEsTu",
                     "slots": [],
                     "samples": [
-                        "astro who",
-                        "are you real"
+                        "astro quem",
+                        "você é real"
                     ]
                 },
                 {
@@ -101,11 +102,6 @@
                         {
                             "name": {
                                 "value": "teste sem resposta"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "quem é o grande guardião"
                             }
                         }
                     ]
