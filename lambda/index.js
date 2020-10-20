@@ -43,7 +43,9 @@ const LaunchRequestHandler = {
         console.log("^^^^ dialogs: types " + JSON.stringify(objectValue['types']));
         console.log("^^^^ dialogs: types " + JSON.stringify(dialogs['types']));
         console.log("^^^^ dialogs: teste " + JSON.stringify(objectValue[tt]));
-        console.log("^^^^ dialogs: teste " + JSON.stringify(objectValue[tt]));
+        console.log("^^^^ dialogs: teste " + JSON.stringify(objectValue[tt]["valor com espaço"]));
+        console.log("^^^^ dialogs: teste " + JSON.stringify(objectValue[tt]["valor com espaco"]));
+        console.log("^^^^ dialogs: teste " + JSON.stringify(objectValue[tt]["é muita treta vish"]));
         console.log("^^^^ dialogs: sunday " + JSON.stringify(objectValue['sunday']));
         console.log("^^^^ dialogs: sunday teste " + JSON.stringify(objectValue['sunday']['teste']));
         
