@@ -38,9 +38,21 @@ const ChameAstrogilda = {
 			&& Alexa.getIntentName(handlerInput.requestEnvelope) === 'ChameAstrogilda';
 	},
 	
-	handle(handlerInput) {
+	async handle(handlerInput) {
+	  const { serviceClientFactory, responseBuilder } = handlerInput;
+	  try {
+      const upsServiceClient = serviceClientFactory.getUpsServiceClient();
+      const profileName = await upsServiceClient.getProfileName();
+      const speechResponse = `Your name is, ${profileName}`;
+      return responseBuilder
+                      .speak(speechResponse)
+                      .withSimpleCard(speechResponse)
+                      .getResponse();
+    } catch (error) {
+      console.log(JSON.stringify(error));
+    }
+	    
 		const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
-
 		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 		sessionAttributes.YouCalled = true;
 
