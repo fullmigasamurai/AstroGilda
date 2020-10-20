@@ -25,6 +25,19 @@
     		"cost" : 21.99
     	}
     },
+	"teste espaco" : {
+    		"pizza" : {
+    		"size": "extra large", 
+    		"crust": "deep dish",
+    		"cheese" : "normal", 
+    		"toppingsList" : ["ham", "pepperoni", "sausage", "black olives"]
+    		},
+    		"salad" : "large house salad",
+    		"drinks" : "2 liter coke",
+    		"side" : "cheesy garlic bread",
+    		"dessert" : "two homemade chocolate fudge cookies",
+    		"cost" : 21.99
+	},
     "types": [  
       {
     	"name": "AstroGildaPerguntaValor",
