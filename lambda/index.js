@@ -50,7 +50,6 @@ const LaunchRequestHandler = {
             try {
                 const upsServiceClient = serviceClientFactory.getUpsServiceClient();
                 const profileName = await upsServiceClient.getProfileName();
-                const speechResponse = `Your name is, ${profileName}`;
                 return profileName
             } catch (error) {
                 console.log(JSON.stringify(error));
@@ -63,20 +62,8 @@ const ChameAstrogilda = {
 			&& Alexa.getIntentName(handlerInput.requestEnvelope) === 'ChameAstrogilda';
 	},
 	
-	async handle(handlerInput) {
-	  const { serviceClientFactory, responseBuilder } = handlerInput;
-	  try {
-      const upsServiceClient = serviceClientFactory.getUpsServiceClient();
-    //   const profileName = await upsServiceClient.getProfileName();
-    //   const speechResponse = `Your name is, ${profileName}`;
-      const speechResponse = `Your name is,`;
-      return handlerInput.responseBuilder
-			.speak(speechResponse)
-			.reprompt('Me diga. O que você quer. em?')
-			.getResponse();
-    } catch (error) {
-      console.log("****** error" + JSON.stringify(error));
-    }
+	handle(handlerInput) {
+	  
 	    
 		const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
 		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
@@ -542,169 +529,184 @@ exports.handler = skillBuilder
 
 	const model = {
 		"interactionModel": {
-		"languageModel": {
-			"invocationName": "astro gilda",
-			"intents": [
-			{
-				"name": "AMAZON.CancelIntent",
-				"samples": []
-			},
-			{
-				"name": "AMAZON.HelpIntent",
-				"samples": []
-			},
-			{
-				"name": "AMAZON.StopIntent",
-				"samples": []
-			},
-			{
-				"name": "ChameAstrogilda",
-				"slots": [],
-				"samples": [
-				"hello",
-				"hi",
-				"hello astro gilda",
-				"astro gilda",
-				"hi astro gilda"
-				]
-			},
-			{
-				"name": "AMAZON.NavigateHomeIntent",
-				"samples": []
-			},
-			{
-				"name": "AstroGildaResponde",
-				"slots": [
-				{
-					"name": "AstroGildaPertguntaValor",
-					"type": "AstroGildaPerguntaValor"
-				}
+			"languageModel": {
+				"invocationName": "astro gilda",
+				"intents": [
+					{
+						"name": "AMAZON.CancelIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.HelpIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.StopIntent",
+						"samples": [
+							"até logo e obrigada pelos peixes",
+							"okay bye"
+						]
+					},
+					{
+						"name": "ChameAstrogilda",
+						"slots": [],
+						"samples": [
+							"hello",
+							"olá",
+							"hi",
+							"olá astro gilda",
+							"astro gilda",
+							"hi astro gilda"
+						]
+					},
+					{
+						"name": "AMAZON.NavigateHomeIntent",
+						"samples": []
+					},
+					{
+						"name": "AstroGildaResponde",
+						"slots": [
+							{
+								"name": "AstroGildaPertguntaValor",
+								"type": "AstroGildaPerguntaValor"
+							},
+							{
+								"name": "PessoaNome",
+								"type": "PessoaNome"
+							}
+						],
+						"samples": [
+							"me fale sobre o {PessoaNome}",
+							"me fale sobre a {PessoaNome}",
+							"me fale sobre {PessoaNome}",
+							"quem é a {PessoaNome}",
+							"quem é o {PessoaNome}",
+							"quem é {PessoaNome}",
+							"{AstroGildaPertguntaValor}",
+							"Grande Oraculo {AstroGildaPertguntaValor}",
+							"Responda {AstroGildaPertguntaValor}"
+						]
+					},
+					{
+						"name": "QuemEsTu",
+						"slots": [],
+						"samples": [
+							"astro quem",
+							"você é real"
+						]
+					},
+					{
+						"name": "AMAZON.YesIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.NoIntent",
+						"samples": []
+					}
 				],
-				"samples": [
-				"{AstroGildaPertguntaValor}",
-				"Grande Oraculo {AstroGildaPertguntaValor}",
-				"Astro Gilda {AstroGildaPertguntaValor}",
-				"Responda {AstroGildaPertguntaValor}"
-				]
-			},
-			{
-				"name": "QuemEsTu",
-				"slots": [],
-				"samples": [
-				"astro who",
-				"are you real"
-				]
-			},
-			{
-				"name": "AMAZON.YesIntent",
-				"samples": []
-			},
-			{
-				"name": "AMAZON.NoIntent",
-				"samples": []
-			},
-			{
-				"name": "LaunchRequest"
-			}
-			],
-			"types": [
-			{
-				"name": "AstroGildaPerguntaValor",
-				"values": [
+				"types": [
 					{
-						"name": {
-							"value": "me fale sobre o mestre"
-						}
+						"name": "AstroGildaPerguntaValor",
+						"values": [
+							{
+								"name": {
+									"value": "me fale alguma coisa"
+								}
+							},
+							{
+								"name": {
+									"value": "me diga alguma coisa"
+								}
+							},
+							{
+								"name": {
+									"value": "me fale sobre o mestre"
+								}
+							},
+							{
+								"name": {
+									"value": "o que é você"
+								}
+							},
+							{
+								"name": {
+									"value": "teste sem resposta"
+								}
+							}
+						]
 					},
 					{
-						"name": {
-							"value": "quem é o mestre"
-						}
-					},
-					{
-						"name": {
-							"value": "quem é astro gilda"
-						}
-					},
-					{
-						"name": {
-							"value": "quem é pollyanna"
-						}
-					},
-					{
-						"name": {
-							"value": "quem é polyana"
-						}
-					},
-					{
-						"name": {
-							"value": "quem é juliana"
-						}
-					},
-					{
-						"name": {
-							"value": "quem é shaiana"
-						}
-					},
-					{
-						"name": {
-							"value": "quem é beca"
-						}
-					},
-					{
-						"name": {
-							"value": "quem é roxy"
-						}
-					},
-					{
-						"name": {
-							"value": "quem é porta"
-						}
-					},
-					{
-						"name": {
-							"value": "quem é vitinho"
-						}
-					},
-					{
-						"name": {
-							"value": "quem é astrogilda"
-						}
-					},
-					{
-						"name": {
-							"value": "me fale alguma coisa"
-						}
-					},
-					{
-						"name": {
-							"value": "me diga alguma coisa"
-						}
-					},
-					{
-						"name": {
-							"value": "quem é o mestre"
-						}
-					},
-					{
-						"name": {
-							"value": "me fale sobre o mestre"
-						}
-					},
-					{
-						"name": {
-							"value": "o que é voce"
-						}
-					},
-					{
-						"name": {
-							"value": "teste sem resposta"
-						}
+						"name": "PessoaNome",
+						"values": [
+							{
+								"name": {
+									"value": "shaiana"
+								}
+							},
+							{
+								"name": {
+									"value": "mestre"
+								}
+							},
+							{
+								"name": {
+									"value": "astrogilda"
+								}
+							},
+							{
+								"name": {
+									"value": "beca"
+								}
+							},
+							{
+								"name": {
+									"value": "grace kelly"
+								}
+							},
+							{
+								"name": {
+									"value": "claudinha"
+								}
+							},
+							{
+								"name": {
+									"value": "vitinho"
+								}
+							},
+							{
+								"name": {
+									"value": "grande guardião"
+								}
+							},
+							{
+								"name": {
+									"value": "grande guardiao"
+								}
+							},
+							{
+								"name": {
+									"value": "porta"
+								}
+							},
+							{
+								"name": {
+									"value": "roxy"
+								}
+							},
+							{
+								"name": {
+									"value": "juliana"
+								}
+							},
+							{
+								"name": {
+									"value": "polyana"
+								}
+							}
+						]
 					}
 				]
 			}
-			]
-		}
 		}
 	};
 	
