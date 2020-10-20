@@ -20,7 +20,7 @@ const LaunchRequestHandler = {
 	},
 	async handle(handlerInput) {
  	locale = handlerInput.requestEnvelope.request.locale;
-	let speakOutput = "";
+	let speakOutput = "nothing";
 	let profileName = ";"
     console.log("iniciando__________________________________________________________: ");
     
