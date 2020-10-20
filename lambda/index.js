@@ -455,7 +455,7 @@ exports.handler = Alexa.SkillBuilders.custom()
 		LaunchRequestHandler,
 		AstroGildaResponde,
 		QuemEsTu,
-// 		ChameAstrogilda,
+ 		ChameAstrogilda,
 		YesNoIntentHandler,
 		HelpIntentHandler,
 		CancelAndStopIntentHandler,
