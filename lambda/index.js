@@ -529,24 +529,19 @@ const skillBuilder = Alexa.SkillBuilders.custom();
 
 exports.handler = skillBuilder
   .addRequestHandlers(
-		LaunchRequestHandler,
-		GreetMeIntentHandler,
-		AstroGildaResponde,
-		QuemEsTu,
- 		ChameAstrogilda,
-		YesNoIntentHandler,
-		HelpIntentHandler,
-		CancelAndStopIntentHandler,
-		FallbackIntentHandler,
-		SessionEndedRequestHandler,
-		IntentReflectorHandler)
-	.addRequestInterceptors(myRequestInterceptor)
-	.addResponseInterceptors(myResponseInterceptor)
-	.addResponseInterceptors(ResponseRecordSpeechOutputInterceptor)
-	.addErrorHandlers(ErrorHandler)
+    LaunchRequestHandler,
+    GreetMeIntentHandler,
+    // EmailIntentHandler,
+    // MobileIntentHandler,
+    HelpIntentHandler,
+    CancelAndStopIntentHandler,
+    SessionEndedRequestHandler
+  )
+//   .addRequestInterceptors(RequestLog)
+//   .addResponseInterceptors(ResponseLog)
+  .addErrorHandlers(ErrorHandler)
   .withApiClient(new Alexa.DefaultApiClient())
   .lambda();
-
 
 
 
