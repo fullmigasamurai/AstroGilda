@@ -20,16 +20,16 @@ const LaunchRequestHandler = {
 	},
 	async handle(handlerInput) {
  	locale = handlerInput.requestEnvelope.request.locale;
-    const { serviceClientFactory, responseBuilder } = handlerInput;
 	let speakOutput = "";
     console.log("iniciando__________________________________________________________: ");
     try {
+        const { serviceClientFactory, responseBuilder } = handlerInput;
         const upsServiceClient = serviceClientFactory.getUpsServiceClient();
-        const profileName = await upsServiceClient.getProfileGivenName();
-        console.log("Nome: " + profileName);
-        const speechResponse = `Your name is, ${profileName}`;
-        speakOutput = locale === 'en-US' ? "Hellow," + profileName + "i am " : "olá, " + profileName + " eu sou ";
-	    speakOutput += astroGilda;
+    //     const profileName = await upsServiceClient.getProfileGivenName();
+    //     console.log("Nome: " + profileName);
+    //     const speechResponse = `Your name is, ${profileName}`;
+    //     speakOutput = locale === 'en-US' ? "Hellow," + profileName + "i am " : "olá, " + profileName + " eu sou ";
+	   // speakOutput += astroGilda;
       
     } catch (error) {
 		
