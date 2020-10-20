@@ -49,7 +49,7 @@ const ChameAstrogilda = {
                       .withSimpleCard(speechResponse)
                       .getResponse();
     } catch (error) {
-      console.log(JSON.stringify(error));
+      console.log("****** error" + JSON.stringify(error));
     }
 	    
 		const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
