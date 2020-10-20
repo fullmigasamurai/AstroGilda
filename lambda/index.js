@@ -540,7 +540,7 @@ exports.handler = skillBuilder
 		FallbackIntentHandler,
 		SessionEndedRequestHandler,
 		IntentReflectorHandler)
-// 	.addRequestInterceptors(myRequestInterceptor)
+	.addRequestInterceptors(myRequestInterceptor)
 // 	.addResponseInterceptors(myResponseInterceptor)
 // 	.addResponseInterceptors(ResponseRecordSpeechOutputInterceptor)
 	.addErrorHandlers(ErrorHandler)
