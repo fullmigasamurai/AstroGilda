@@ -21,18 +21,16 @@ const LaunchRequestHandler = {
 		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
 	},
 	handle(handlerInput) {
- 	locale = handlerInput.requestEnvelope.request.locale;
-	let speakOutput = "";
-    console.log("iniciando__________________________________________________________: ");
-
+		console.log("_________________________________________________________")
 		
-		speakOutput = locale === 'en-US' ? "Hellow, i am " : "olá, eu sou ";
+		locale = handlerInput.requestEnvelope.request.locale;
+        let speakOutput = locale ==='en-US' ? "Hellow,  i am " : "olá, eu sou ";
+		
 		speakOutput += astroGilda;
 
-    
-    return handlerInput.responseBuilder
+		return handlerInput.responseBuilder
 			.speak(speakOutput)
-			.reprompt(speakOutput + 'Você precisa de mim?')
+			.reprompt(speakOutput + 'U Need me?')
 			.getResponse();
 	}
 };
