@@ -33,7 +33,11 @@ const LaunchRequestHandler = {
 // 		console.log("^^^^ dialogs.types: " + JSON.stringify(dialogs.types));
 // 		console.log("^^^^ dialogs.sunday: " + JSON.stringify(dialogs.sunday));
   		// let dialogsString = JSON.stringify(dialogs);
-  		// console.log("^^^^ dialogs: " + dialogsString);
+		  // console.log("^^^^ dialogs: " + dialogsString);
+		  
+		//   for(var myKey in myJson) {
+		// 	console.log("key:"+myKey+", value:"+myJson[myKey]);
+		//  }
   		
   		var string = JSON.stringify(dialogs);
         console.log("^^^^ string " + string);
@@ -198,7 +202,7 @@ const AstroGildaResponde =  {
 
 		}
 
-		slotStatus+= "<break time=\"500ms\"/> Anything Else?"
+		slotStatus+= "<break time=\"1000ms\"/> Anything Else?"
 		
 
 		if (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') {

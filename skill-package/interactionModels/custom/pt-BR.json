@@ -1,97 +1,162 @@
 {
-    "interactionModel": {
-        "languageModel": {
-            "invocationName": "astro gilda",
-            "intents": [
-                {
-                    "name": "AMAZON.CancelIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.HelpIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.StopIntent",
-                    "samples": [
-                        "so long and thanks for all the fish",
-                        "okay bye"
-                    ]
-                },
-                {
-                    "name": "ChameAstrogilda",
-                    "slots": [],
-                    "samples": [
-                        "hello",
-                        "hi",
-                        "hello astro gilda",
-                        "astro gilda",
-                        "hi astro gilda"
-                    ]
-                },
-                {
-                    "name": "AMAZON.NavigateHomeIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AstroGildaResponde",
-                    "slots": [
-                        {
-                            "name": "AstroGildaPertguntaValor",
-                            "type": "AstroGildaPerguntaValor"
-                        }
-                    ],
-                    "samples": [
-                        "{AstroGildaPertguntaValor}",
-                        "Grande Oraculo {AstroGildaPertguntaValor}",
-                        "Astro Gilda {AstroGildaPertguntaValor}",
-                        "Responda {AstroGildaPertguntaValor}"
-                    ]
-                },
-                {
-                    "name": "QuemEsTu",
-                    "slots": [],
-                    "samples": [
-                        "astro who",
-                        "are you real"
-                    ]
-                },
-                {
-                    "name": "AMAZON.YesIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.NoIntent",
-                    "samples": []
-                }
-            ],
-            "types": [
-                {
-                    "name": "AstroGildaPerguntaValor",
-                    "values": [
-                        {
-                            "name": {
-                                "value": "me diga alguma coisa"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "quem é o mestre"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "me fale sobre o mestre"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "o que é voce"
-                            }
-                        }
-                    ]
-                }
-            ]
-        }
-    }
+	"interactionModel": {
+		"languageModel": {
+			"invocationName": "astro gilda",
+			"intents": [
+				{
+					"name": "AMAZON.CancelIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.HelpIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.StopIntent",
+					"samples": [
+						"até logo e obrigada pelos peixes",
+						"okay bye"
+					]
+				},
+				{
+					"name": "ChameAstrogilda",
+					"slots": [],
+					"samples": [
+						"hello",
+						"hi",
+						"hello astro gilda",
+						"astro gilda",
+						"hi astro gilda"
+					]
+				},
+				{
+					"name": "AMAZON.NavigateHomeIntent",
+					"samples": []
+				},
+				{
+					"name": "AstroGildaResponde",
+					"slots": [
+						{
+							"name": "AstroGildaPertguntaValor",
+							"type": "AstroGildaPerguntaValor"
+						}
+					],
+					"samples": [
+						"{AstroGildaPertguntaValor}",
+						"Grande Oraculo {AstroGildaPertguntaValor}",
+						"Astro Gilda {AstroGildaPertguntaValor}",
+						"Responda {AstroGildaPertguntaValor}"
+					]
+				},
+				{
+					"name": "QuemEsTu",
+					"slots": [],
+					"samples": [
+						"astro who",
+						"are you real"
+					]
+				},
+				{
+					"name": "AMAZON.YesIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.NoIntent",
+					"samples": []
+				}
+			],
+			"types": [
+				{
+					"name": "AstroGildaPerguntaValor",
+					"values": [
+						{
+							"name": {
+								"value": "me fale sobre o mestre"
+							}
+						},
+						{
+							"name": {
+								"value": "quem é o mestre"
+							}
+						},
+						{
+							"name": {
+								"value": "quem é astro gilda"
+							}
+						},
+						{
+							"name": {
+								"value": "quem é pollyanna"
+							}
+						},
+						{
+							"name": {
+								"value": "quem é polyana"
+							}
+						},
+						{
+							"name": {
+								"value": "quem é juliana"
+							}
+						},
+						{
+							"name": {
+								"value": "quem é shaiana"
+							}
+						},
+						{
+							"name": {
+								"value": "quem é beca"
+							}
+						},
+						{
+							"name": {
+								"value": "quem é roxy"
+							}
+						},
+						{
+							"name": {
+								"value": "quem é porta"
+							}
+						},
+						{
+							"name": {
+								"value": "quem é vitinho"
+							}
+						},
+						{
+							"name": {
+								"value": "quem é astrogilda"
+							}
+						},
+						{
+							"name": {
+								"value": "me fale alguma coisa"
+							}
+						},
+						{
+							"name": {
+								"value": "me diga alguma coisa"
+							}
+						},
+						{
+							"name": {
+								"value": "quem é o mestre"
+							}
+						},
+						{
+							"name": {
+								"value": "me fale sobre o mestre"
+							}
+						},
+						{
+							"name": {
+								"value": "o que é voce"
+							}
+						}
+					]
+				}
+			]
+		}
+	}
 }
