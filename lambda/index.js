@@ -23,19 +23,22 @@ let dialogs = require('./dialog.json');
 // const fs = require('fs');
 
 const LaunchRequestHandler = {
-  canHandle(handlerInput) {
-    return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
-  },
-  handle(handlerInput) {
-    const speechText = `Hello. You can say: what's my name, what's my email, or, what's my phone number.`;
-    const reprompt = `say: what's my name, what's my email, or, what's my phone number.`;
+	canHandle(handlerInput) {
+		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
+	},
+	handle(handlerInput) {
+		console.log("_________________________________________________________")
+		
+		locale = handlerInput.requestEnvelope.request.locale;
+        let speakOutput = locale ==='en-US' ? "Hellow,  i am " : "olá, eu sou ";
+		
+		speakOutput += astroGilda;
 
-    return handlerInput.responseBuilder
-      .speak(speechText)
-      .reprompt(reprompt)
-      .withSimpleCard(APP_NAME, speechText)
-      .getResponse();
-  },
+		return handlerInput.responseBuilder
+			.speak(speakOutput)
+			.reprompt(speakOutput + 'U Need me?')
+			.getResponse();
+	}
 };
 
 const GreetMeIntentHandler = {
