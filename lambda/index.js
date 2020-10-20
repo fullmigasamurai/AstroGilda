@@ -13,6 +13,7 @@ let dialogs = require('./dialog.json');
 // const fs = require('fs');
 const FULL_NAME_PERMISSION = "alexa::profile:name:read";
 const axios = require('axios');
+const baseURL = 'https://api.amazonalexa.com';
 
 
 const LaunchRequestHandler = {
@@ -71,7 +72,7 @@ const ChameAstrogilda = {
 };
 
 function getName(apiaccessToken, callback) {
-  headers = {
+  let headers = {
     Authorization: 'Bearer ' + apiaccessToken,
     'content-type': 'application/json'
   };
