@@ -46,7 +46,7 @@ const LaunchRequestHandler = {
     myName = getName().then();
 		
 		locale = handlerInput.requestEnvelope.request.locale;
-        let speakOutput = locale ==='en-US' ? "Hellow,  i am " : "olá, eu sou ";
+        let speakOutput = locale ==='en-US' ? "Hellow, "+myName+"  i am " : "olá, "+myName+" eu sou ";
 		
 		speakOutput += astroGilda;
 
