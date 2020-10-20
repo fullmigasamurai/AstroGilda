@@ -357,18 +357,18 @@ const CancelAndStopIntentHandler = {
 * This handler can be safely added but will be ingnored in locales that do not support it yet 
 * */
 const FallbackIntentHandler = {
-	canHandle(handlerInput) {
-		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-			&& Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.FallbackIntent';
-	},
-	handle(handlerInput) {
-		const speakOutput = 'Desculpe, Não entendi direito, pode repetir? por favor';
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.FallbackIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput = 'Sorry, I don\'t know about that. Please try again.';
 
-		return handlerInput.responseBuilder
-			.speak(speakOutput)
-			.reprompt(speakOutput)
-			.getResponse();
-	}
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt(speakOutput)
+            .getResponse();
+    }
 };
 /* *
 * SessionEndedRequest notifies that a session was ended. This handler will be triggered when a currently open 
