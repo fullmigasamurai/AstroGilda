@@ -57,23 +57,17 @@ const ChameAstrogilda = {
 	async handle(handlerInput) {
     const { serviceClientFactory, responseBuilder } = handlerInput;
     try {
-      const upsServiceClient = serviceClientFactory.getUpsServiceClient();
-      const profileName = await upsServiceClient.getProfileName();
-      const speechResponse = `Your name is, ${profileName}`;
-      return responseBuilder
-                      .speak(speechResponse)
-                      .withSimpleCard(speechResponse)
-                      .getResponse();
+        const upsServiceClient = serviceClientFactory.getUpsServiceClient();
+        const profileName = await upsServiceClient.getProfileName();
+        const speechResponse = `Your name is, ${profileName}`;
+        return handlerInput.responseBuilder
+          .speak(speechResponse)
+          .withSimpleCard(speechResponse)
+          .getResponse();
     } catch (error) {
       console.log(JSON.stringify(error));
-      if (error.statusCode === 403) {
-        return responseBuilder
+        return handlerInput.responseBuilder
         .speak("faltando permissoes")
-        .getResponse();
-      }
-      console.log(JSON.stringify(error));
-      return responseBuilder
-        .speak("Erro")
         .getResponse();
     }
   },
