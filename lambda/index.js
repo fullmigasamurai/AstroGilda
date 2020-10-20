@@ -46,7 +46,7 @@ const AstroGildaResponde =  {
 		
 		let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 
-		let say = 'Até Onde eu Saiba: <break time="1s"/>';
+		let say = 'Até Onde eu Saiba: <break time="512ms"/>';
 
 		let slotStatus = '';
 		let resolvedSlot='';
@@ -343,7 +343,7 @@ const FallbackIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.FallbackIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'Sorry, I don\'t know about that. Please try again.';
+        const speakOutput = 'Desculpe, Meus conhecimentos não abrangem isso. Tente Outra Coisa.';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -420,29 +420,29 @@ const myResponseInterceptor = {
 const ResponseRecordSpeechOutputInterceptor = { 
 	process(handlerInput, responseOutput) { 
 
-// 		if ((Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' || Alexa.getRequestType(handlerInput.requestEnvelope) === 'SessionEndedRequest')
-// 		&& (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.CancelIntent'
-// 				|| Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent') ) {
+		if ((Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' || Alexa.getRequestType(handlerInput.requestEnvelope) === 'SessionEndedRequest')
+		&& (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.CancelIntent'
+				|| Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent') ) {
 			
-// 			console.log(`~~~~ Session ended OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope)}`);
+			console.log(`~~~~ Session ended OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope)}`);
 			
-// 		} else {
+		} else {
 
-// 			let sessionAttributes = handlerInput.attributesManager.getSessionAttributes(); 
-// 			let lastSpeechOutput = { 
-// 				"outputSpeech":responseOutput.outputSpeech.ssml, 
-// 				"reprompt":responseOutput.reprompt.outputSpeech.ssml 
-// 			}; 
+			let sessionAttributes = handlerInput.attributesManager.getSessionAttributes(); 
+			let lastSpeechOutput = { 
+				"outputSpeech":responseOutput.outputSpeech.ssml, 
+				"reprompt":responseOutput.reprompt.outputSpeech.ssml 
+			}; 
 			
-// 			console.log(`~~~~ responseOutput ${JSON.stringify(responseOutput)}`);
-// 			console.log(`~~~~ OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope.request)}`);
-// // 			console.log(`~~~~ OutPut.Request.locale ${JSON.stringify(handlerInput.requestEnvelope.request.locale)}`);
-// // 			console.log(`~~~~ let locale ${locale}`);
+			console.log(`~~~~ responseOutput ${JSON.stringify(responseOutput)}`);
+			console.log(`~~~~ OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope.request)}`);
+// 			console.log(`~~~~ OutPut.Request.locale ${JSON.stringify(handlerInput.requestEnvelope.request.locale)}`);
+// 			console.log(`~~~~ let locale ${locale}`);
 	
-// 			sessionAttributes['lastSpeechOutput'] = lastSpeechOutput; 
+			sessionAttributes['lastSpeechOutput'] = lastSpeechOutput; 
 	
-// 			handlerInput.attributesManager.setSessionAttributes(sessionAttributes); 
-// 		}
+			handlerInput.attributesManager.setSessionAttributes(sessionAttributes); 
+		}
 
 	} 
 }; 
