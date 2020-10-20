@@ -546,10 +546,9 @@ exports.handler = skillBuilder
 	.addRequestInterceptors(myRequestInterceptor)
 	.addResponseInterceptors(myResponseInterceptor)
 	.addResponseInterceptors(ResponseRecordSpeechOutputInterceptor)
-	.addErrorHandlers(
-		ErrorHandler)
-	.withCustomUserAgent('sample/hello-world/v1.2')
-	.lambda();
+	.addErrorHandlers(ErrorHandler)
+  .withApiClient(new Alexa.DefaultApiClient())
+  .lambda();
 
 
 
