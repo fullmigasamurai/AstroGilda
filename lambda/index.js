@@ -22,7 +22,7 @@ const LaunchRequestHandler = {
  	locale = handlerInput.requestEnvelope.request.locale;
     const { serviceClientFactory, responseBuilder } = handlerInput;
 	let speakOutput = "";
-    
+    console.log("iniciando__________________________________________________________: ");
     try {
         const upsServiceClient = serviceClientFactory.getUpsServiceClient();
         const profileName = await upsServiceClient.getProfileGivenName();
