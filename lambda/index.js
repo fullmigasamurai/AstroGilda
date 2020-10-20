@@ -494,11 +494,11 @@ exports.handler = Alexa.SkillBuilders.custom()
 		LaunchRequestHandler,
 		AstroGildaResponde,
 		QuemEsTu,
+		ChameAstrogilda,
 		YesNoIntentHandler,
 		HelpIntentHandler,
 		CancelAndStopIntentHandler,
 		FallbackIntentHandler,
-		ChameAstrogilda,
 		SessionEndedRequestHandler,
 		IntentReflectorHandler)
 	.addRequestInterceptors(myRequestInterceptor)
