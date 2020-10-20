@@ -29,9 +29,9 @@
     		"valor1" : {
     		"valor1 espaco": "extra large"
     		},
-    		"valor com espaço" : "large house salad",
-    		"valor com espaco" : "2 liter coke",
-    		"é muita treta vish" : "cheesy garlic bread",
+    		"valor com espaço" : "com cedilha",
+    		"valor com espaco" : "sem cedilha",
+    		"é muita treta vish" : "acento meu brow",
     		"dessert" : "two homemade chocolate fudge cookies",
     		"cost" : 21.99
 	},
