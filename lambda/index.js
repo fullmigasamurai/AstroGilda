@@ -27,7 +27,8 @@ const LaunchRequestHandler = {
     try {
         const { serviceClientFactory, responseBuilder } = handlerInput;
         const upsServiceClient = serviceClientFactory.getUpsServiceClient();
-        profileName = await upsServiceClient.getProfileGivenName();
+        // profileName = await upsServiceClient.getProfileGivenName();
+        profileName = ";;";
         console.log("Nome: " + profileName);
     //     const speechResponse = `Your name is, ${profileName}`;
     //     speakOutput = locale === 'en-US' ? "Hellow," + profileName + "i am " : "olá, " + profileName + " eu sou ";
