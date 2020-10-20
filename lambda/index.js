@@ -478,13 +478,13 @@ const ResponseRecordSpeechOutputInterceptor = {
 exports.handler = Alexa.SkillBuilders.custom()
 	.addRequestHandlers(
 		LaunchRequestHandler,
-		ChameAstrogilda,
 		AstroGildaResponde,
 		QuemEsTu,
 		YesNoIntentHandler,
 		HelpIntentHandler,
 		CancelAndStopIntentHandler,
 		FallbackIntentHandler,
+		ChameAstrogilda,
 		SessionEndedRequestHandler,
 		IntentReflectorHandler)
 	.addRequestInterceptors(myRequestInterceptor)
