@@ -78,7 +78,7 @@ const ChameAstrogilda = {
 		const { serviceClientFactory, responseBuilder } = handlerInput;
 		
 		try {
-            // const upsServiceClient = serviceClientFactory.getUpsServiceClient();
+            const upsServiceClient = serviceClientFactory.getUpsServiceClient();
             // const profileName = await upsServiceClient.getProfileName();
             // const speechResponse = `Your name is, ${profileName}`;
             const speechResponse = `Your name is,`;
