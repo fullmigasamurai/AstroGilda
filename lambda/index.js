@@ -66,7 +66,7 @@ const AstroGildaResponde =  {
 		
 		let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 
-		let say = 'Lá Vai: <break time="1s"/>';
+		let say = 'Até Onde eu Saiba: <break time="1s"/>';
 
 		let slotStatus = '';
 		let resolvedSlot;
@@ -86,8 +86,23 @@ const AstroGildaResponde =  {
 				slotStatus = 'O Que? fale novamente. Não entendi...'  + resolvedSlot;
 			
 		} else {
-			slotStatus = 'Meus Conhecimentos Sobre Isso Estão Vazios. ';
+			resolvedSlot = slotValues.PessoaNome.heardAs.toLowerCase();
+			
+			if (resolvedSlot && resolvedSlot !== '') {
+				slotStatus += ' Astro Gilda Pergunta escutou ' + resolvedSlot + '. ';
+				sessionAttributes.YouCalled = true;
+				slotStatus = JSON.stringify(dialogs[resolvedSlot]);
+				if (JSON.stringify(dialogs[resolvedSlot])) {
+					slotStatus = JSON.stringify(dialogs[resolvedSlot]["resposta"]);
+				}
+	
+				if (typeof slotStatus === "undefined")
+					slotStatus = 'O Que? fale novamente. Não entendi...'  + resolvedSlot;
+				
+			} else { 
+				slotStatus = 'Meus Conhecimentos Sobre Isso Estão Vazios. ';
 
+			}
 		}
 
 		slotStatus+= "<break time=\"1000ms\"/> Algo Mais?"
