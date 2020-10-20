@@ -496,7 +496,8 @@ const ResponseRecordSpeechOutputInterceptor = {
 			
 			console.log(`~~~~ Session ended OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope)}`);
 			
-		} else {
+		} else if (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'  
+			&& (Alexa.getIntentName(handlerInput.requestEnvelope) === 'ChameAstrogilda' || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AstroGildaResponde')){
 
 			let sessionAttributes = handlerInput.attributesManager.getSessionAttributes(); 
 			let lastSpeechOutput = { 
@@ -547,23 +548,6 @@ exports.handler = skillBuilder
   .withApiClient(new Alexa.DefaultApiClient())
   .lambda();
   
-//   const skillBuilder = Alexa.SkillBuilders.custom();
-
-// exports.handler = skillBuilder
-//   .addRequestHandlers(
-//     LaunchRequestHandler,
-//     GreetMeIntentHandler,
-//     EmailIntentHandler,
-//     MobileIntentHandler,
-//     HelpIntentHandler,
-//     CancelAndStopIntentHandler,
-//     SessionEndedRequestHandler
-//   )
-//   .addRequestInterceptors(RequestLog)
-//   .addResponseInterceptors(ResponseLog)
-//   .addErrorHandlers(ErrorHandler)
-//   .withApiClient(new Alexa.DefaultApiClient())
-//   .lambda();
 
 
 
