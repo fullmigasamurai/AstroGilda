@@ -41,9 +41,10 @@ const ChameAstrogilda = {
 	async handle(handlerInput) {
 	  const { serviceClientFactory, responseBuilder } = handlerInput;
 	  try {
-      const upsServiceClient = serviceClientFactory.getUpsServiceClient();
-      const profileName = await upsServiceClient.getProfileName();
-      const speechResponse = `Your name is, ${profileName}`;
+    //   const upsServiceClient = serviceClientFactory.getUpsServiceClient();
+    //   const profileName = await upsServiceClient.getProfileName();
+    //   const speechResponse = `Your name is, ${profileName}`;
+      const speechResponse = `Your name is,`;
       return responseBuilder
                       .speak(speechResponse)
                       .withSimpleCard(speechResponse)
