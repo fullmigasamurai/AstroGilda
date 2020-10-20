@@ -69,12 +69,12 @@ const ChameAstrogilda = {
       if (error.statusCode === 403) {
         return responseBuilder
         .speak("faltando permissoes")
-        .withAskForPermissionsConsentCard([FULL_NAME_PERMISSION])
         .getResponse();
       }
       console.log(JSON.stringify(error));
-      const response = responseBuilder.speak("messages.ERROR").getResponse();
-      return response;
+      return responseBuilder
+        .speak("Erro")
+        .getResponse();
     }
   },
 // 	handle(handlerInput) {
