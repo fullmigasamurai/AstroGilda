@@ -528,8 +528,10 @@ const ResponseRecordSpeechOutputInterceptor = {
  * payloads to the handlers above. Make sure any new handlers or interceptors you've
  * defined are included below. The order matters - they're processed top to bottom 
  * */
-exports.handler = Alexa.SkillBuilders.custom()
-	.addRequestHandlers(
+const skillBuilder = Alexa.SkillBuilders.custom();
+
+exports.handler = skillBuilder
+  .addRequestHandlers(
 		LaunchRequestHandler,
 		GreetMeIntentHandler,
 		AstroGildaResponde,
