@@ -76,11 +76,12 @@ const ChameAstrogilda = {
 
 	handle(handlerInput) {
 		const { serviceClientFactory, responseBuilder } = handlerInput;
+		
+		
+		
 		const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
-
 		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 		sessionAttributes.YouCalled = true;
-
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
