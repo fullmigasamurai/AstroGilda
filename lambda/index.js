@@ -34,7 +34,7 @@ const LaunchRequestHandler = {
         myName = await getName(handlerInput);
 
 		locale = handlerInput.requestEnvelope.request.locale;
-        let speakOutput = locale ==='en-US' ? "Hellow, "+myName+"  i am " : "olá, "+myName+" eu sou ";
+        let speakOutput = locale ==='en-US' ? "Hellow, "+myName+",  i am " : "olá, "+myName+", eu sou ";
 		
 		speakOutput += astroGilda;
 
@@ -65,7 +65,7 @@ const ChameAstrogilda = {
 	handle(handlerInput) {
 	  
 	    
-		const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
+		const speakOutput = 'Olá, eu sou,'+astroGilda+'. Chamou?';
 		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 		sessionAttributes.YouCalled = true;
 
