@@ -525,23 +525,46 @@ const ResponseRecordSpeechOutputInterceptor = {
  * payloads to the handlers above. Make sure any new handlers or interceptors you've
  * defined are included below. The order matters - they're processed top to bottom 
  * */
-const skillBuilder = Alexa.SkillBuilders.custom();
+  const skillBuilder = Alexa.SkillBuilders.custom();
 
 exports.handler = skillBuilder
   .addRequestHandlers(
     LaunchRequestHandler,
-    GreetMeIntentHandler,
-    // EmailIntentHandler,
-    // MobileIntentHandler,
-    HelpIntentHandler,
-    CancelAndStopIntentHandler,
-    SessionEndedRequestHandler
-  )
-//   .addRequestInterceptors(RequestLog)
-//   .addResponseInterceptors(ResponseLog)
-  .addErrorHandlers(ErrorHandler)
+		GreetMeIntentHandler,
+		AstroGildaResponde,
+		QuemEsTu,
+ 		ChameAstrogilda,
+		YesNoIntentHandler,
+		HelpIntentHandler,
+		CancelAndStopIntentHandler,
+		FallbackIntentHandler,
+		SessionEndedRequestHandler,
+		IntentReflectorHandler)
+// 	.addRequestInterceptors(myRequestInterceptor)
+// 	.addResponseInterceptors(myResponseInterceptor)
+// 	.addResponseInterceptors(ResponseRecordSpeechOutputInterceptor)
+	.addErrorHandlers(ErrorHandler)
   .withApiClient(new Alexa.DefaultApiClient())
   .lambda();
+  
+//   const skillBuilder = Alexa.SkillBuilders.custom();
+
+// exports.handler = skillBuilder
+//   .addRequestHandlers(
+//     LaunchRequestHandler,
+//     GreetMeIntentHandler,
+//     EmailIntentHandler,
+//     MobileIntentHandler,
+//     HelpIntentHandler,
+//     CancelAndStopIntentHandler,
+//     SessionEndedRequestHandler
+//   )
+//   .addRequestInterceptors(RequestLog)
+//   .addResponseInterceptors(ResponseLog)
+//   .addErrorHandlers(ErrorHandler)
+//   .withApiClient(new Alexa.DefaultApiClient())
+//   .lambda();
+
 
 
 
