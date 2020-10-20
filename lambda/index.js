@@ -5,13 +5,22 @@
 * */
 const Alexa = require('ask-sdk-core');
 
+const APP_NAME = "Template Seven";
+const messages = {
+  NOTIFY_MISSING_PERMISSIONS: 'Please enable profile permissions in the Amazon Alexa app.',
+  ERROR: 'Uh Oh. Looks like something went wrong.'
+};
+
+const FULL_NAME_PERMISSION = "alexa::profile:name:read";
+const EMAIL_PERMISSION = "alexa::profile:email:read";
+const MOBILE_PERMISSION = "alexa::profile:mobile_number:read";
+
 const astroGilda = '<lang xml:lang="pt-BR"> Astro Gilda </lang>'
 const leaveMessage = 'Okay, Adeus. Estou indo, <break></break> <amazon:effect name="whispered"> não deixe as luzes acesas <break time="100ms"/>  quando sair </amazon:effect>'
 let locale='en-US'
 let dialogs = require('./dialog.json');
 // const astro_dialogs = require('./dialogs.js');
 // const fs = require('fs');
-const FULL_NAME_PERMISSION = "alexa::profile:name:read";
 
 const LaunchRequestHandler = {
 	canHandle(handlerInput) {
@@ -41,7 +50,7 @@ const ChameAstrogilda = {
 	async handle(handlerInput) {
 	  const { serviceClientFactory, responseBuilder } = handlerInput;
 	  try {
-      const upsServiceClient = await serviceClientFactory.getUpsServiceClient();
+      const upsServiceClient = serviceClientFactory.getUpsServiceClient();
     //   const profileName = await upsServiceClient.getProfileName();
     //   const speechResponse = `Your name is, ${profileName}`;
       const speechResponse = `Your name is,`;
