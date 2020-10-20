@@ -11,12 +11,12 @@
 		"resposta": "Eu sou a boa, a má e a <break time=\"100ms\"/> Feia.",
 		"reprompt": "reprompt"
 	},
-	 "quem é pollyanna": {
+	 "quem é polyana": {
 		"resposta": "Pollyanna. Ela é a toda poderosa princesa trevosa. Todos saúdam Pollyana, Cavaleira do metau.",
 		"reprompt": "reprompt"
 	},
 	 "quem é juliana": {
-		"resposta": "Juliana odeia o calor. E gosta do clima quente. <break time=\"150ms\"/>  Ela é uma pessoa esperta.",
+		"resposta": "Juliana odeia o calor. E gosta do clima quente. <break time='150ms'/>  Ela é uma pessoa esperta.",
 		"reprompt": "reprompt"
 	},
 	 "quem é shaiana": {
@@ -28,7 +28,7 @@
 		"reprompt": "reprompt"
 	},
 	 "quem é roxy": {
-		"resposta": "Sobre a hoshi. Ela é uma estrela brilhante que ilumina minhas noites escuras.",
+		"resposta": "Sobre a Roxi. Ela é uma estrela brilhante que ilumina minhas noites escuras.",
 		"reprompt": "reprompt"
 	},
 	 "quem é porta": {
