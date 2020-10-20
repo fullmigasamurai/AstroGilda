@@ -20,7 +20,7 @@ const LaunchRequestHandler = {
 	canHandle(handlerInput) {
 		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
 	},
-	async handle(handlerInput) {
+	handle(handlerInput) {
  	locale = handlerInput.requestEnvelope.request.locale;
 	let speakOutput = "";
     console.log("iniciando__________________________________________________________: ");
