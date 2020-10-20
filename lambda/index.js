@@ -6,7 +6,7 @@
 const Alexa = require('ask-sdk-core');
 
 const astroGilda = '<lang xml:lang="pt-BR"> Astro Gilda </lang>'
-const leaveMessage = 'Okay, Bye. I\'m Leaving, <break></break> <amazon:effect name="whispered"> dont let the lighs on <break time="100ms"/>  when you leave </amazon:effect>'
+const leaveMessage = 'Okay, Adeus. Estou indo, <break></break> <amazon:effect name="whispered"> não deixe as luzes acesas <break time="100ms"/>  quando sair </amazon:effect>'
 let locale='en-US'
 const astro_dialogs = require('./dialogs.js');
 let dialogs = require('./dialog.json');
@@ -40,7 +40,7 @@ const ChameAstrogilda = {
 			&& Alexa.getIntentName(handlerInput.requestEnvelope) === 'ChameAstrogilda';
 	},
 	handle(handlerInput) {
-		const speakOutput = 'Hellow, i\'m'+astroGilda+'you called?';
+		const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
 
 		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 		sessionAttributes.YouCalled = true;
@@ -48,7 +48,7 @@ const ChameAstrogilda = {
 
 		return handlerInput.responseBuilder
 			.speak(speakOutput)
-			.reprompt('Tell me. What do you want. will ya?')
+			.reprompt('Me diga. O que você quer. em?')
 			.getResponse();
 	}
 };
@@ -75,7 +75,7 @@ const AstroGildaResponde =  {
 		resolvedSlot = slotValues.AstroGildaPertguntaValor.heardAs.toLowerCase();
 
 		if (resolvedSlot && resolvedSlot !== '') {
-			slotStatus += ' slot AstroGildaPertguntaValor was heard as ' + resolvedSlot + '. ';
+			slotStatus += ' Astro Gilda Pergunta escutou ' + resolvedSlot + '. ';
 			sessionAttributes.YouCalled = true;
 			slotStatus = JSON.stringify(dialogs[resolvedSlot]);
 			if (JSON.stringify(dialogs[resolvedSlot])) {
@@ -100,7 +100,7 @@ const AstroGildaResponde =  {
 		}
 
 		if( (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') ||  (!slotValues.AstroGildaPertguntaValor.heardAs) ) {
-			slotStatus += 'alguns valores são, ' + sayArray(getExampleSlotValues('AstroGildaResponde','AstroGildaPertguntaValor'), 'or');
+			slotStatus += 'alguns valores são, ' + sayArray(getExampleSlotValues('AstroGildaResponde','AstroGildaPertguntaValor'), 'ou');
 		}
 
 		say += slotStatus;
@@ -109,7 +109,7 @@ const AstroGildaResponde =  {
 		
 		return responseBuilder
 			.speak(say)
-			.reprompt('Any More Questions?')
+			.reprompt('Mais perguntas?')
 			.getResponse();
 	},
 };
@@ -121,19 +121,19 @@ const YesNoIntentHandler = {
 				|| Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent');
 	},
 	handle(handlerInput) {
-		let speakOutput = 'Didnt quiet get that, say again?';
+		let speakOutput = 'Não entendi direito. Pode repetir?';
 		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 	
 		if (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent') {
 
-			speakOutput = sessionAttributes.YouCalled ? 'So... say what you wanna know' : 'yes what? <break time="150ms"/> are You Okay?'
+			speakOutput = sessionAttributes.YouCalled ? 'Então... Fala o que tu quer' : 'Sim, sobre o que? <break time="150ms"/> Cê ta bem?'
 			sessionAttributes.YouCalled = !sessionAttributes.YouCalled;
 			
 		}
 
 		if (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent') {
 
-			speakOutput = sessionAttributes.YouCalled ? "So... "+leaveMessage : 'No what? <break time="150ms"/> are You Okay?'
+			speakOutput = sessionAttributes.YouCalled ? "Então... "+leaveMessage : 'Não, sobre o quê? <break time="150ms"/> Cê ta bem?'
 			if (sessionAttributes.YouCalled) {
 				return handlerInput.responseBuilder
 					.speak(speakOutput)
@@ -157,7 +157,7 @@ const QuemEsTu = {
 			&& Alexa.getIntentName(handlerInput.requestEnvelope) === 'QuemEsTu';
 	},
 	handle(handlerInput) {
-		const speakOutput = 'I am Astro Gilda, answering your questions, hit me';
+		const speakOutput = 'Eu sou Astro Gilda, respondendo suas perguntas, manda ver';
 		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 		sessionAttributes.YouCalled=false;
 
