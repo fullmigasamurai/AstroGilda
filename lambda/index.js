@@ -20,8 +20,8 @@ const LaunchRequestHandler = {
 		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
 	},
 	handle(handlerInput) {
-		locale = handlerInput.requestEnvelope.request.locale;
 
+// 		locale = handlerInput.requestEnvelope.request.locale;
         console.log("^^^^ localizacao:" + locale)
 		
 // 		let speakOutput = locale === 'en-US' ? "Hellow,  i am " : "olá, eu sou ";
