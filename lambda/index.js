@@ -7,7 +7,7 @@ const Alexa = require('ask-sdk-core');
 
 const astroGilda = '<lang xml:lang="pt-BR"> Astro Gilda </lang>'
 const leaveMessage = 'Okay, Adeus. Estou indo, <break></break> <amazon:effect name="whispered"> não deixe as luzes acesas <break time="100ms"/>  quando sair </amazon:effect>'
-// let locale='en-US'
+let locale='en-US'
 // const astro_dialogs = require('./dialogs.js');
 let dialogs = require('./dialog.json');
 // const fs = require('fs');
