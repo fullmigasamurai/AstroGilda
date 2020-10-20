@@ -67,10 +67,11 @@ const ChameAstrogilda = {
           .getResponse();
     } catch (error) {
       console.log(JSON.stringify(error));
-        return handlerInput.responseBuilder
+        
+    }
+    return handlerInput.responseBuilder
         .speak("faltando permissoes")
         .getResponse();
-    }
   },
 // 	handle(handlerInput) {
 // 		const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
