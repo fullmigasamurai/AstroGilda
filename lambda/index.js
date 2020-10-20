@@ -95,8 +95,11 @@ const AstroGildaResponde =  {
 
 		slotStatus+= "<break time=\"1000ms\"/> Algo Mais?"
 		
-		console.log("~~~~ slot.PessoaNome " + slotValues.PessoaNome)
-		console.log("~~~~ slotValues.AstroGildaPertguntaValor.ERstatus " + slotValues.AstroGildaPertguntaValor.ERstatus)
+		console.log("~~~~ slot.PessoaNome: " + JSON.stringify(slotValues.PessoaNome));
+		console.log("~~~~ slot.PessoaNome.heardas: " + slotValues.PessoaNome.heardAs);
+		console.log("~~~~ slot.PessoaNome.resolved: " + slotValues.PessoaNome.resolved);
+		console.log("~~~~ slotValues.AstroGildaPertguntaValor.ERstatus " + slotValues.AstroGildaPertguntaValor.ERstatus);
+		console.log("~~~~ slotValues.AstroGildaPertguntaValor.heardAs " + slotValues.AstroGildaPertguntaValor.heardAs);
 
 		// if (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') {
 		// 	slotStatus = "Desculpe, não sei sobre isso. tente perguntar outra coisa. <break time=\"150ms\"/> ";
