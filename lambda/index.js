@@ -19,6 +19,7 @@ const astroGilda = '<lang xml:lang="pt-BR"> Astro Gilda </lang>'
 const leaveMessage = 'Okay, Adeus. Estou indo, <break></break> <amazon:effect name="whispered"> não deixe as luzes acesas <break time="100ms"/>  quando sair </amazon:effect>'
 let locale='en-US'
 let dialogs = require('./dialog.json');
+let myName = ""
 // const astro_dialogs = require('./dialogs.js');
 // const fs = require('fs');
 
@@ -42,7 +43,7 @@ const LaunchRequestHandler = {
         }
     }
     
-    let name = getName().then();
+    myName = getName().then();
 		
 		locale = handlerInput.requestEnvelope.request.locale;
         let speakOutput = locale ==='en-US' ? "Hellow,  i am " : "olá, eu sou ";
