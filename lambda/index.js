@@ -21,6 +21,7 @@ const LaunchRequestHandler = {
 	async handle(handlerInput) {
  	locale = handlerInput.requestEnvelope.request.locale;
 	let speakOutput = "";
+	const profileName = ";"
     console.log("iniciando__________________________________________________________: ");
     try {
         const { serviceClientFactory, responseBuilder } = handlerInput;
@@ -34,7 +35,7 @@ const LaunchRequestHandler = {
     } catch (error) {
 		
 		
-		speakOutput = locale === 'en-US' ? "Hellow,  i am " : "olá, eu sou ";
+		speakOutput = locale === 'en-US' ? "Hellow," + profileName + "i am " : "olá, " + profileName + " eu sou ";
 		speakOutput += astroGilda;
 
     }
