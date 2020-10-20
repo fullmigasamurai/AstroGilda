@@ -39,12 +39,21 @@
                         {
                             "name": "AstroGildaPertguntaValor",
                             "type": "AstroGildaPerguntaValor"
+                        },
+                        {
+                            "name": "PessoaNome",
+                            "type": "PessoaNome"
                         }
                     ],
                     "samples": [
+                        "me fale sobre o {PessoaNome}",
+                        "me fale sobre a {PessoaNome}",
+                        "me fale sobre {PessoaNome}",
+                        "quem é a {PessoaNome}",
+                        "quem é o {PessoaNome}",
+                        "quem é {PessoaNome}",
                         "{AstroGildaPertguntaValor}",
                         "Grande Oraculo {AstroGildaPertguntaValor}",
-                        "Astro Gilda {AstroGildaPertguntaValor}",
                         "Responda {AstroGildaPertguntaValor}"
                     ]
                 },
@@ -71,77 +80,12 @@
                     "values": [
                         {
                             "name": {
-                                "value": "me fale sobre o mestre"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "quem é o mestre"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "quem é astro gilda"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "quem é pollyanna"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "quem é polyana"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "quem é juliana"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "quem é shaiana"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "quem é beca"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "quem é roxy"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "quem é porta"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "quem é vitinho"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "quem é astrogilda"
-                            }
-                        },
-                        {
-                            "name": {
                                 "value": "me fale alguma coisa"
                             }
                         },
                         {
                             "name": {
                                 "value": "me diga alguma coisa"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "quem é o mestre"
                             }
                         },
                         {
@@ -162,6 +106,76 @@
                         {
                             "name": {
                                 "value": "quem é o grande guardião"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "PessoaNome",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "shaiana"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mestre"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "astrogilda"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "beca"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "grace kelly"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "claudinha"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vitinho"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "grande guardião"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "grande guardiao"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "porta"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "roxy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "juliana"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "polyana"
                             }
                         }
                     ]
