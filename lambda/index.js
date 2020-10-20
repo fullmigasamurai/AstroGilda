@@ -35,9 +35,10 @@ const LaunchRequestHandler = {
 		speakOutput += astroGilda;
 
 		return handlerInput.responseBuilder
-			.speak(speakOutput)
-			.reprompt(speakOutput + 'U Need me?')
-			.getResponse();
+          .speak(speakOutput)
+          .reprompt(speakOutput)
+          .withSimpleCard(APP_NAME, speakOutput)
+          .getResponse();
 	}
 };
 
