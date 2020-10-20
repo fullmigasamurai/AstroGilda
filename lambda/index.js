@@ -58,17 +58,32 @@ const ChameAstrogilda = {
 	},
 	
 	handle(handlerInput) {
-		const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
+// 		const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
 
-		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-		sessionAttributes.YouCalled = true;
+// 		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+// 		sessionAttributes.YouCalled = true;
 
 
-		return handlerInput.responseBuilder
-			.speak(speakOutput)
-			.reprompt('Me diga. O que você quer. em?')
-			.getResponse();
-	}
+// 		return handlerInput.responseBuilder
+// 			.speak(speakOutput)
+// 			.reprompt('Me diga. O que você quer. em?')
+// 			.getResponse();
+    var apiaccessToken =
+      handlerInput.requestEnvelope.context.System.apiAccessToken;
+
+    return new Promise(resolve => {
+      getName(apiaccessToken, name => {
+        var speechText = 'Your name is ' + name;
+        resolve(
+          handlerInput.responseBuilder
+            .speak(speechText)
+            .reprompt(speechText)
+            .getResponse()
+        );
+      });
+    });
+  }
+  
 };
 
 function getName(apiaccessToken, callback) {
