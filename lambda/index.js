@@ -54,8 +54,8 @@ const ChameAstrogilda = {
 		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
 			&& Alexa.getIntentName(handlerInput.requestEnvelope) === 'ChameAstrogilda';
 	},
-	async handle(handlerInput) {
-    const { serviceClientFactory, responseBuilder } = handlerInput;
+	handle(handlerInput) {
+    // const { serviceClientFactory, responseBuilder } = handlerInput;
     try {
         // const upsServiceClient = serviceClientFactory.getUpsServiceClient();
         // const profileName = await upsServiceClient.getProfileName();
