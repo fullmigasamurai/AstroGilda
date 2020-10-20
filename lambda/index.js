@@ -33,6 +33,25 @@ const LaunchRequestHandler = {
 	}
 };
 
+const ChameAstrogilda = {
+	canHandle(handlerInput) {
+		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+			&& Alexa.getIntentName(handlerInput.requestEnvelope) === 'ChameAstrogilda';
+	},
+	handle(handlerInput) {
+		const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
+
+		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+		sessionAttributes.YouCalled = true;
+
+
+		return handlerInput.responseBuilder
+			.speak(speakOutput)
+			.reprompt('Me diga. O que você quer. em?')
+			.getResponse();
+	}
+};
+
 const AstroGildaResponde =  {
 	canHandle(handlerInput) {
 		const request = handlerInput.requestEnvelope.request;
