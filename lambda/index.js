@@ -456,6 +456,7 @@ const ResponseRecordSpeechOutputInterceptor = {
 			console.log(`~~~~ responseOutput ${JSON.stringify(responseOutput)}`);
 			console.log(`~~~~ RequestEnvelope ${JSON.stringify(handlerInput.requestEnvelope)}`);
 			console.log(`~~~~ RequestEnvelope.Request ${JSON.stringify(handlerInput.requestEnvelope.request)}`);
+			console.log(`~~~~ responseBuilder ${JSON.stringify(handlerInput.responseBuilder)}`);
 			
 	
 			sessionAttributes['lastSpeechOutput'] = lastSpeechOutput; 
