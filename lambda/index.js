@@ -22,10 +22,11 @@ const LaunchRequestHandler = {
  	locale = handlerInput.requestEnvelope.request.locale;
 
     const { serviceClientFactory, responseBuilder } = handlerInput;
-	let speakOutput = locale === 'en-US' ? "Hellow,  i am " : "olá, eu sou ";
+	let speakOutput = "";
     try {
         const upsServiceClient = serviceClientFactory.getUpsServiceClient();
         const profileName = await upsServiceClient.getProfileName();
+        console.log("Nome: " + profileName);
         const speechResponse = `Your name is, ${profileName}`;
         speakOutput = locale === 'en-US' ? "Hellow," + profileName + "i am " : "olá, " + profileName + " eu sou ";
 	    speakOutput += astroGilda;
