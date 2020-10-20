@@ -12,7 +12,8 @@ let locale='en-US'
 let dialogs = require('./dialog.json');
 // const fs = require('fs');
 const FULL_NAME_PERMISSION = "alexa::profile:name:read";
-
+const baseURL = 'https://api.amazonalexa.com';
+const axios = require('axios');
 
 const LaunchRequestHandler = {
 	canHandle(handlerInput) {
@@ -40,16 +41,16 @@ const ChameAstrogilda = {
 	},
 	
 	handle(handlerInput) {
-		const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
+// 		const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
 
-		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-		sessionAttributes.YouCalled = true;
+// 		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+// 		sessionAttributes.YouCalled = true;
 
 
-		return handlerInput.responseBuilder
-			.speak(speakOutput)
-			.reprompt('Me diga. O que você quer. em?')
-			.getResponse();
+// 		return handlerInput.responseBuilder
+// 			.speak(speakOutput)
+// 			.reprompt('Me diga. O que você quer. em?')
+// 			.getResponse();
     // var apiaccessToken =
     //   handlerInput.requestEnvelope.context.System.apiAccessToken;
 
