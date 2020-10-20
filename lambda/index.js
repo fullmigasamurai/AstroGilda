@@ -86,9 +86,6 @@ const AstroGildaResponde =  {
 			if (typeof slotStatus === "undefined")
 				slotStatus = 'O Que? fale novamente. Não entendi. TR'  + resolvedSlot;
 			
-			if (slotStatus.isEmpty())
-				slotStatus = 'O Que? fale novamente. Não entendi'  + resolvedSlot;
-			
 		} else {
 			slotStatus = 'Meus Conhecimentos Sobre Isso Estão Vazios. ';
 
