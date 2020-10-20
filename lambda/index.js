@@ -69,10 +69,13 @@ const AstroGildaResponde =  {
 		let say = 'Até Onde eu Saiba: <break time="1s"/>';
 
 		let slotStatus = '';
-		let resolvedSlot;
+		let resolvedSlot='';
 
 		let slotValues = getSlotValues(request.intent.slots); 
-		resolvedSlot = slotValues.AstroGildaPertguntaValor.heardAs.toLowerCase();
+		if (slotValues.AstroGildaPertguntaValor.heardAs && slotValues.AstroGildaPertguntaValor.heardAs !== '')
+			resolvedSlot = slotValues.AstroGildaPertguntaValor.heardAs.toLowerCase();
+		if (slotValues.PessoaNome.heardAs && slotValues.PessoaNome.heardAs !== '')
+			resolvedSlot = slotValues.PessoaNome.heardAs.toLowerCase();
 
 		if (resolvedSlot && resolvedSlot !== '') {
 			slotStatus += ' Astro Gilda Pergunta escutou ' + resolvedSlot + '. ';
@@ -85,41 +88,28 @@ const AstroGildaResponde =  {
 			if (typeof slotStatus === "undefined")
 				slotStatus = 'O Que? fale novamente. Não entendi...'  + resolvedSlot;
 			
-		} else {
-			resolvedSlot = slotValues.PessoaNome.heardAs.toLowerCase();
-			
-			if (resolvedSlot && resolvedSlot !== '') {
-				slotStatus += ' Astro Gilda Pergunta escutou ' + resolvedSlot + '. ';
-				sessionAttributes.YouCalled = true;
-				slotStatus = JSON.stringify(dialogs[resolvedSlot]);
-				if (JSON.stringify(dialogs[resolvedSlot])) {
-					slotStatus = JSON.stringify(dialogs[resolvedSlot]["resposta"]);
-				}
-	
-				if (typeof slotStatus === "undefined")
-					slotStatus = 'O Que? fale novamente. Não entendi...'  + resolvedSlot;
-				
-			} else { 
+		} else { 
 				slotStatus = 'Meus Conhecimentos Sobre Isso Estão Vazios. ';
 
-			}
 		}
 
 		slotStatus+= "<break time=\"1000ms\"/> Algo Mais?"
 		
+		console.log("~~~~ slot.PessoaNome " + slotValues.PessoaNome)
+		console.log("~~~~ slotValues.AstroGildaPertguntaValor.ERstatus " + slotValues.AstroGildaPertguntaValor.ERstatus)
 
-		if (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') {
-			slotStatus = "Desculpe, não sei sobre isso. tente perguntar outra coisa. <break time=\"150ms\"/> ";
-			console.log('***** consider adding "' + slotValues.AstroGildaPertguntaValor.heardAs + '" to the custom slot type used by slot AstroGildaPertguntaValor! '); 
-		}
+		// if (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') {
+		// 	slotStatus = "Desculpe, não sei sobre isso. tente perguntar outra coisa. <break time=\"150ms\"/> ";
+		// 	console.log('***** consider adding "' + slotValues.AstroGildaPertguntaValor.heardAs + '" to the custom slot type used by slot AstroGildaPertguntaValor! '); 
+		// }
 
-		if( (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') ||  (!slotValues.AstroGildaPertguntaValor.heardAs) ) {
-			slotStatus += 'tipo, ' + sayArray(getExampleSlotValues('AstroGildaResponde','AstroGildaPertguntaValor'), 'ou');
-		}
+		// if( (slotValues.AstroGildaPertguntaValor.ERstatus === 'ER_SUCCESS_NO_MATCH') ||  (!slotValues.AstroGildaPertguntaValor.heardAs) ) {
+		// 	slotStatus += 'tipo, ' + sayArray(getExampleSlotValues('AstroGildaResponde','AstroGildaPertguntaValor'), 'ou');
+		// }
 
 		say += slotStatus;
 
-		console.log(`handler response: ` + JSON.stringify(responseBuilder.getResponse()));
+		console.log(`~~~~ handler response: ` + JSON.stringify(responseBuilder.getResponse()));
 		
 		return responseBuilder
 			.speak(say)
