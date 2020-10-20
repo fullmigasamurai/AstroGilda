@@ -81,10 +81,9 @@ const AstroGildaResponde =  {
 			if (JSON.stringify(dialogs[resolvedSlot])) {
 				slotStatus = JSON.stringify(dialogs[resolvedSlot]["resposta"]);
 			}
-			 console.log("~~~~ SlotStatus " + slotStatus);
 
 			if (typeof slotStatus === "undefined")
-				slotStatus = 'O Que? fale novamente. Não entendi. TR'  + resolvedSlot;
+				slotStatus = 'O Que? fale novamente. Não entendi...'  + resolvedSlot;
 			
 		} else {
 			slotStatus = 'Meus Conhecimentos Sobre Isso Estão Vazios. ';
