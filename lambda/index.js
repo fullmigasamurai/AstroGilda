@@ -77,6 +77,20 @@ const ChameAstrogilda = {
 	handle(handlerInput) {
 		const { serviceClientFactory, responseBuilder } = handlerInput;
 		
+		try {
+            // const upsServiceClient = serviceClientFactory.getUpsServiceClient();
+            // const profileName = await upsServiceClient.getProfileName();
+            // const speechResponse = `Your name is, ${profileName}`;
+            const speechResponse = `Your name is,`;
+            return handlerInput.responseBuilder
+              .speak(speechResponse)
+              .withSimpleCard(speechResponse)
+              .getResponse();
+        } catch (error) {
+          console.log(JSON.stringify(error));
+            
+        }
+		
 		
 		
 		const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
