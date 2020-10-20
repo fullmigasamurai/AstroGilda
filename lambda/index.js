@@ -18,15 +18,26 @@ const LaunchRequestHandler = {
 	canHandle(handlerInput) {
 		return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
 	},
-	handle(handlerInput) {
+	async handle(handlerInput) {
+ 	locale = handlerInput.requestEnvelope.request.locale;
 
- 		locale = handlerInput.requestEnvelope.request.locale;
+    const { serviceClientFactory, responseBuilder } = handlerInput;
+	let speakOutput = locale === 'en-US' ? "Hellow,  i am " : "olá, eu sou ";
+    try {
+        const upsServiceClient = serviceClientFactory.getUpsServiceClient();
+        const profileName = await upsServiceClient.getProfileName();
+        const speechResponse = `Your name is, ${profileName}`;
+        speakOutput = locale === 'en-US' ? "Hellow," + profileName + "i am " : "olá, " + profileName + " eu sou ";
+	    speakOutput += astroGilda;
+      
+    } catch (error) {
 		
-		let speakOutput = locale === 'en-US' ? "Hellow,  i am " : "olá, eu sou ";
 		
+		speakOutput = locale === 'en-US' ? "Hellow,  i am " : "olá, eu sou ";
 		speakOutput += astroGilda;
 
-		return handlerInput.responseBuilder
+    }
+    return handlerInput.responseBuilder
 			.speak(speakOutput)
 			.reprompt(speakOutput + 'Você precisa de mim?')
 			.getResponse();
