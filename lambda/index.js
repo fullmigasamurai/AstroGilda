@@ -24,16 +24,11 @@ const LaunchRequestHandler = {
 
 		
 		let speakOutput = locale ==='en-US' ? "Hellow,  i am " : "olá, eu sou ";
-
 		
 		// let tt = "teste espaco";
 		// console.log("^^^^ dialogs: teste " + JSON.stringify(dialogs[tt]));
 		// console.log("^^^^ dialogs: teste " + JSON.stringify(dialogs["quem é o mestre"]));
 		// console.log("^^^^ dialogs: teste " + JSON.stringify(dialogs["quem é o mestre"]["resposta"]));
-		
-		
-
-
 		
 		speakOutput += astroGilda;
 
@@ -94,8 +89,8 @@ const AstroGildaResponde =  {
 			slotStatus = JSON.stringify(dialogs[resolvedSlot]["resposta"]);
 			 console.log("~~~~ SlotStatus " + slotStatus);
 
-			if (slotStatus === "undefined")
-				slotStatus = 'O Que? fale novamente. Não entendi'  + resolvedSlot;
+			// if (slotStatus === "undefined")
+			// 	slotStatus = 'O Que? fale novamente. Não entendi'  + resolvedSlot;
 			
 		} else {
 			slotStatus = 'Meus Conhecimentos Sobre Isso Estão Vazios. ';
