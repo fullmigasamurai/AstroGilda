@@ -8,12 +8,10 @@ const Alexa = require('ask-sdk-core');
 const astroGilda = '<lang xml:lang="pt-BR"> Astro Gilda </lang>'
 const leaveMessage = 'Okay, Adeus. Estou indo, <break></break> <amazon:effect name="whispered"> não deixe as luzes acesas <break time="100ms"/>  quando sair </amazon:effect>'
 let locale='en-US'
-// const astro_dialogs = require('./dialogs.js');
 let dialogs = require('./dialog.json');
+// const astro_dialogs = require('./dialogs.js');
 // const fs = require('fs');
 const FULL_NAME_PERMISSION = "alexa::profile:name:read";
-const baseURL = 'https://api.amazonalexa.com';
-const axios = require('axios');
 
 const LaunchRequestHandler = {
 	canHandle(handlerInput) {
@@ -41,50 +39,20 @@ const ChameAstrogilda = {
 	},
 	
 	handle(handlerInput) {
-// 		const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
+		const speakOutput = 'Olá, eu sou'+astroGilda+'Chamou?';
 
-// 		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-// 		sessionAttributes.YouCalled = true;
+		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+		sessionAttributes.YouCalled = true;
 
 
-// 		return handlerInput.responseBuilder
-// 			.speak(speakOutput)
-// 			.reprompt('Me diga. O que você quer. em?')
-// 			.getResponse();
-    // var apiaccessToken =
-    //   handlerInput.requestEnvelope.context.System.apiAccessToken;
-
-    // return new Promise(resolve => {
-    //   getName(apiaccessToken, name => {
-    //     var speechText = 'Your name is ' + name;
-    //     resolve(
-    //       handlerInput.responseBuilder
-    //         .speak(speechText)
-    //         .reprompt(speechText)
-    //         .getResponse()
-    //     );
-    //   });
-    // });
+		return handlerInput.responseBuilder
+			.speak(speakOutput)
+			.reprompt('Me diga. O que você quer. em?')
+			.getResponse();
     
   }
   
 };
-
-function getName(apiaccessToken, callback) {
-  let headers = {
-    Authorization: 'Bearer ' + apiaccessToken,
-    'content-type': 'application/json'
-  };
-
-  axios
-    .get(baseURL + '/v2/accounts/~current/settings/Profile.name', {
-      headers: headers
-    })
-    .then(response => {
-      console.log(JSON.stringify(response));
-      callback(response.data);
-    });
-}
 
 const AstroGildaResponde =  {
 	canHandle(handlerInput) {
