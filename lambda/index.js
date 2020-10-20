@@ -497,7 +497,7 @@ const ResponseRecordSpeechOutputInterceptor = {
 			console.log(`~~~~ Session ended OutPut.Request ${JSON.stringify(handlerInput.requestEnvelope)}`);
 			
 		} else if (Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'  
-			&& (Alexa.getIntentName(handlerInput.requestEnvelope) === 'ChameAstrogilda' || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AstroGildaResponde')){
+			&& (Alexa.getIntentName(handlerInput.requestEnvelope) === 'ChameAstrogilda' || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AstroGildaResponde')) {
 
 			let sessionAttributes = handlerInput.attributesManager.getSessionAttributes(); 
 			let lastSpeechOutput = { 
