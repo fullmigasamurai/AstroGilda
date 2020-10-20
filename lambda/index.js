@@ -432,7 +432,7 @@ const ErrorHandler = {
 		return true;
 	},
 	handle(handlerInput, error) {
-		const speakOutput = 'Sorry, I had trouble doing what you asked. Please try again.';
+		const speakOutput = 'Desculpe, não consegui fazer isso. tente novamente';
 		console.log(`~~~~ Error handled: ${JSON.stringify(error)}`);
 
 		return handlerInput.responseBuilder
