@@ -5,10 +5,10 @@
 * */
 const Alexa = require('ask-sdk-core');
 
-const APP_NAME = "Template Seven";
+const APP_NAME = "AstroGilda";
 const messages = {
-  NOTIFY_MISSING_PERMISSIONS: 'Please enable profile permissions in the Amazon Alexa app.',
-  ERROR: 'Uh Oh. Looks like something went wrong.'
+  NOTIFY_MISSING_PERMISSIONS: 'Por Favor, autorize as permições no app da Alexa.',
+  ERROR: 'Uh Oh. parece que algo deu errado.'
 };
 
 const FULL_NAME_PERMISSION = "alexa::profile:name:read";
@@ -16,7 +16,7 @@ const EMAIL_PERMISSION = "alexa::profile:email:read";
 const MOBILE_PERMISSION = "alexa::profile:mobile_number:read";
 
 const astroGilda = '<lang xml:lang="pt-BR">Astro Gilda</lang>'
-const leaveMessage = 'Okay, Adeus. Estou indo, <break></break> <amazon:effect name="whispered"> não deixe as luzes acesas <break time="100ms"/>  quando sair </amazon:effect>'
+const leaveMessage = 'Okay<break time="8ms"/> Adeus, Estou indo... <amazon:effect name="whispered"> não deixe as luzes acesas <break time="100ms"/>  quando sair... </amazon:effect>'
 let locale='en-US'
 let dialogs = require('./dialog.json');
 let myName = ""

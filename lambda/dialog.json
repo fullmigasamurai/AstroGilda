@@ -44,7 +44,7 @@
 		"reprompt": "reprompt"
 	},
 	 "astrogilda": {
-		"resposta": "Eu sou Astro Gilda.",
+		"resposta": "Eu sou a boa, a má e a <break time='100ms'/> Feia.",
 		"reprompt": "reprompt"
 	},
 	 "me fale alguma coisa": {
@@ -63,8 +63,20 @@
 		"resposta": "Senhorita Craudêenha sempre fica mandando fotos de comidas e bolos.",
 		"reprompt": "reprompt"
 	},
-	 "o que é voce" : {
+	 "camila": {
+		"resposta": "Camila, abandonou juliana no projeto fitness.",
+		"reprompt": "reprompt"
+	},
+	 "harlequin": {
+		"resposta": "Arlequin é aquela que não sabe usar descompactador de arquivos",
+		"reprompt": "reprompt"
+	},
+	 "você" : {
 		"resposta": "Eu sou AstroGilda, respondendo suas perguntas... manda ver!",
+		"reprompt": "reprompt"
+	},
+	 "o que é voce" : {
+		"resposta": "O que é. é para coisas. Tenha mais respeito com a minha pessoa!",
 		"reprompt": "reprompt"
 	}
 
