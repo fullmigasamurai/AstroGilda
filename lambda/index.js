@@ -111,8 +111,12 @@ const AstroGildaResponde =  {
 				slotStatus = JSON.stringify(dialogs[resolvedSlot]["resposta"]);
 			}
 
-			if (typeof slotStatus === "undefined")
-				slotStatus = 'O Que? fale novamente. Não entendi...'  + resolvedSlot;
+			if (typeof slotStatus === "undefined") {
+				say='';
+				slotStatus = "O Que? fale novamente. Não entendi... "  + resolvedSlot 
+				slotStatus += "Se foi isso mesmo que você disse não conheço esta pessoa... <amazon:effect name='whispered'> desculpe! </amazon:effect>";
+				
+			}
 			
 		} else { 
 				slotStatus = 'Meus Conhecimentos Sobre Isso Estão Vazios. ';

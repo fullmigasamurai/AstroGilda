@@ -11,71 +11,75 @@
 		"resposta": "Eu sou a boa, a má e a <break time='100ms'/> Feia.",
 		"reprompt": "reprompt"
 	},
-	 "polyana": {
+	"polyana": {
 		"resposta": "Pollyanna. Ela é a toda poderosa princesa trevosa. Todos saúdam Pollyana, Cavaleira do metau.",
 		"reprompt": "reprompt"
 	},
-	 "juliana": {
+	"juliana": {
 		"resposta": "Juliana odeia o calor; E gosta do clima quente. <break time='150ms'/>  Ela é uma pessoa esperta.",
 		"reprompt": "reprompt"
 	},
-	 "shaiana": {
+	"shaiana": {
 		"resposta": "'Oh, Chayana, o que eu poderia dizer. só pensa em crossfit: <break time='500ms'/> crossfit isso. crossfit aquilo <break time='1000ms'/> mas ela é fã de star wars, etão ela é legal.",
 		"reprompt": "reprompt"
 	},
-	 "beca": {
+	"beca": {
 		"resposta": "Bom: A Beca é a mais fofa, <break time='250ms'/> mas ninguém merece ficar perto dela de manhã... Afinal que tipo de pessoa acorda cantando? <break time='500ms'/> A Beca, aparentemente. Mas apesar de tudo... ela é legal, Quero dar um abraço de urso nela.",
 		"reprompt": "reprompt"
 	},
-	 "roxy": {
+	"roxy": {
 		"resposta": "Sobre a Roxi. Ela é uma estrela brilhante que ilumina minhas noites escuras.",
 		"reprompt": "reprompt"
 	},
-	 "porta": {
+	"porta": {
 		"resposta": "Ele é o guardião de todas as entradas. O Imponente PORTA.",
 		"reprompt": "reprompt"
 	},
-	 "vitinho": {
+	"vitinho": {
 		"resposta": "Este é só o nome terreno do Grande guardião.",
 		"reprompt": "reprompt"
 	},
-	 "o grande guardião": {
+	"o grande guardião": {
 		"resposta": "Aquele que guarda todas as entradas.",
 		"reprompt": "reprompt"
 	},
-	 "astrogilda": {
+	"astrogilda": {
 		"resposta": "Eu sou a boa, a má e a <break time='100ms'/> Feia.",
 		"reprompt": "reprompt"
 	},
-	 "me fale alguma coisa": {
+	"me fale alguma coisa": {
 		"resposta": "Se eu disser que não direi nada, então ja disse alguma coisa.",
 		"reprompt": "reprompt"
 	},
-	 "me diga alguma coisa": {
+	"me diga alguma coisa": {
 		"resposta": "E se eu não disser, vais fazer o que? <break time='250ms'/> Ora pois!",
 		"reprompt": "reprompt"
 	},
-	 "grace kelly": {
+	"grace kelly": {
 		"resposta": "Greice é minha maquiadora preferida! Ela arraza muito. Só tem um problema em reconhecer as divas do pop.",
 		"reprompt": "reprompt"
 	},
-	 "claudinha": {
+	"claudinha": {
 		"resposta": "Senhorita Craudêenha sempre fica mandando fotos de comidas e bolos.",
 		"reprompt": "reprompt"
 	},
-	 "camila": {
+	"camila": {
 		"resposta": "Camila, abandonou juliana no projeto fitness.",
 		"reprompt": "reprompt"
 	},
-	 "harlequin": {
+	"harlequin": {
 		"resposta": "Arlequin é aquela que não sabe usar descompactador de arquivos",
 		"reprompt": "reprompt"
 	},
-	 "você" : {
+	"arlequim": {
+		"resposta": "Arlequin é aquela que não sabe usar descompactador de arquivos",
+		"reprompt": "reprompt"
+	},
+	"você" : {
 		"resposta": "Eu sou AstroGilda, respondendo suas perguntas... manda ver!",
 		"reprompt": "reprompt"
 	},
-	 "o que é voce" : {
+	"o que é voce" : {
 		"resposta": "O que é. é para coisas. Tenha mais respeito com a minha pessoa!",
 		"reprompt": "reprompt"
 	}
